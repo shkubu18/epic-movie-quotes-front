@@ -24,8 +24,8 @@
   </the-section>
 </template>
 <script setup>
-import TheSection from '@/components/Landing/TheSection.vue'
-import TheHeading from '@/components/Landing/TheHeading.vue'
-import TheArticle from '@/components/Landing/TheArticle.vue'
-import TheSpan from '@/components/Landing/TheSpan.vue'
+import TheSection from '@/components/landing/TheSection.vue'
+import TheHeading from '@/components/landing/TheHeading.vue'
+import TheArticle from '@/components/landing/TheArticle.vue'
+import TheSpan from '@/components/landing/TheSpan.vue'
 </script>

@@ -14,8 +14,8 @@
   <the-footer />
 </template>
 <script setup>
-import TheHeader from '@/components/Landing/TheHeader.vue'
+import TheHeader from '@/components/landing/TheHeader.vue'
 import TheButton from '@/components/ui/TheButton.vue'
-import TheFooter from '@/components/Landing/TheFooter.vue'
-import LandingQuotes from '@/components/Landing/LandingQuotes.vue'
+import TheFooter from '@/components/landing/TheFooter.vue'
+import LandingQuotes from '@/components/landing/LandingQuotes.vue'
 </script>
