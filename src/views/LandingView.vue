@@ -1,0 +1,19 @@
+<template>
+  <div class="h-screen bg-gray-950">
+    <the-header />
+    <div class="flex items-center justify-center flex-col h-full -mt-24">
+      <h1 class="text-6xl text-yellow text-center font-bold leading-normal mb-6">
+        Find any quote in <br />millions of movie lines
+      </h1>
+      <the-button class="bg-red text-xl py-2.5">Get Started</the-button>
+    </div>
+  </div>
+  <landing-quotes />
+  <the-footer />
+</template>
+<script setup>
+import TheHeader from '@/components/Landing/TheHeader.vue'
+import TheButton from '@/components/ui/TheButton.vue'
+import TheFooter from '@/components/Landing/TheFooter.vue'
+import LandingQuotes from '@/components/Landing/LandingQuotes.vue'
+</script>
