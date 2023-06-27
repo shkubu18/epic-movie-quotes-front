@@ -25,6 +25,9 @@ export default {
       },
       borderWidth: {
         3: '3px'
+      },
+      width: {
+        440: '440px'
       }
     }
   },
