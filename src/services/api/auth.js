@@ -29,7 +29,7 @@ export async function verifyEmail(token) {
 }
 
 export async function resendEmailForVerification(email) {
-  return axios.post('/api/resend/email-verification', {
+  return axios.post('/api/email/resend/verify-email', {
     email: email
   })
 }
