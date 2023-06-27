@@ -38,7 +38,6 @@ onMounted(() => {
           router.replace('/')
           toggleModalVisibility('verificationLinkExpiredModal')
         } else if (error.response.status === 409) {
-          console.log(route.query)
           router.replace('/')
           toggleModalVisibility('alreadyVerifiedEmailModal')
         }
