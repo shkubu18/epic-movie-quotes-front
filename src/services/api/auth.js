@@ -14,3 +14,22 @@ export async function login(usernameOrEmail, password, remember) {
 
   return axios.post('/api/login', data)
 }
+
+export async function register(username, email, password, passwordConfirmation) {
+  return axios.post('/api/register', {
+    username: username,
+    email: email,
+    password: password,
+    password_confirmation: passwordConfirmation
+  })
+}
+
+export async function verifyEmail(token) {
+  return axios.get(`api/email/verify/${token}`)
+}
+
+export async function resendEmailForVerification(email) {
+  return axios.post('/api/resend/email-verification', {
+    email: email
+  })
+}
