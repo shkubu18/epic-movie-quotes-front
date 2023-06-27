@@ -3,7 +3,12 @@ import { ref } from 'vue'
 
 export const useModalStore = defineStore('useModalStore', () => {
   const modals = ref({
-    loginModal: false
+    loginModal: false,
+    registerModal: false,
+    emailSentModal: false,
+    verificationLinkExpiredModal: false,
+    alreadyVerifiedEmailModal: false,
+    accountIsActivatedModal: false
   })
 
   const toggleModalVisibility = (modalName) => {
@@ -13,7 +18,7 @@ export const useModalStore = defineStore('useModalStore', () => {
       if (modals.value[modalName]) {
         document.body.classList.add('overflow-hidden')
       } else {
-        document.body.classList.remove('overflow-hidden')
+        document.body.removeAttribute('class')
       }
     }
   }
