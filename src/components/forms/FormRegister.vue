@@ -36,7 +36,9 @@
       rules="required|confirmed:@password"
       :error="errors.password_confirmation"
     />
-    <span class="text-red block mb-5">{{ errorMessage }}</span>
+    <ul v-for="(errors, field) in errorMessages" :key="field">
+      <li class="text-red block mb-2" v-for="error in errors" :key="error">{{ error }}</li>
+    </ul>
     <the-button class="bg-red w-full mt-4 py-2">Sign Up</the-button>
   </ValidationForm>
 </template>
@@ -60,7 +62,7 @@ const username = ref('')
 const password = ref('')
 const email = ref('')
 const passwordConfirmation = ref('')
-const errorMessage = ref('')
+const errorMessages = ref({})
 
 async function handleSubmit() {
   spinnerStore.toggleActiveStatus()
@@ -68,12 +70,12 @@ async function handleSubmit() {
     .then((response) => {
       if (response.status === 201) {
         toggleModalVisibility('registerModal')
-        toggleModalVisibility('checkEmailModal')
+        toggleModalVisibility('emailSentModal')
       }
     })
     .catch((error) => {
-      errorMessage.value = ''
-      errorMessage.value = error.response.data.message
+      errorMessages.value = {}
+      errorMessages.value = error.response.data.errors
     })
   spinnerStore.toggleActiveStatus()
 }
