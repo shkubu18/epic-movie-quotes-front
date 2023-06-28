@@ -47,7 +47,7 @@ import TheButton from '@/components/ui/ButtonBase.vue'
 import { Form as ValidationForm } from 'vee-validate'
 import InputAuth from '@/components/ui/InputAuth.vue'
 import { ref } from 'vue'
-import { register } from '@/services/api/auth'
+import { register, setCookies } from '@/services/api/auth'
 import { useModalStore } from '@/stores/useModalStore'
 import { useSpinnerStore } from '@/stores/useSpinnerStore'
 
@@ -66,6 +66,7 @@ const errorMessages = ref({})
 
 async function handleSubmit() {
   spinnerStore.toggleActiveStatus()
+  await setCookies()
   await register(username.value, email.value, password.value, passwordConfirmation.value)
     .then((response) => {
       if (response.status === 201) {
