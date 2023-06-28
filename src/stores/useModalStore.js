@@ -8,7 +8,12 @@ export const useModalStore = defineStore('useModalStore', () => {
     emailSentModal: false,
     verificationLinkExpiredModal: false,
     alreadyVerifiedEmailModal: false,
-    accountIsActivatedModal: false
+    accountIsActivatedModal: false,
+    passwordForgotModal: false,
+    passwordResetEmailSentModal: false,
+    passwordUpdateModal: false,
+    passwordUpdatedSuccessfullyModal: false,
+    passwordResetTokenExpiredModal: false
   })
 
   const toggleModalVisibility = (modalName) => {
