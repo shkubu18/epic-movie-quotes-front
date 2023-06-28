@@ -30,7 +30,12 @@
         />
         <label for="remember">Remember me</label>
       </div>
-      <a class="text-blue-700 text-right ml-2 text-blue underline" href="#"> Forgot password </a>
+      <a
+        class="text-blue-700 text-right ml-2 text-blue underline cursor-pointer"
+        @click="toggleModals('loginModal', 'passwordForgotModal')"
+      >
+        Forgot password
+      </a>
     </div>
     <button-base class="bg-red w-full mt-4 py-2">Sign in</button-base>
   </ValidationForm>
@@ -42,6 +47,14 @@ import InputAuth from '@/components/ui/InputAuth.vue'
 import { ref } from 'vue'
 import { login, setCookies } from '@/services/api/auth'
 import { useRouter } from 'vue-router'
+import { useModalStore } from '@/stores/useModalStore'
+
+const modalStore = useModalStore()
+
+const toggleModals = (closingModal, openingModal) => {
+  modalStore.toggleModalVisibility(closingModal)
+  modalStore.toggleModalVisibility(openingModal)
+}
 
 const router = useRouter()
 

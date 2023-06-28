@@ -34,8 +34,16 @@ export async function resendEmailForVerification(email) {
   })
 }
 
-export async function authWithGoogle() {
-  return axios.get('/sanctum/csrf-cookie').then(() => {
-    location.href = import.meta.env.VITE_API_BASE_URL + '/oauth/google/redirect'
+export async function sendPasswordForgotEmail(email) {
+  return axios.post('api/password/email', {
+    email: email
+  })
+}
+
+export async function passwordUpdate(password, passwordConfirmation, token) {
+  return axios.post('api/password/update', {
+    password: password,
+    password_confirmation: passwordConfirmation,
+    token: token
   })
 }

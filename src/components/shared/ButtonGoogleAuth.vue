@@ -10,5 +10,5 @@
 <script setup>
 import IconGoogle from '@/components/icons/IconGoogle.vue'
 import ButtonBase from '@/components/ui/ButtonBase.vue'
-import { authWithGoogle } from '@/services/api/auth'
+import { authWithGoogle } from '@/services/api/oauth'
 </script>

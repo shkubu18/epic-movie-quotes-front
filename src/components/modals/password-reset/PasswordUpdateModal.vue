@@ -1,0 +1,35 @@
+<template>
+  <modal-background modal="passwordUpdateModal" />
+  <modal-container>
+    <div class="bg-dark-blue mb-12 text-white px-24 py-10 rounded-lg text-center">
+      <div class="w-440 flex items-center flex-col">
+        <h1 class="text-3xl font-medium mt-3">Create new password</h1>
+        <p class="mt-3 mb-9 text-gray-600 px-5">
+          Your new password must be different from previous used passwords
+        </p>
+        <form-password-update />
+        <span
+          class="block text-gray-600 mt-10 flex items-center cursor-pointer"
+          @click="handleClick('passwordUpdateModal', 'loginModal')"
+        >
+          <icon-arrow-left class="mr-3" />
+          Back to log in
+        </span>
+      </div>
+    </div>
+  </modal-container>
+</template>
+<script setup>
+import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
+import ModalContainer from '@/components/shared/modals/ModalContainer.vue'
+import IconArrowLeft from '@/components/icons/IconArrowLeft.vue'
+import { useModalStore } from '@/stores/useModalStore'
+import FormPasswordUpdate from '@/components/forms/FormPasswordUpdate.vue'
+
+const modalStore = useModalStore()
+
+const handleClick = (closingModal, openingModal) => {
+  modalStore.toggleModalVisibility(closingModal)
+  modalStore.toggleModalVisibility(openingModal)
+}
+</script>

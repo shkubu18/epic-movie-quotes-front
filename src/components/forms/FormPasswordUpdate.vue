@@ -1,23 +1,5 @@
 <template>
-  <ValidationForm v-slot="{ errors }" class="w-96" @submit="handleSubmit">
-    <input-auth
-      label="Name"
-      name="username"
-      placeholder="At least 3 & max.15 lower case characters"
-      type="text"
-      v-model="username"
-      rules="min-3-max-15-lowercase"
-      :error="errors.username"
-    />
-    <input-auth
-      label="Email"
-      name="email"
-      placeholder="Enter your email"
-      type="text"
-      v-model="email"
-      rules="required|email"
-      :error="errors.email"
-    />
+  <ValidationForm v-slot="{ errors }" class="w-full text-left" @submit="handleSubmit">
     <input-auth
       label="Password"
       name="password"
@@ -36,20 +18,21 @@
       rules="required|confirmed:@password"
       :error="errors.password_confirmation"
     />
-    <ul v-for="(errors, field) in errorMessages" :key="field">
-      <li class="text-red block mb-2" v-for="error in errors" :key="error">{{ error }}</li>
-    </ul>
-    <the-button class="bg-red w-full mt-4 py-2">Sign Up</the-button>
+    <button-base class="bg-red w-full py-2">Reset password</button-base>
   </ValidationForm>
 </template>
 <script setup>
-import TheButton from '@/components/ui/ButtonBase.vue'
 import { Form as ValidationForm } from 'vee-validate'
 import InputAuth from '@/components/ui/InputAuth.vue'
 import { ref } from 'vue'
-import { register, setCookies } from '@/services/api/auth'
+import { passwordUpdate, setCookies } from '@/services/api/auth'
 import { useModalStore } from '@/stores/useModalStore'
 import { useSpinnerStore } from '@/stores/useSpinnerStore'
+import ButtonBase from '@/components/ui/ButtonBase.vue'
+import { useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
 
 const modalStore = useModalStore()
 const spinnerStore = useSpinnerStore()
@@ -58,25 +41,26 @@ const toggleModalVisibility = (modalName) => {
   modalStore.toggleModalVisibility(modalName)
 }
 
-const username = ref('')
 const password = ref('')
-const email = ref('')
 const passwordConfirmation = ref('')
-const errorMessages = ref({})
 
 async function handleSubmit() {
   spinnerStore.toggleActiveStatus()
   await setCookies()
-  await register(username.value, email.value, password.value, passwordConfirmation.value)
+  await passwordUpdate(password.value, passwordConfirmation.value, route.query.token)
     .then((response) => {
       if (response.status === 201) {
-        toggleModalVisibility('registerModal')
-        toggleModalVisibility('emailSentModal')
+        router.replace('/')
+        toggleModalVisibility('passwordUpdateModal')
+        toggleModalVisibility('passwordUpdatedSuccessfullyModal')
       }
     })
     .catch((error) => {
-      errorMessages.value = {}
-      errorMessages.value = error.response.data.errors
+      if (error.response.status === 403) {
+        router.replace('/')
+        toggleModalVisibility('passwordUpdateModal')
+        toggleModalVisibility('passwordResetTokenExpiredModal')
+      }
     })
   spinnerStore.toggleActiveStatus()
 }

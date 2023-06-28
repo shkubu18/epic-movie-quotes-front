@@ -1,13 +1,13 @@
 <template>
-  <modal-background modal="accountIsActivatedModal" />
+  <modal-background modal="passwordUpdatedSuccessfullyModal" />
   <modal-container>
     <div class="bg-dark-blue mb-12 text-white px-24 py-20 rounded-lg text-center">
       <div class="w-440 flex items-center flex-col">
-        <icon-success />
-        <h1 class="text-3xl font-medium mt-5">Thank You!</h1>
-        <p class="mt-7 mb-9">Your account has been activated.</p>
+        <icon-success-bigger />
+        <h1 class="text-3xl font-medium mt-7">Success!</h1>
+        <p class="mt-7 mb-9">Your Password changed successfully</p>
         <button-base
-          @click="toggleModals('accountIsActivatedModal', 'loginModal')"
+          @click="toggleModals('passwordUpdatedSuccessfullyModal', 'loginModal')"
           class="bg-red w-full py-2.5"
         >
           Login
@@ -20,8 +20,8 @@
 import ButtonBase from '@/components/ui/ButtonBase.vue'
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
 import ModalContainer from '@/components/shared/modals/ModalContainer.vue'
-import IconSuccess from '@/components/icons/IconSuccess.vue'
 import { useModalStore } from '@/stores/useModalStore'
+import IconSuccessBigger from '@/components/icons/IconSuccessBigger.vue'
 
 const modalStore = useModalStore()
 
