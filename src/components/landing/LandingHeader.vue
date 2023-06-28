@@ -3,7 +3,9 @@
     <h1 class="text-yellow">MOVIE QUOTES</h1>
     <div class="flex">
       <language-switcher />
-      <button-base class="bg-red mr-3.5">Sign Up</button-base>
+      <button-base @click="toggleModalVisibility('registerModal')" class="bg-red mr-3.5">
+        Sign Up
+      </button-base>
       <button-base @click="toggleModalVisibility('loginModal')" class="border-2">
         Log In
       </button-base>

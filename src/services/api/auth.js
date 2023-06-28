@@ -14,3 +14,28 @@ export async function login(usernameOrEmail, password, remember) {
 
   return axios.post('/api/login', data)
 }
+
+export async function register(username, email, password, passwordConfirmation) {
+  return axios.post('/api/register', {
+    username: username,
+    email: email,
+    password: password,
+    password_confirmation: passwordConfirmation
+  })
+}
+
+export async function verifyEmail(token) {
+  return axios.get(`api/email/verify/${token}`)
+}
+
+export async function resendEmailForVerification(email) {
+  return axios.post('/api/email/resend/verify-email', {
+    email: email
+  })
+}
+
+export async function authWithGoogle() {
+  return axios.get('/sanctum/csrf-cookie').then(() => {
+    location.href = import.meta.env.VITE_API_BASE_URL + '/oauth/google/redirect'
+  })
+}

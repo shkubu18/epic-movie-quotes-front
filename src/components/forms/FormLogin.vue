@@ -32,11 +32,11 @@
       </div>
       <a class="text-blue-700 text-right ml-2 text-blue underline" href="#"> Forgot password </a>
     </div>
-    <the-button class="bg-red w-full mt-4 py-2">Sign in</the-button>
+    <button-base class="bg-red w-full mt-4 py-2">Sign in</button-base>
   </ValidationForm>
 </template>
 <script setup>
-import TheButton from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/ButtonBase.vue'
 import { Form as ValidationForm } from 'vee-validate'
 import InputAuth from '@/components/ui/InputAuth.vue'
 import { ref } from 'vue'
