@@ -6,7 +6,12 @@
         <icon-warning />
         <h1 class="text-3xl font-medium mt-5">Already Verified!</h1>
         <p class="mt-7 mb-9">Your email is already verified.</p>
-        <button-base @click="handleClick" class="bg-red w-full py-2.5">Login</button-base>
+        <button-base
+          @click="toggleModals('alreadyVerifiedEmailModal', 'loginModal')"
+          class="bg-red w-full py-2.5"
+        >
+          Login
+        </button-base>
       </div>
     </div>
   </modal-container>
@@ -20,12 +25,8 @@ import { useModalStore } from '@/stores/useModalStore'
 
 const modalStore = useModalStore()
 
-const toggleModalVisibility = (modalName) => {
-  modalStore.toggleModalVisibility(modalName)
-}
-
-const handleClick = () => {
-  toggleModalVisibility('alreadyVerifiedEmailModal')
-  toggleModalVisibility('loginModal')
+const toggleModals = (closingModal, openingModal) => {
+  modalStore.toggleModalVisibility(closingModal)
+  modalStore.toggleModalVisibility(openingModal)
 }
 </script>

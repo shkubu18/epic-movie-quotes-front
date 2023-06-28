@@ -6,7 +6,12 @@
         <icon-success />
         <h1 class="text-3xl font-medium mt-5">Thank You!</h1>
         <p class="mt-7 mb-9">Your account has been activated.</p>
-        <button-base @click="handleClick" class="bg-red w-full py-2.5">Login</button-base>
+        <button-base
+          @click="toggleModals('accountIsActivatedModal', 'loginModal')"
+          class="bg-red w-full py-2.5"
+        >
+          Login
+        </button-base>
       </div>
     </div>
   </modal-container>
@@ -20,8 +25,8 @@ import { useModalStore } from '@/stores/useModalStore'
 
 const modalStore = useModalStore()
 
-const handleClick = () => {
-  modalStore.toggleModalVisibility('accountIsActivatedModal')
-  modalStore.toggleModalVisibility('loginModal')
+const toggleModals = (closingModal, openingModal) => {
+  modalStore.toggleModalVisibility(closingModal)
+  modalStore.toggleModalVisibility(openingModal)
 }
 </script>

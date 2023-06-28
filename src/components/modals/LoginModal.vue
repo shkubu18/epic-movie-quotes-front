@@ -8,7 +8,12 @@
       <button-google-auth />
       <p class="text-gray-600 text-center mt-7">
         Already have an account?
-        <a class="text-blue-700 underline cursor-pointer" @click="handleClick">Sign up</a>
+        <a
+          class="text-blue-700 underline cursor-pointer"
+          @click="toggleModals('loginModal', 'registerModal')"
+        >
+          Sign up
+        </a>
       </p>
     </div>
   </modal-container>
@@ -22,8 +27,8 @@ import { useModalStore } from '@/stores/useModalStore'
 
 const modalStore = useModalStore()
 
-const handleClick = () => {
-  modalStore.toggleModalVisibility('loginModal')
-  modalStore.toggleModalVisibility('registerModal')
+const toggleModals = (closingModal, openingModal) => {
+  modalStore.toggleModalVisibility(closingModal)
+  modalStore.toggleModalVisibility(openingModal)
 }
 </script>

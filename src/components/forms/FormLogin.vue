@@ -32,7 +32,7 @@
       </div>
       <a
         class="text-blue-700 text-right ml-2 text-blue underline cursor-pointer"
-        @click="handleClick"
+        @click="toggleModals('loginModal', 'passwordForgotModal')"
       >
         Forgot password
       </a>
@@ -51,9 +51,9 @@ import { useModalStore } from '@/stores/useModalStore'
 
 const modalStore = useModalStore()
 
-const handleClick = () => {
-  modalStore.toggleModalVisibility('loginModal')
-  modalStore.toggleModalVisibility('passwordForgotModal')
+const toggleModals = (closingModal, openingModal) => {
+  modalStore.toggleModalVisibility(closingModal)
+  modalStore.toggleModalVisibility(openingModal)
 }
 
 const router = useRouter()
