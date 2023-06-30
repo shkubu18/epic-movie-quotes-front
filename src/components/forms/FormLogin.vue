@@ -70,6 +70,7 @@ async function handleSubmit() {
     .then((response) => {
       if (response.status === 200) {
         router.replace({ path: '/newsfeed' })
+        modalStore.toggleModalVisibility('loginModal')
       }
     })
     .catch((error) => {
