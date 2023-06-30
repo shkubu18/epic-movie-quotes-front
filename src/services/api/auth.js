@@ -15,6 +15,10 @@ export async function login(usernameOrEmail, password, remember) {
   return axios.post('/api/login', data)
 }
 
+export async function logout() {
+  return axios.get('/api/logout')
+}
+
 export async function register(username, email, password, passwordConfirmation) {
   return axios.post('/api/register', {
     username: username,
@@ -46,4 +50,12 @@ export async function passwordUpdate(password, passwordConfirmation, token) {
     password_confirmation: passwordConfirmation,
     token: token
   })
+}
+
+export async function checkAuthStatus() {
+  return axios.get('api/authenticated')
+}
+
+export async function getUser() {
+  return axios.get('api/user')
 }
