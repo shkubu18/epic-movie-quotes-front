@@ -7,7 +7,10 @@ export default {
         yellow: '#DDCCAA',
         red: '#E31221',
         'dark-blue': '#222030',
-        green: '#198754'
+        green: '#198754',
+        'darker-blue': '#150D1F',
+        black: '#0e0d15',
+        'newsfeed-quote-border-color': '#EFEFEF4D'
       },
       backgroundImage: {
         interstellar: "url('/src/assets/images/landing/interstellar.png')",
@@ -27,12 +30,19 @@ export default {
         3: '3px'
       },
       width: {
-        440: '440px'
+        440: '440px',
+        940: '940px',
+        890: '890px',
+        680: '680px'
+      },
+      height: {
+        500: '500px',
+        370: '370px'
       }
     }
   },
   plugins: [
     // eslint-disable-next-line no-undef
-    require('@tailwindcss/forms')
+    // require('@tailwindcss/forms')
   ]
 }
