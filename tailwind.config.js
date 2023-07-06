@@ -8,9 +8,12 @@ export default {
         red: '#E31221',
         'dark-blue': '#222030',
         green: '#198754',
-        'darker-blue': '#150D1F',
+        'darker-blue': '#181623',
         black: '#0e0d15',
-        'newsfeed-quote-border-color': '#EFEFEF4D'
+        'default-border-b-color': '#EFEFEF4D',
+        'transparent-dark-blue': '#22203099',
+        'lighter-black': '#11101A',
+        'crud-input-gray': '#6C757D'
       },
       backgroundImage: {
         interstellar: "url('/src/assets/images/landing/interstellar.png')",
@@ -37,7 +40,12 @@ export default {
       },
       height: {
         500: '500px',
-        370: '370px'
+        370: '370px',
+        86: '86px',
+        440: '440px'
+      },
+      minHeight: {
+        1500: '1500px'
       }
     }
   },

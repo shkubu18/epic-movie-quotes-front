@@ -6,9 +6,9 @@
     :key="quote.id"
     class="text-center text-white bg-black w-940 rounded-xl p-5 mb-10"
   >
-    <news-feed-quote-header :quote="quote" :apiUrl="apiUrl" />
-    <news-feed-quote-section :quote="quote" :apiUrl="apiUrl" />
-    <news-feed-quote-footer :quote="quote" :apiUrl="apiUrl" />
+    <news-feed-quote-header :quote="quote" :apiUrlForPictures="apiUrlForPictures" />
+    <news-feed-quote-section :quote="quote" :apiUrlForPictures="apiUrlForPictures" />
+    <news-feed-quote-footer :quote="quote" :apiUrlForPictures="apiUrlForPictures" />
   </article>
 </template>
 <script setup>
@@ -23,7 +23,7 @@ import { fetchNewsFeedQuotes } from '@/services/api/quotes'
 import { useRouter } from 'vue-router'
 
 defineProps({
-  apiUrl: {
+  apiUrlForPictures: {
     required: true,
     type: String
   }

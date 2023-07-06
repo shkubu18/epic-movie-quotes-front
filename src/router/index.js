@@ -5,6 +5,8 @@ import NewsFeedView from '@/views/NewsFeedView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import ForbiddenView from '@/views/ForbiddenView.vue'
 import { isAuthenticated, isNotAuthenticated } from '@/router/guard'
+import MovieListView from '@/views/MovieListView.vue'
+import MovieDetailView from '@/views/MovieDetailView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,6 +27,18 @@ const router = createRouter({
       path: '/newsfeed',
       name: 'newsfeed',
       component: NewsFeedView,
+      beforeEnter: isAuthenticated
+    },
+    {
+      path: '/my-movies',
+      name: 'my-movies',
+      component: MovieListView,
+      beforeEnter: isAuthenticated
+    },
+    {
+      path: '/my-movies/:id',
+      name: 'movie-detail',
+      component: MovieDetailView,
       beforeEnter: isAuthenticated
     },
     {

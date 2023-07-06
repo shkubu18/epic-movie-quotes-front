@@ -2,10 +2,10 @@
   <section>
     <img
       class="w-890 h-500 rounded-xl object-cover"
-      :src="apiUrl + quote.picture"
+      :src="apiUrlForPictures + quote.picture"
       alt="quote picture"
     />
-    <div class="text-left mt-6 text-xl flex pb-7 border-b-2 border-newsfeed-quote-border-color">
+    <div class="text-left mt-6 text-xl flex pb-7 border-b-2 border-default-border-b-color">
       <div class="flex items-center mr-8">
         <span class="mr-4">{{ quote.total_comments }}</span>
         <icon-comment />
@@ -26,7 +26,7 @@ defineProps({
     required: true,
     type: Object
   },
-  apiUrl: {
+  apiUrlForPictures: {
     required: true,
     type: String
   }
