@@ -5,7 +5,7 @@
         class="h-14 w-14 rounded-full mr-6 object-cover"
         :src="
           quote.user.profile_picture
-            ? apiUrl + quote.user.profile_picture
+            ? apiUrlForPictures + quote.user.profile_picture
             : 'https://www.citypng.com/public/uploads/preview/png-round-blue-contact-user-profile-icon-11639786938sxvzj5ogua.png'
         "
         alt="quote author picture"
@@ -28,7 +28,7 @@ defineProps({
     required: true,
     type: Object
   },
-  apiUrl: {
+  apiUrlForPictures: {
     required: true,
     type: String
   }

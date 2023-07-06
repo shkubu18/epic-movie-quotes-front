@@ -5,13 +5,13 @@
         <img
           :src="
             comment.user.profile_picture
-              ? apiUrl + comment.user.profile_picture
+              ? apiUrlForPictures + comment.user.profile_picture
               : 'https://www.citypng.com/public/uploads/preview/png-round-blue-contact-user-profile-icon-11639786938sxvzj5ogua.png'
           "
           alt="comment author profile picture"
           class="h-14 w-14 rounded-full mr-6"
         />
-        <div class="text-left border-b-2 pb-7 w-full border-newsfeed-quote-border-color">
+        <div class="text-left border-b-2 pb-7 w-full border-default-border-b-color">
           <h2 class="mb-5 pt-5">{{ comment.user.username }}</h2>
           <p>{{ comment.body }}</p>
         </div>
@@ -21,7 +21,7 @@
       <img
         :src="
           user.profile_picture
-            ? apiUrl + user.profile_picture
+            ? apiUrlForPictures + user.profile_picture
             : 'https://www.citypng.com/public/uploads/preview/png-round-blue-contact-user-profile-icon-11639786938sxvzj5ogua.png'
         "
         alt="profile picture"
@@ -48,7 +48,7 @@ defineProps({
     required: true,
     type: Object
   },
-  apiUrl: {
+  apiUrlForPictures: {
     required: true,
     type: String
   }
