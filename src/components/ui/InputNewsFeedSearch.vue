@@ -26,7 +26,6 @@
 </template>
 <script setup>
 import IconSearchBar from '@/components/icons/IconSearchBar.vue'
-// import { ref } from 'vue'
 import { searchQuotes } from '@/services/api/quotes'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 import { searchMovies } from '@/services/api/movies'
