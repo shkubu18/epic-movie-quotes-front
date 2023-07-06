@@ -8,6 +8,7 @@
   >
     <icon-search-bar class="absolute left-4" />
     <input
+      ref="searchInput"
       @keydown.enter="getSearchResult"
       :value="modelValue"
       @input="emits('update:modelValue', $event.target.value)"
@@ -26,10 +27,9 @@
 </template>
 <script setup>
 import IconSearchBar from '@/components/icons/IconSearchBar.vue'
-import { searchQuotes } from '@/services/api/quotes'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
-import { searchMovies } from '@/services/api/movies'
-import { useNewsFeedMovieStore } from '@/stores/useNewsFeedMovieStore'
+import { searchQuotes } from '@/services/api/quotes'
+import { ref } from 'vue'
 
 const props = defineProps({
   isSearchBarOpen: {
@@ -42,26 +42,24 @@ const props = defineProps({
   }
 })
 
-const emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue', 'closeSearchBar'])
+
+const searchInput = ref(null)
 
 const newsFeedQuoteStore = useNewsFeedQuoteStore()
-const newsFeedMovieStore = useNewsFeedMovieStore()
 
 const getSearchResult = async () => {
   if (props.modelValue.length === 0) {
-    newsFeedQuoteStore.searchingQuotesIsActive = false
-    newsFeedMovieStore.searchingMoviesIsActive = false
+    searchInput.value.blur()
+    emits('closeSearchBar')
   }
 
-  if (props.modelValue.startsWith('#') && props.modelValue.length > 1) {
-    await searchQuotes(props.modelValue.substring(1)).then((response) => {
-      newsFeedQuoteStore.addSearchedQuotes(response.data.quotes)
-    })
-  } else if (props.modelValue.startsWith('@') && props.modelValue.length > 1) {
-    await searchMovies(props.modelValue.substring(1)).then((response) => {
-      newsFeedQuoteStore.searchingQuotesIsActive = false
-      newsFeedMovieStore.addSearchedMovies(response.data.movies)
-    })
+  if (props.modelValue.startsWith('#') || props.modelValue.startsWith('@')) {
+    if (props.modelValue.length > 1) {
+      await searchQuotes(props.modelValue).then((response) => {
+        newsFeedQuoteStore.addSearchedQuotes(response.data.quotes)
+      })
+    }
   }
 }
 </script>

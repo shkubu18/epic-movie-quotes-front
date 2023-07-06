@@ -5,5 +5,6 @@ export async function fetchNewsFeedQuotes(page) {
 }
 
 export async function searchQuotes(searchText) {
-  return axios.get(`/api/quotes/search?search=${searchText}`)
+  const encodedSearchText = encodeURIComponent(searchText)
+  return axios.get(`/api/quotes/search?search=${encodedSearchText}`)
 }
