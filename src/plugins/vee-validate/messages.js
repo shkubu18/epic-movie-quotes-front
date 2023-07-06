@@ -12,13 +12,24 @@ configure({
         min: '{field} must have at least 0:{min} symbols',
         max: '{field} must have maximum 0:{max} symbols',
         email: 'Please enter a valid email address',
-        confirmed: "{field} doesn't match the password"
+        confirmed: "{field} doesn't match the password",
+        between: 'Please enter the {field} correctly between 1888 to 2023',
+        image: 'Please upload the file in image format only'
       },
       names: {
         username_or_email: 'Username or email',
         password: 'Password',
         email: 'Email',
-        password_confirmation: 'Confirm password'
+        password_confirmation: 'Confirm password',
+        name_en: 'Movie name in english',
+        name_ka: 'Movie name in georgian',
+        release_date: 'Year',
+        director_en: 'Director name in english',
+        director_ka: 'Director name in georgian',
+        description_en: 'Movie description in english',
+        description_ka: 'Movie description in georgian',
+        picture: 'Image',
+        genres: 'Genres'
       }
     },
     ka: {
@@ -28,13 +39,29 @@ configure({
         min: '{field} უნდა შედგებოდეს მინიმუმ 0:{min} სიმბოლოსგან',
         max: '{field} უნდა შედგებოდეს მაქსიმუმ 0:{max} სიმბოლოსგან',
         email: 'გთხოვთ შეიყვანოთ ვალიდური ელ.ფოსტის მისამართი',
-        confirmed: '{field} არ ემთხვევა პაროლს'
+        confirmed: '{field} არ ემთხვევა პაროლს',
+        between: 'გთხოვთ სწორად ჩაწეროთ {field} 1888 წლიდან 2023 წლამდე',
+        fields: {
+          picture: {
+            required: 'გთხოვთ აირჩიოთ სურათი'
+          }
+        },
+        image: 'გთხოვთ, ატვირთოთ ფაილი მხოლოდ სურათის ფორმატში'
       },
       names: {
         username_or_email: 'მომხმარებლის სახელი ან ელ.ფოსტა',
         password: 'პაროლი',
         email: 'ელ.ფოსტა',
-        password_confirmation: 'განმეორებითი პაროლი'
+        password_confirmation: 'განმეორებითი პაროლი',
+        name_en: 'ფილმის სახელი ინგლისურად',
+        name_ka: 'ფილმის სახელი ქართულად',
+        release_date: 'წელი',
+        director_en: 'რეჟისორის სახელი ინგლისურად',
+        director_ka: 'რეჟისორის სახელი ქართულად',
+        description_en: 'ფილმის აღწერა ინგლისურად',
+        description_ka: 'ფილმის აღწერა ქართულად',
+        picture: 'სურათი',
+        genres: 'ჟანრი'
       }
     }
   })
