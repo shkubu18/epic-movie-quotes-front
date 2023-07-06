@@ -14,13 +14,20 @@ import LanguageSwitcher from '@/components/shared/LanguageSwitcher.vue'
 import ButtonBase from '@/components/ui/ButtonBase.vue'
 import { logout } from '@/services/api/auth'
 import { useRouter } from 'vue-router'
+import { useMovieStore } from '@/stores/useMovieStore'
 
 const router = useRouter()
+
+const movieStore = useMovieStore()
 
 const logoutUser = async () => {
   await logout().then((response) => {
     if (response.status === 200) {
       router.replace({ name: 'landing' })
+
+      setTimeout(() => {
+        movieStore.resetStore()
+      }, 1000)
     }
   })
 }
