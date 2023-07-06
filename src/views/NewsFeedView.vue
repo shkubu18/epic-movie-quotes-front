@@ -9,7 +9,7 @@
           :is-search-bar-open="isSearchBarOpen"
           @click="openSearchBar"
           v-model="searchText"
-          @close-search-bar="closeSearchBar"
+          @reset-quote-store="resetQuoteStore"
         />
       </div>
       <news-feed-searched-quotes
@@ -39,10 +39,14 @@ const { searchingQuotesIsActive } = storeToRefs(newsFeedQuoteStore)
 const isSearchBarOpen = ref(false)
 const searchText = ref('')
 
+const resetQuoteStore = () => {
+  newsFeedQuoteStore.resetStore()
+}
+
 const closeSearchBar = () => {
   isSearchBarOpen.value = false
   searchText.value = ''
-  newsFeedQuoteStore.resetStore()
+  searchingQuotesIsActive.value = false
 }
 const openSearchBar = () => (isSearchBarOpen.value = true)
 </script>

@@ -42,7 +42,7 @@ const props = defineProps({
   }
 })
 
-const emits = defineEmits(['update:modelValue', 'closeSearchBar'])
+const emits = defineEmits(['update:modelValue', 'resetQuoteStore'])
 
 const searchInput = ref(null)
 
@@ -51,7 +51,7 @@ const newsFeedQuoteStore = useNewsFeedQuoteStore()
 const getSearchResult = async () => {
   if (props.modelValue.length === 0) {
     searchInput.value.blur()
-    emits('closeSearchBar')
+    emits('resetQuoteStore')
   }
 
   if (props.modelValue.startsWith('#') || props.modelValue.startsWith('@')) {
