@@ -13,18 +13,14 @@ export const useModalStore = defineStore('useModalStore', () => {
     passwordResetEmailSentModal: false,
     passwordUpdateModal: false,
     passwordUpdatedSuccessfullyModal: false,
-    passwordResetTokenExpiredModal: false
+    passwordResetTokenExpiredModal: false,
+    movieAddModal: false,
+    movieEditModal: false
   })
 
   const toggleModalVisibility = (modalName) => {
     if (modals.value[modalName] !== undefined) {
       modals.value[modalName] = !modals.value[modalName]
-
-      if (modals.value[modalName]) {
-        document.body.classList.add('overflow-hidden')
-      } else {
-        document.body.removeAttribute('class')
-      }
     }
   }
 
