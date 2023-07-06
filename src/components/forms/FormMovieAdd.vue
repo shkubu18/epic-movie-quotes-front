@@ -1,6 +1,6 @@
 <template>
   <ValidationForm v-slot="{ errors }" class="w-940 px-8" @submit="handleSubmit()">
-    <input-crud
+    <input-crud-movie
       label="Movie name"
       name="name_en"
       v-model="movieData.name_en"
@@ -9,7 +9,7 @@
       rules="required|english-text"
       :error="errors.name_en"
     />
-    <input-crud
+    <input-crud-movie
       label="ფილმის სახელი"
       name="name_ka"
       v-model="movieData.name_ka"
@@ -27,7 +27,7 @@
     >
       <Field name="genres" rules="required" v-model="movieData.genres" class="hidden" />
     </input-genre>
-    <input-crud
+    <input-crud-movie
       label="წელი/Year"
       name="release_date"
       v-model="movieData.release_date"
@@ -35,7 +35,7 @@
       rules="required|between:1888,2023"
       :error="errors.release_date"
     />
-    <input-crud
+    <input-crud-movie
       label="Director"
       name="director_en"
       v-model="movieData.director_en"
@@ -44,7 +44,7 @@
       rules="required|english-text"
       :error="errors.director_en"
     />
-    <input-crud
+    <input-crud-movie
       label="რეჟისორი"
       name="director_ka"
       v-model="movieData.director_ka"
@@ -84,7 +84,7 @@
   </ValidationForm>
 </template>
 <script setup>
-import InputCrud from '@/components/ui/InputCrud.vue'
+import InputCrudMovie from '@/components/ui/InputCrudMovie.vue'
 import InputGenre from '@/components/ui/InputGenre.vue'
 import InputTextArea from '@/components/ui/InputTextArea.vue'
 import InputPicture from '@/components/ui/InputPicture.vue'
