@@ -9,14 +9,11 @@
           :is-search-bar-open="isSearchBarOpen"
           @click="openSearchBar"
           v-model="searchText"
+          @reset-quote-store="resetQuoteStore"
         />
       </div>
       <news-feed-searched-quotes
         v-if="searchingQuotesIsActive"
-        :api-url-for-pictures="apiUrlForPictures"
-      />
-      <news-feed-searched-movies
-        v-else-if="searchingMoviesIsActive"
         :api-url-for-pictures="apiUrlForPictures"
       />
       <news-feed-quotes v-else :api-url-for-pictures="apiUrlForPictures" />
@@ -29,10 +26,8 @@ import TheAside from '@/components/shared/TheAside.vue'
 import ButtonNewsFeedAddQuote from '@/components/ui/ButtonNewsFeedAddQuote.vue'
 import InputNewsFeedSearch from '@/components/ui/InputNewsFeedSearch.vue'
 import NewsFeedSearchedQuotes from '@/components/newsfeed/NewsFeedSearchedQuotes.vue'
-import NewsFeedSearchedMovies from '@/components/newsfeed/NewsFeedSearchedMovies.vue'
 import NewsFeedQuotes from '@/components/newsfeed/NewsFeedQuotes.vue'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
-import { useNewsFeedMovieStore } from '@/stores/useNewsFeedMovieStore'
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 
@@ -41,17 +36,17 @@ const apiUrlForPictures = import.meta.env.VITE_API_BASE_URL + '/storage/'
 const newsFeedQuoteStore = useNewsFeedQuoteStore()
 const { searchingQuotesIsActive } = storeToRefs(newsFeedQuoteStore)
 
-const newsFeedMovieStore = useNewsFeedMovieStore()
-const { searchingMoviesIsActive } = storeToRefs(newsFeedMovieStore)
-
 const isSearchBarOpen = ref(false)
 const searchText = ref('')
+
+const resetQuoteStore = () => {
+  newsFeedQuoteStore.resetStore()
+}
 
 const closeSearchBar = () => {
   isSearchBarOpen.value = false
   searchText.value = ''
-  newsFeedQuoteStore.searchingQuotesIsActive = false
-  newsFeedMovieStore.searchingMoviesIsActive = false
+  searchingQuotesIsActive.value = false
 }
 const openSearchBar = () => (isSearchBarOpen.value = true)
 </script>

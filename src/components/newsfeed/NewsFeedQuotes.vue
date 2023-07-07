@@ -1,6 +1,8 @@
 <template>
   <icon-loading-spinner v-if="isLoading" class="mt-10" />
-  <h1 v-if="quotes.length === 0" class="text-3xl text-white mt-10">There are no quotes...</h1>
+  <h1 v-if="quotes.length === 0 && !isLoading" class="text-3xl text-white mt-10">
+    There are no quotes...
+  </h1>
   <article
     v-for="quote in quotes"
     :key="quote.id"

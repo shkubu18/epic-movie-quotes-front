@@ -17,12 +17,19 @@ export const useNewsFeedQuoteStore = defineStore('useNewsFeedQuoteStore', () => 
     noQuotesSearchResult.value = quotes.length === 0
   }
 
+  function resetStore() {
+    quotes.value = []
+    searchedQuotes.value = []
+    searchingQuotesIsActive.value = false
+  }
+
   return {
     quotes,
     addNewsFeedQuotes,
     searchedQuotes,
     addSearchedQuotes,
     searchingQuotesIsActive,
-    noQuotesSearchResult
+    noQuotesSearchResult,
+    resetStore
   }
 })
