@@ -10,8 +10,8 @@ export async function getMovieGenres() {
 
 export async function addMovie(movieData) {
   return axios.post('/api/movies', {
-    name_en: movieData.name_en,
-    name_ka: movieData.name_ka,
+    name_en: movieData.movie_name_en,
+    name_ka: movieData.movie_name_ka,
     genres: movieData.genres,
     release_date: movieData.release_date,
     director_en: movieData.director_en,
@@ -24,8 +24,8 @@ export async function addMovie(movieData) {
 
 export async function updateMovie(movieData, movieId) {
   return axios.post(`/api/movies/${movieId}`, {
-    name_en: movieData.name_en,
-    name_ka: movieData.name_ka,
+    name_en: movieData.movie_name_en,
+    name_ka: movieData.movie_name_ka,
     genres: movieData.genres,
     release_date: movieData.release_date,
     director_en: movieData.director_en,
