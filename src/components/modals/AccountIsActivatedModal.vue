@@ -20,7 +20,7 @@
 import ButtonBase from '@/components/ui/ButtonBase.vue'
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
 import ModalContainer from '@/components/shared/modals/ModalContainer.vue'
-import IconSuccess from '@/components/icons/IconSuccess.vue'
+import IconSuccess from '@/components/icons/success/IconSuccess.vue'
 import { useModalStore } from '@/stores/useModalStore'
 
 const modalStore = useModalStore()

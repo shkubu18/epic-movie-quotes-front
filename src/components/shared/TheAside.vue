@@ -39,7 +39,7 @@
 </template>
 <script setup>
 import IconNewsFeed from '@/components/icons/IconNewsFeed.vue'
-import IconListOfMovies from '@/components/icons/IconListOfMovies.vue'
+import IconListOfMovies from '@/components/icons/movies/IconListOfMovies.vue'
 import { useUserStore } from '@/stores/useUserStore'
 import { storeToRefs } from 'pinia'
 import { computed, onMounted } from 'vue'

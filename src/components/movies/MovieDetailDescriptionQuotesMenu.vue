@@ -27,9 +27,9 @@
   </div>
 </template>
 <script setup>
-import IconDelete from '@/components/icons/IconDelete.vue'
-import IconEdit from '@/components/icons/IconEdit.vue'
-import IconView from '@/components/icons/IconView.vue'
+import IconDelete from '@/components/icons/crud/IconDelete.vue'
+import IconEdit from '@/components/icons/crud/IconEdit.vue'
+import IconView from '@/components/icons/crud/IconView.vue'
 import { destroyQuote } from '@/services/api/quotes'
 import { useMovieStore } from '@/stores/useMovieStore'
 import { storeToRefs } from 'pinia'

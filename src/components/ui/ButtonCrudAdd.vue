@@ -6,5 +6,5 @@
 </template>
 <script setup>
 import ButtonBase from '@/components/ui/ButtonBase.vue'
-import IconAdd from '@/components/icons/IconAdd.vue'
+import IconAdd from '@/components/icons/crud/IconAdd.vue'
 </script>

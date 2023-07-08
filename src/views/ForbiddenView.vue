@@ -10,7 +10,7 @@
   </main>
 </template>
 <script setup>
-import IconForbidden from '@/components/icons/IconForbidden.vue'
-import IconForbiddenCircles from '@/components/icons/IconForbiddenCircles.vue'
+import IconForbidden from '@/components/icons/forbidden/IconForbidden.vue'
+import IconForbiddenCircles from '@/components/icons/forbidden/IconForbiddenCircles.vue'
 import ButtonReturnHome from '@/components/ui/ButtonReturnHome.vue'
 </script>

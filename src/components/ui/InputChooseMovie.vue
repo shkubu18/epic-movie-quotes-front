@@ -31,8 +31,8 @@
   <ErrorMessage name="movie_id" class="text-red block mt-2" />
 </template>
 <script setup>
-import IconArrowDown from '@/components/icons/IconArrowDown.vue'
-import IconListOfMovies from '@/components/icons/IconListOfMovies.vue'
+import IconArrowDown from '@/components/icons/arrows/IconArrowDown.vue'
+import IconListOfMovies from '@/components/icons/movies/IconListOfMovies.vue'
 import { onMounted, ref } from 'vue'
 import { getUserMovies } from '@/services/api/movies'
 import { useMovieStore } from '@/stores/useMovieStore'

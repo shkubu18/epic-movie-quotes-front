@@ -11,7 +11,7 @@
   </div>
 </template>
 <script setup>
-import IconWriteNewQuote from '@/components/icons/IconWriteNewQuote.vue'
+import IconWriteNewQuote from '@/components/icons/quotes/IconWriteNewQuote.vue'
 
 defineProps({
   isSearchBarOpen: {

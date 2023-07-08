@@ -47,10 +47,10 @@
   </div>
 </template>
 <script setup>
-import IconGenreRemove from '@/components/icons/IconGenreRemove.vue'
-import IconValidInput from '@/components/icons/IconValidInput.vue'
+import IconGenreRemove from '@/components/icons/movies/IconGenreRemove.vue'
+import IconValidInput from '@/components/icons/validation/IconValidInput.vue'
 import { ErrorMessage } from 'vee-validate'
-import IconInvalidInput from '@/components/icons/IconInvalidInput.vue'
+import IconInvalidInput from '@/components/icons/validation/IconInvalidInput.vue'
 import { ref } from 'vue'
 
 defineProps({

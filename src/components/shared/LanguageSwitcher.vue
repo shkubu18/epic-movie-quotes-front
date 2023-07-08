@@ -5,5 +5,5 @@
   </div>
 </template>
 <script setup>
-import IconArrowDown from '@/components/icons/IconArrowDown.vue'
+import IconArrowDown from '@/components/icons/arrows/IconArrowDown.vue'
 </script>

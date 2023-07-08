@@ -19,8 +19,8 @@
 </template>
 <script setup>
 import IconModalClose from '@/components/icons/IconModalClose.vue'
-import IconEdit from '@/components/icons/IconEdit.vue'
-import IconDelete from '@/components/icons/IconDelete.vue'
+import IconEdit from '@/components/icons/crud/IconEdit.vue'
+import IconDelete from '@/components/icons/crud/IconDelete.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import { destroyQuote } from '@/services/api/quotes'
 import { useMovieStore } from '@/stores/useMovieStore'
