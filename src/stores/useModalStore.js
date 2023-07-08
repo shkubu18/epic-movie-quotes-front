@@ -15,7 +15,10 @@ export const useModalStore = defineStore('useModalStore', () => {
     passwordUpdatedSuccessfullyModal: false,
     passwordResetTokenExpiredModal: false,
     movieAddModal: false,
-    movieEditModal: false
+    movieEditModal: false,
+    quoteAddModal: false,
+    quoteEditModal: false,
+    quoteViewModal: false
   })
 
   const toggleModalVisibility = (modalName) => {
