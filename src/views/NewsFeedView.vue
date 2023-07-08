@@ -1,6 +1,6 @@
 <template>
   <quote-add-modal :api-url-for-pictures="apiUrlForPictures" v-if="modals.quoteAddModal" />
-  <the-header />
+  <the-header :quote-modal-for-newsfeed="true" />
   <main class="bg-darker-blue min-h-screen flex justify-center">
     <the-aside :api-url-for-pictures="apiUrlForPictures" />
     <div class="flex justify-center py-7 flex-col items-center w-fit h-fit">

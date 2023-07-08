@@ -1,6 +1,6 @@
 <template>
   <header
-    v-show="isQuoteModalsInactive"
+    v-show="isQuoteModalsInactive || quoteModalForNewsfeed"
     class="flex justify-between items-center px-16 py-7 bg-dark-blue"
   >
     <h1 class="text-yellow">MOVIE QUOTES</h1>
@@ -23,6 +23,13 @@ import { useUserStore } from '@/stores/useUserStore'
 import { computed } from 'vue'
 import { useModalStore } from '@/stores/useModalStore'
 import { storeToRefs } from 'pinia'
+
+defineProps({
+  quoteModalForNewsfeed: {
+    required: false,
+    type: Boolean
+  }
+})
 
 const router = useRouter()
 
