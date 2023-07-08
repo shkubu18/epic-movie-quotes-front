@@ -20,19 +20,22 @@ import { useRouter } from 'vue-router'
 import { useMovieStore } from '@/stores/useMovieStore'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 import { useUserStore } from '@/stores/useUserStore'
-
-defineProps({
-  isQuoteModalsInactive: {
-    required: false,
-    type: Boolean
-  }
-})
+import { computed } from 'vue'
+import { useModalStore } from '@/stores/useModalStore'
+import { storeToRefs } from 'pinia'
 
 const router = useRouter()
 
 const movieStore = useMovieStore()
 const newsFeedQuoteStore = useNewsFeedQuoteStore()
 const userStore = useUserStore()
+
+const modalStore = useModalStore()
+const { modals } = storeToRefs(modalStore)
+
+const isQuoteModalsInactive = computed(() => {
+  return !modals.value.quoteAddModal && !modals.value.quoteViewModal && !modals.value.quoteEditModal
+})
 
 const logoutUser = async () => {
   await logout().then((response) => {

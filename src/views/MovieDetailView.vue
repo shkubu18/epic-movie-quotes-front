@@ -19,7 +19,7 @@
     :movie-id="movie.id"
     :is-for-movie-quote="true"
   />
-  <the-header :is-quote-modals-inactive="isQuoteModalsInactive" />
+  <the-header />
   <main class="bg-darker-blue flex justify-end min-h-1650 pb-40">
     <the-aside :api-url-for-pictures="apiUrlForPictures" />
     <section v-show="isQuoteModalsInactive" class="w-9/12 pr-12 text-white">
