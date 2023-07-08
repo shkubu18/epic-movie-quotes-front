@@ -19,10 +19,11 @@ import NewsFeedQuoteHeader from '@/components/newsfeed/quote/NewsFeedQuoteHeader
 import NewsFeedQuoteSection from '@/components/newsfeed/quote/NewsFeedQuoteSection.vue'
 import NewsFeedQuoteFooter from '@/components/newsfeed/quote/NewsFeedQuoteFooter.vue'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { fetchNewsFeedQuotes } from '@/services/api/quotes'
 import { useRouter } from 'vue-router'
+import { useModalStore } from '@/stores/useModalStore'
 
 defineProps({
   apiUrlForPictures: {
@@ -33,12 +34,24 @@ defineProps({
 
 const router = useRouter()
 
+const modalStore = useModalStore()
+const { modals } = storeToRefs(modalStore)
+
 const newsFeedQuoteStore = useNewsFeedQuoteStore()
 const { quotes } = storeToRefs(newsFeedQuoteStore)
+const { isQuotesAlreadyFetched } = storeToRefs(newsFeedQuoteStore)
 
 const page = ref(1)
 const lastPage = ref()
 const isLoading = ref(false)
+
+watch(isQuotesAlreadyFetched, (newValue) => {
+  if (!newValue) {
+    page.value = 1
+    quotes.value = []
+    fetchQuotes()
+  }
+})
 
 const fetchQuotes = async () => {
   isLoading.value = true
@@ -56,11 +69,14 @@ const fetchQuotes = async () => {
     })
     .finally(() => {
       isLoading.value = false
+      isQuotesAlreadyFetched.value = true
     })
 }
 
 onMounted(() => {
-  fetchQuotes()
+  if (!isQuotesAlreadyFetched.value) {
+    fetchQuotes()
+  }
   window.addEventListener('scroll', handleScrollForQuotes)
 })
 
@@ -72,7 +88,7 @@ const handleScrollForQuotes = () => {
   const { scrollTop, clientHeight, scrollHeight } = document.documentElement
 
   if (scrollTop + clientHeight >= scrollHeight && !isLoading.value) {
-    if (page.value <= lastPage.value) {
+    if (page.value <= lastPage.value && !modals.value.quoteAddModal) {
       fetchQuotes()
     }
   }
