@@ -47,6 +47,7 @@ import { useModalStore } from '@/stores/useModalStore'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 import { storeToRefs } from 'pinia'
 import { useMovieStore } from '@/stores/useMovieStore'
+import scrollToTop from '@/helpers/scrollToTop'
 
 const props = defineProps({
   movie: {
@@ -84,7 +85,7 @@ const handleSubmit = async () => {
     .then((response) => {
       if (response.status === 201) {
         modalStore.toggleModalVisibility('quoteAddModal')
-        window.scrollTo({ top: 0, behavior: 'smooth' })
+        scrollToTop()
 
         if (props.movie) {
           isMovieUpdated.value = true

@@ -95,6 +95,7 @@ import { useModalStore } from '@/stores/useModalStore'
 import { addMovie, getMovieGenres } from '@/services/api/movies'
 import { storeToRefs } from 'pinia'
 import { useMovieStore } from '@/stores/useMovieStore'
+import scrollToTop from '@/helpers/scrollToTop'
 
 const genresList = ref([])
 const chosenGenres = ref([])
@@ -148,7 +149,7 @@ const handleSubmit = async () => {
         modalStore.toggleModalVisibility('movieAddModal')
         isNewMovieAdded.value = true
 
-        window.scrollTo({ top: 0, behavior: 'smooth' })
+        scrollToTop()
       }
     })
     .catch((error) => {

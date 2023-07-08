@@ -61,6 +61,7 @@ import { getMovie } from '@/services/api/movies'
 import { useModalStore } from '@/stores/useModalStore'
 import { storeToRefs } from 'pinia'
 import { useMovieStore } from '@/stores/useMovieStore'
+import scrollToTop from '@/helpers/scrollToTop'
 
 const apiUrlForPictures = import.meta.env.VITE_API_BASE_URL + '/storage/'
 
@@ -87,12 +88,12 @@ const getQuote = (quoteIndex, action) => {
 
   if (action === 'view') modalStore.toggleModalVisibility('quoteViewModal')
   if (action === 'edit') modalStore.toggleModalVisibility('quoteEditModal')
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  scrollToTop()
 }
 
 const openQuoteAddModal = () => {
   modalStore.toggleModalVisibility('quoteAddModal')
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  scrollToTop()
 }
 
 watch(isMovieUpdated, async (newValue) => {
@@ -103,7 +104,7 @@ watch(isMovieUpdated, async (newValue) => {
         movie.value = response.data.movie
         isMovieLoaded.value = true
 
-        window.scrollTo({ top: 0, behavior: 'smooth' })
+        scrollToTop()
       })
       .catch((error) => {
         if (error.response.status === 403) {
