@@ -20,7 +20,7 @@
     <div class="flex items-center" v-if="!modelValue && !existingMoviePicture">
       <icon-picture />
       <span class="text-xl ml-2">Drag & drop your image here or</span>
-      <label class="bg-purple-950 text-lg p-3 rounded-sm ml-5" :for="name">Choose file</label>
+      <label class="bg-purple-950 text-xl p-3 rounded-sm ml-5" :for="name">Choose file</label>
     </div>
     <div
       class="flex h-full w-full items-center justify-center"
@@ -44,7 +44,7 @@
           <icon-picture />
           <span class="text-xl ml-2">Drag & drop your image here or</span>
         </div>
-        <label class="bg-purple-950 text-lg p-3 rounded-sm ml-5 w-fit" :for="name">
+        <label class="bg-purple-950 text-xl p-3 rounded-sm ml-5 w-fit" :for="name">
           Choose file
         </label>
       </div>
