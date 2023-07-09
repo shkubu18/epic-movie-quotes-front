@@ -4,6 +4,7 @@ import { ref } from 'vue'
 export const useUserStore = defineStore('useUserStore', () => {
   const user = ref({})
   const isUserAlreadyFetched = ref(false)
+  const likedQuotes = ref([])
 
   function addUser(userInfo) {
     user.value = userInfo
@@ -18,6 +19,7 @@ export const useUserStore = defineStore('useUserStore', () => {
     user,
     addUser,
     isUserAlreadyFetched,
-    resetStore
+    resetStore,
+    likedQuotes
   }
 })
