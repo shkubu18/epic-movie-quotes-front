@@ -1,6 +1,10 @@
 <template>
-  <footer>
-    <div class="max-h-96 overflow-y-scroll">
+  <footer class="relative">
+    <div v-if="isLoading" class="absolute h-full w-full flex items-center justify-center bg-black">
+      <icon-loading-spinner />
+    </div>
+
+    <div ref="commentsSection" id="comments-container" class="max-h-96 overflow-y-scroll">
       <div v-for="comment in quote.comments" :key="comment.id" class="mt-5 flex text-xl">
         <img
           :src="
@@ -28,9 +32,11 @@
         class="h-14 rounded-full mr-6"
       />
       <textarea
-        class="h-14 placeholder:text-gray-300 pl-7 pt-4 bg-dark-blue border-none rounded-xl w-full"
-        name="comment"
+        ref="commentInput"
+        class="h-14 placeholder:text-gray-300 outline-none pl-7 pt-4 bg-dark-blue border-none rounded-xl w-full"
         placeholder="White a comment"
+        v-model="comment[quote.id]"
+        @keydown.enter="addComment(quote.id)"
       ></textarea>
     </div>
   </footer>
@@ -39,9 +45,10 @@
 <script setup>
 import { useUserStore } from '@/stores/useUserStore'
 import { storeToRefs } from 'pinia'
-
-const userStore = useUserStore()
-const { user } = storeToRefs(userStore)
+import { ref } from 'vue'
+import { storeComment } from '@/services/api/quotes'
+import IconLoadingSpinner from '@/components/icons/IconLoadingSpinner.vue'
+import { useRouter } from 'vue-router'
 
 defineProps({
   quote: {
@@ -53,4 +60,36 @@ defineProps({
     type: String
   }
 })
+
+const router = useRouter()
+
+const userStore = useUserStore()
+const { user } = storeToRefs(userStore)
+
+const comment = ref({})
+const commentInput = ref(null)
+const commentsSection = ref(null)
+
+const isLoading = ref(false)
+
+const addComment = async (quoteId) => {
+  commentInput.value.blur()
+
+  if (comment.value[quoteId]) {
+    isLoading.value = true
+    await storeComment(comment.value[quoteId], quoteId)
+      .then((response) => {
+        if (response.status === 201) {
+          comment.value[quoteId] = ''
+        }
+      })
+      .catch(() => {
+        router.replace({ name: '403' })
+      })
+      .finally(() => {
+        isLoading.value = false
+        commentsSection.value.scrollTo({ top: 0, behavior: 'smooth' })
+      })
+  }
+}
 </script>
