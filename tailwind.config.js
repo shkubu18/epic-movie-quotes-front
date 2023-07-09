@@ -14,7 +14,8 @@ export default {
         'transparent-dark-blue': '#22203099',
         'lighter-black': '#11101A',
         'crud-input-gray': '#6C757D',
-        'transparent-black': '#000000a6'
+        'transparent-black': '#000000a6',
+        'liked-color': '#F3426C'
       },
       backgroundImage: {
         interstellar: "url('/src/assets/images/landing/interstellar.png')",
