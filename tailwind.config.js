@@ -9,13 +9,14 @@ export default {
         'dark-blue': '#222030',
         green: '#198754',
         'darker-blue': '#181623',
-        black: '#0e0d15',
         'default-border-b-color': '#EFEFEF4D',
         'transparent-dark-blue': '#22203099',
         'lighter-black': '#11101A',
         'crud-input-gray': '#6C757D',
         'transparent-black': '#000000a6',
-        'liked-color': '#F3426C'
+        'liked-color': '#F3426C',
+        'custom-gray': '#6C757D80',
+        'notification-circle-color': '#E33812'
       },
       backgroundImage: {
         interstellar: "url('/src/assets/images/landing/interstellar.png')",
@@ -44,7 +45,8 @@ export default {
         500: '500px',
         370: '370px',
         86: '86px',
-        440: '440px'
+        440: '440px',
+        810: '810px'
       },
       minHeight: {
         1500: '1500px',
@@ -52,8 +54,5 @@ export default {
       }
     }
   },
-  plugins: [
-    // eslint-disable-next-line no-undef
-    // require('@tailwindcss/forms')
-  ]
+  plugins: []
 }
