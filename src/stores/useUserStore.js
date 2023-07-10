@@ -5,6 +5,11 @@ export const useUserStore = defineStore('useUserStore', () => {
   const user = ref({})
   const isUserAlreadyFetched = ref(false)
   const likedQuotes = ref([])
+  const notifications = ref([])
+  const isNotificationsAlreadyFetched = ref(false)
+  const isNotificationsSeen = ref(false)
+  const unreadNotificationsCount = ref(null)
+  const quoteFromNotification = ref({})
 
   function addUser(userInfo) {
     user.value = userInfo
@@ -20,6 +25,11 @@ export const useUserStore = defineStore('useUserStore', () => {
     addUser,
     isUserAlreadyFetched,
     resetStore,
-    likedQuotes
+    likedQuotes,
+    notifications,
+    isNotificationsAlreadyFetched,
+    isNotificationsSeen,
+    unreadNotificationsCount,
+    quoteFromNotification
   }
 })
