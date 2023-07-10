@@ -1,14 +1,31 @@
 <template>
+  <quote-view-from-notification-modal
+    :quote-id="quoteIdForView"
+    v-if="modals.quoteViewFromNotificationModal"
+  />
   <header
     v-show="isQuoteModalsInactive || quoteModalForNewsfeed"
-    class="flex justify-between items-center px-16 py-7 bg-dark-blue"
+    class="flex justify-between items-center px-16 py-7 bg-dark-blue relative"
   >
     <h1 class="text-yellow">MOVIE QUOTES</h1>
     <div class="flex items-center">
-      <icon-notification class="mr-9" />
+      <div @click="toggleNotifications" class="relative">
+        <icon-notification class="mr-9 cursor-pointer" />
+        <div
+          v-if="unreadNotificationsCount && notifications.length"
+          class="absolute -top-1.5 right-5 mr-1.5 text-white bg-notification-circle-color cursor-pointer rounded-full w-6 flex justify-center"
+        >
+          <span>{{ unreadNotificationsCount }}</span>
+        </div>
+      </div>
       <language-switcher />
       <button-base @click="logoutUser" class="border-2">Log out</button-base>
     </div>
+    <notification-list
+      v-show="isNotificationsOpen"
+      @open-quote-view-from-notification-modal="openQuoteViewFromNotificationModal"
+    />
+    <icon-arrow-up v-show="isNotificationsOpen" class="absolute top-20 right-72 mr-1" />
   </header>
 </template>
 <script setup>
@@ -20,9 +37,12 @@ import { useRouter } from 'vue-router'
 import { useMovieStore } from '@/stores/useMovieStore'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 import { useUserStore } from '@/stores/useUserStore'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useModalStore } from '@/stores/useModalStore'
 import { storeToRefs } from 'pinia'
+import NotificationList from '@/components/notifications/NotificationList.vue'
+import IconArrowUp from '@/components/icons/arrows/IconArrowUp.vue'
+import QuoteViewFromNotificationModal from '@/components/modals/quotes/QuoteViewFromNotificationModal.vue'
 
 defineProps({
   quoteModalForNewsfeed: {
@@ -33,9 +53,14 @@ defineProps({
 
 const router = useRouter()
 
+const quoteIdForView = ref(null)
+
 const movieStore = useMovieStore()
 const newsFeedQuoteStore = useNewsFeedQuoteStore()
+
 const userStore = useUserStore()
+const { notifications } = storeToRefs(userStore)
+const { unreadNotificationsCount } = storeToRefs(userStore)
 
 const modalStore = useModalStore()
 const { modals } = storeToRefs(modalStore)
@@ -43,6 +68,19 @@ const { modals } = storeToRefs(modalStore)
 const isQuoteModalsInactive = computed(() => {
   return !modals.value.quoteAddModal && !modals.value.quoteViewModal && !modals.value.quoteEditModal
 })
+
+const isNotificationsOpen = ref(false)
+
+const openQuoteViewFromNotificationModal = (quoteId) => {
+  isNotificationsOpen.value = false
+  quoteIdForView.value = quoteId
+  modalStore.closeActiveModal()
+  modalStore.toggleModalVisibility('quoteViewFromNotificationModal')
+}
+
+const toggleNotifications = () => {
+  isNotificationsOpen.value = !isNotificationsOpen.value
+}
 
 const logoutUser = async () => {
   await logout().then((response) => {
