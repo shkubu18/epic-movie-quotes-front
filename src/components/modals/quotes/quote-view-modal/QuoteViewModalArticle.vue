@@ -25,7 +25,7 @@
         </div>
         <div class="flex items-center">
           <span class="mr-4">{{ quote.total_likes }}</span>
-          <icon-like />
+          <icon-like :quote-id="quote.id" />
         </div>
       </div>
     </section>
@@ -67,7 +67,7 @@
   </article>
 </template>
 <script setup>
-import IconLike from '@/components/icons/IconLike.vue'
+import IconLike from '@/components/icons/likes/IconLike.vue'
 import IconComment from '@/components/icons/IconComment.vue'
 
 defineProps({

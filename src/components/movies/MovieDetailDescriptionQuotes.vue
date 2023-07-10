@@ -30,14 +30,14 @@
         </div>
         <div class="flex items-center">
           <span class="mr-4">{{ quote.total_likes }}</span>
-          <icon-like />
+          <icon-like :quote-id="quote.id" />
         </div>
       </div>
     </div>
   </section>
 </template>
 <script setup>
-import IconLike from '@/components/icons/IconLike.vue'
+import IconLike from '@/components/icons/likes/IconLike.vue'
 import IconThreeDots from '@/components/icons/IconThreeDots.vue'
 import IconComment from '@/components/icons/IconComment.vue'
 import { ref } from 'vue'
