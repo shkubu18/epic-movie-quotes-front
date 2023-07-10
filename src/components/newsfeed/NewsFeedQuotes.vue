@@ -21,9 +21,10 @@ import NewsFeedQuoteFooter from '@/components/newsfeed/quote/NewsFeedQuoteFooter
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 import { onMounted, onUnmounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
-import { fetchNewsFeedQuotes } from '@/services/api/quotes'
+import { fetchNewsFeedQuotes, getLikedQuotes } from '@/services/api/quotes'
 import { useRouter } from 'vue-router'
 import { useModalStore } from '@/stores/useModalStore'
+import { useUserStore } from '@/stores/useUserStore'
 
 defineProps({
   apiUrlForPictures: {
@@ -36,6 +37,9 @@ const router = useRouter()
 
 const modalStore = useModalStore()
 const { modals } = storeToRefs(modalStore)
+
+const userStore = useUserStore()
+const { likedQuotes } = storeToRefs(userStore)
 
 const newsFeedQuoteStore = useNewsFeedQuoteStore()
 const { quotes } = storeToRefs(newsFeedQuoteStore)
@@ -73,7 +77,17 @@ const fetchQuotes = async () => {
     })
 }
 
-onMounted(() => {
+onMounted(async () => {
+  await getLikedQuotes()
+    .then((response) => {
+      if (response.status === 200) {
+        likedQuotes.value = response.data.liked_quotes
+      }
+    })
+    .catch(() => {
+      router.replace({ name: '403' })
+    })
+
   if (!isQuotesAlreadyFetched.value) {
     fetchQuotes()
   }

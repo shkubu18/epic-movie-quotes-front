@@ -18,6 +18,46 @@ export const useNewsFeedQuoteStore = defineStore('useNewsFeedQuoteStore', () => 
     noQuotesSearchResult.value = quotes.length === 0
   }
 
+  function addComment(newComment, quoteId) {
+    quotes.value.forEach((quote) => {
+      if (quote.id === quoteId) {
+        if (!quote.comments) {
+          quote.comments = []
+        }
+        if (!quote.total_comments) {
+          quote.total_comments = 0
+        }
+
+        quote.comments.push(newComment)
+        quote.total_comments++
+      }
+    })
+  }
+
+  function addLike(quoteId) {
+    quotes.value.forEach((quote) => {
+      if (quote.id === quoteId) {
+        if (!quote.total_likes) {
+          quote.total_likes = 0
+        }
+        quote.total_likes++
+      }
+    })
+  }
+
+  function removeLike(quoteId) {
+    quotes.value.forEach((quote) => {
+      if (quote.id === quoteId) {
+        if (quote.total_likes && quote.total_likes > 1) {
+          quote.total_likes--
+        } else {
+          quote.total_likes--
+          delete quote.total_likes
+        }
+      }
+    })
+  }
+
   function resetStore() {
     quotes.value = []
     searchedQuotes.value = []
@@ -33,6 +73,9 @@ export const useNewsFeedQuoteStore = defineStore('useNewsFeedQuoteStore', () => 
     searchingQuotesIsActive,
     noQuotesSearchResult,
     resetStore,
-    isQuotesAlreadyFetched
+    isQuotesAlreadyFetched,
+    addComment,
+    addLike,
+    removeLike
   }
 })

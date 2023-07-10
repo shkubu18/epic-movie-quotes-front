@@ -30,3 +30,20 @@ export async function updateQuote(quoteData, quoteId) {
 export async function destroyQuote(quoteId) {
   return axios.delete(`/api/quotes/${quoteId}`)
 }
+
+export async function storeComment(body, quoteId) {
+  return axios.post('/api/comments', {
+    body: body,
+    quote_id: quoteId
+  })
+}
+
+export async function storeLike(quoteId) {
+  return axios.post('/api/likes', {
+    quote_id: quoteId
+  })
+}
+
+export async function getLikedQuotes() {
+  return axios.get('/api/likes/quotes')
+}
