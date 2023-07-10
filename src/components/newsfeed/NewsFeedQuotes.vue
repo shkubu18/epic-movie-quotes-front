@@ -6,7 +6,7 @@
   <article
     v-for="quote in quotes"
     :key="quote.id"
-    class="text-center text-white bg-black w-940 rounded-xl p-5 mb-10"
+    class="text-center text-white bg-lighter-black w-940 rounded-xl p-5 mb-10"
   >
     <news-feed-quote-header :quote="quote" :apiUrlForPictures="apiUrlForPictures" />
     <news-feed-quote-section :quote="quote" :apiUrlForPictures="apiUrlForPictures" />
@@ -78,6 +78,12 @@ const fetchQuotes = async () => {
 }
 
 onMounted(async () => {
+  if (!isQuotesAlreadyFetched.value) {
+    fetchQuotes()
+  }
+
+  window.addEventListener('scroll', handleScrollForQuotes)
+
   await getLikedQuotes()
     .then((response) => {
       if (response.status === 200) {
@@ -87,11 +93,6 @@ onMounted(async () => {
     .catch(() => {
       router.replace({ name: '403' })
     })
-
-  if (!isQuotesAlreadyFetched.value) {
-    fetchQuotes()
-  }
-  window.addEventListener('scroll', handleScrollForQuotes)
 })
 
 onUnmounted(() => {
@@ -102,8 +103,10 @@ const handleScrollForQuotes = () => {
   const { scrollTop, clientHeight, scrollHeight } = document.documentElement
 
   if (scrollTop + clientHeight >= scrollHeight && !isLoading.value) {
-    if (page.value <= lastPage.value && !modals.value.quoteAddModal) {
-      fetchQuotes()
+    if (page.value <= lastPage.value) {
+      if (!modals.value.quoteAddModal && !modals.value.quoteViewFromNotificationModal) {
+        fetchQuotes()
+      }
     }
   }
 }
