@@ -1,6 +1,9 @@
 <template>
   <footer class="relative">
-    <div v-if="isLoading" class="absolute h-full w-full flex items-center justify-center bg-black">
+    <div
+      v-if="isLoading"
+      class="absolute h-full w-full flex items-center justify-center bg-lighter-black"
+    >
       <icon-loading-spinner />
     </div>
 
@@ -37,6 +40,7 @@
         placeholder="White a comment"
         v-model="comment[quote.id]"
         @keydown.enter="addComment(quote.id)"
+        :disabled="quoteViewFromNotification"
       ></textarea>
     </div>
   </footer>
@@ -58,6 +62,10 @@ defineProps({
   apiUrlForPictures: {
     required: true,
     type: String
+  },
+  quoteViewFromNotification: {
+    required: false,
+    type: Boolean
   }
 })
 

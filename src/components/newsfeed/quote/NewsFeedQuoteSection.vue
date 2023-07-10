@@ -13,9 +13,9 @@
       <div class="flex items-center">
         <span class="mr-4">{{ quote.total_likes }}</span>
         <icon-like
-          :is-liked="isLiked(quote.id)"
+          :quote-id="quote.id"
           @click="addLike(quote.id)"
-          class="cursor-pointer"
+          :class="!quoteViewFromNotification ? 'cursor-pointer' : 'cursor-auto'"
         />
       </div>
     </div>
@@ -23,13 +23,13 @@
 </template>
 <script setup>
 import IconComment from '@/components/icons/IconComment.vue'
-import IconLike from '@/components/icons/IconLike.vue'
+import IconLike from '@/components/icons/likes/IconLike.vue'
 import { storeLike } from '@/services/api/quotes'
 import { useUserStore } from '@/stores/useUserStore'
 import { storeToRefs } from 'pinia'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 
-defineProps({
+const props = defineProps({
   quote: {
     required: true,
     type: Object
@@ -37,6 +37,10 @@ defineProps({
   apiUrlForPictures: {
     required: true,
     type: String
+  },
+  quoteViewFromNotification: {
+    required: false,
+    type: Boolean
   }
 })
 
@@ -44,37 +48,20 @@ const userStore = useUserStore()
 const { likedQuotes } = storeToRefs(userStore)
 
 const newsFeedQuoteStore = useNewsFeedQuoteStore()
-const { quotes } = storeToRefs(newsFeedQuoteStore)
-
-function isLiked(quoteId) {
-  return likedQuotes.value.includes(quoteId)
-}
 
 function addLike(quoteId) {
-  if (!likedQuotes.value.includes(quoteId)) {
-    quotes.value.forEach((quote) => {
-      if (quote.id === quoteId) {
-        if (!quote.total_likes) {
-          quote.total_likes = 0
-        }
-        quote.total_likes++
-      }
-    })
-    likedQuotes.value.push(quoteId)
-  } else {
-    quotes.value.forEach((quote) => {
-      if (quote.id === quoteId) {
-        if (quote.total_likes && quote.total_likes > 1) {
-          quote.total_likes--
-        } else {
-          delete quote.total_likes
-        }
-      }
-    })
-    const index = likedQuotes.value.indexOf(quoteId)
-    likedQuotes.value.splice(index, 1)
-  }
+  if (!props.quoteViewFromNotification) {
+    if (!likedQuotes.value.includes(quoteId)) {
+      newsFeedQuoteStore.addLike(quoteId)
 
-  storeLike(quoteId)
+      likedQuotes.value.push(quoteId)
+    } else {
+      newsFeedQuoteStore.removeLike(quoteId)
+      const index = likedQuotes.value.indexOf(quoteId)
+      likedQuotes.value.splice(index, 1)
+    }
+
+    storeLike(quoteId)
+  }
 }
 </script>
