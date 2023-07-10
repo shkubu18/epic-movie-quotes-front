@@ -13,7 +13,8 @@ export default {
         'default-border-b-color': '#EFEFEF4D',
         'transparent-dark-blue': '#22203099',
         'lighter-black': '#11101A',
-        'crud-input-gray': '#6C757D'
+        'crud-input-gray': '#6C757D',
+        'transparent-black': '#000000a6'
       },
       backgroundImage: {
         interstellar: "url('/src/assets/images/landing/interstellar.png')",
@@ -45,7 +46,8 @@ export default {
         440: '440px'
       },
       minHeight: {
-        1500: '1500px'
+        1500: '1500px',
+        1650: '1650px'
       }
     }
   },

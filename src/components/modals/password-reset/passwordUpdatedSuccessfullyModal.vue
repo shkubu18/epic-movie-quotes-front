@@ -21,7 +21,7 @@ import ButtonBase from '@/components/ui/ButtonBase.vue'
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
 import ModalContainer from '@/components/shared/modals/ModalContainer.vue'
 import { useModalStore } from '@/stores/useModalStore'
-import IconSuccessBigger from '@/components/icons/IconSuccessBigger.vue'
+import IconSuccessBigger from '@/components/icons/success/IconSuccessBigger.vue'
 
 const modalStore = useModalStore()
 

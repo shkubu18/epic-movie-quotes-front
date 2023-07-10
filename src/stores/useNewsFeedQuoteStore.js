@@ -6,6 +6,7 @@ export const useNewsFeedQuoteStore = defineStore('useNewsFeedQuoteStore', () => 
   const searchedQuotes = ref([])
   const searchingQuotesIsActive = ref(false)
   const noQuotesSearchResult = ref(false)
+  const isQuotesAlreadyFetched = ref(false)
 
   function addNewsFeedQuotes(newQuotes) {
     quotes.value = [...quotes.value, ...newQuotes]
@@ -21,6 +22,7 @@ export const useNewsFeedQuoteStore = defineStore('useNewsFeedQuoteStore', () => 
     quotes.value = []
     searchedQuotes.value = []
     searchingQuotesIsActive.value = false
+    isQuotesAlreadyFetched.value = false
   }
 
   return {
@@ -30,6 +32,7 @@ export const useNewsFeedQuoteStore = defineStore('useNewsFeedQuoteStore', () => 
     addSearchedQuotes,
     searchingQuotesIsActive,
     noQuotesSearchResult,
-    resetStore
+    resetStore,
+    isQuotesAlreadyFetched
   }
 })

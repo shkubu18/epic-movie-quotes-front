@@ -35,8 +35,8 @@
   </div>
 </template>
 <script setup>
-import IconDelete from '@/components/icons/IconDelete.vue'
-import IconEdit from '@/components/icons/IconEdit.vue'
+import IconDelete from '@/components/icons/crud/IconDelete.vue'
+import IconEdit from '@/components/icons/crud/IconEdit.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import { destroyMovie } from '@/services/api/movies'
 import { useRouter } from 'vue-router'

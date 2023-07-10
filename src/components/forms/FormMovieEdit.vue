@@ -7,21 +7,21 @@
   >
     <input-crud-movie
       label="Movie name"
-      name="name_en"
-      v-model="movieData.name_en"
+      name="movie_name_en"
+      v-model="movieData.movie_name_en"
       type="text"
       language="Eng"
       rules="required|english-text"
-      :error="errors.name_en"
+      :error="errors.movie_name_en"
     />
     <input-crud-movie
       label="ფილმის სახელი"
-      name="name_ka"
-      v-model="movieData.name_ka"
+      name="movie_name_ka"
+      v-model="movieData.movie_name_ka"
       type="text"
       language="ქარ"
       rules="required|georgian-text"
-      :error="errors.name_ka"
+      :error="errors.movie_name_ka"
     />
     <input-genre
       :error="errors.genres"
@@ -58,7 +58,7 @@
       rules="required|georgian-text"
       :error="errors.director_ka"
     />
-    <input-text-area
+    <input-text-area-movie
       label="Movie description"
       name="description_en"
       v-model="movieData.description_en"
@@ -67,7 +67,7 @@
       rules="required|english-text"
       :error="errors.description_en"
     />
-    <input-text-area
+    <input-text-area-movie
       label="ფილმის აღწერა"
       name="description_ka"
       v-model="movieData.description_ka"
@@ -76,7 +76,7 @@
       rules="required|georgian-text"
       :error="errors.description_ka"
     />
-    <input-picture
+    <input-picture-default
       name="picture"
       rules="image"
       :error="errors.picture"
@@ -92,8 +92,8 @@
 <script setup>
 import InputCrudMovie from '@/components/ui/InputCrudMovie.vue'
 import InputGenre from '@/components/ui/InputGenre.vue'
-import InputTextArea from '@/components/ui/InputTextArea.vue'
-import InputPicture from '@/components/ui/InputPicture.vue'
+import InputTextAreaMovie from '@/components/ui/InputTextAreaMovie.vue'
+import InputPictureDefault from '@/components/ui/InputPictureDefault.vue'
 import ButtonBase from '@/components/ui/ButtonBase.vue'
 import { Field, Form as ValidationForm } from 'vee-validate'
 import { onMounted, reactive, ref } from 'vue'
@@ -141,8 +141,8 @@ const removeChosenGenre = (genreName, genreId) => {
 }
 
 const movieData = reactive({
-  name_en: '',
-  name_ka: '',
+  movie_name_en: '',
+  movie_name_ka: '',
   genres: '',
   release_date: '',
   director_en: '',
@@ -182,8 +182,8 @@ onMounted(async () => {
       genresList.value = genresList.value.filter((genre) => genre.id !== movieGenre.id)
     })
 
-    movieData.name_en = movie.name.en
-    movieData.name_ka = movie.name.ka
+    movieData.movie_name_en = movie.name.en
+    movieData.movie_name_ka = movie.name.ka
     movieData.genres = chosenGenres.value.map((obj) => obj.id).join(',')
     movieData.release_date = movie.release_date
     movieData.director_en = movie.director.en

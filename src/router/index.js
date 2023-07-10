@@ -4,7 +4,7 @@ import VerifyEmailView from '@/views/VerifyEmailView.vue'
 import NewsFeedView from '@/views/NewsFeedView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import ForbiddenView from '@/views/ForbiddenView.vue'
-import { isAuthenticated, isNotAuthenticated } from '@/router/guard'
+import { shouldAuthenticated, shouldNotAuthenticated } from '@/router/guard'
 import MovieListView from '@/views/MovieListView.vue'
 import MovieDetailView from '@/views/MovieDetailView.vue'
 
@@ -15,31 +15,31 @@ const router = createRouter({
       path: '/',
       name: 'landing',
       component: LandingView,
-      beforeEnter: isNotAuthenticated
+      beforeEnter: shouldNotAuthenticated
     },
     {
       path: '/verify-email',
       name: 'verify-email',
       component: VerifyEmailView,
-      beforeEnter: isNotAuthenticated
+      beforeEnter: shouldNotAuthenticated
     },
     {
       path: '/newsfeed',
       name: 'newsfeed',
       component: NewsFeedView,
-      beforeEnter: isAuthenticated
+      beforeEnter: shouldAuthenticated
     },
     {
       path: '/my-movies',
       name: 'my-movies',
       component: MovieListView,
-      beforeEnter: isAuthenticated
+      beforeEnter: shouldAuthenticated
     },
     {
       path: '/my-movies/:id',
       name: 'movie-detail',
       component: MovieDetailView,
-      beforeEnter: isAuthenticated
+      beforeEnter: shouldAuthenticated
     },
     {
       path: '/:notFound(.*)',

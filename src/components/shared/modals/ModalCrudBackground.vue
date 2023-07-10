@@ -2,8 +2,11 @@
   <div
     v-if="modals[modal]"
     @click="toggleModalVisibility(modal)"
-    class="absolute z-10 top-24 w-full bg-transparent-dark-blue"
-    :style="`height: ${minHeight}px`"
+    :class="{
+      'absolute z-10 w-full top-24 bg-transparent-dark-blue': true,
+      '!top-0 bg-darker-blue': isForMovieQuote
+    }"
+    :style="isForMovieQuote ? 'min-height: 1650px' : `height: ${minHeight}px`"
   ></div>
 </template>
 
@@ -16,6 +19,10 @@ defineProps({
   modal: {
     required: true,
     type: String
+  },
+  isForMovieQuote: {
+    required: false,
+    type: Boolean
   }
 })
 

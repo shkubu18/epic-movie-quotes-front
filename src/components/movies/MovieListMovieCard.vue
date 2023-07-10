@@ -16,7 +16,7 @@
   </article>
 </template>
 <script setup>
-import IconQuote from '@/components/icons/IconQuote.vue'
+import IconQuote from '@/components/icons/quotes/IconQuote.vue'
 import { useRouter } from 'vue-router'
 
 defineProps({

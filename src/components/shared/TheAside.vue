@@ -1,5 +1,11 @@
 <template>
-  <aside class="absolute z-30 top-32 left-14">
+  <aside
+    :class="{
+      'absolute top-32 left-14': true,
+      'z-30': !isQuoteModalActive,
+      'z-0': isQuoteModalActive
+    }"
+  >
     <section class="flex items-center">
       <img
         class="h-16 rounded-full mr-6"
@@ -33,11 +39,12 @@
 </template>
 <script setup>
 import IconNewsFeed from '@/components/icons/IconNewsFeed.vue'
-import IconListOfMovies from '@/components/icons/IconListOfMovies.vue'
+import IconListOfMovies from '@/components/icons/movies/IconListOfMovies.vue'
 import { useUserStore } from '@/stores/useUserStore'
 import { storeToRefs } from 'pinia'
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { getUser } from '@/services/api/auth'
+import { useModalStore } from '@/stores/useModalStore'
 
 defineProps({
   apiUrlForPictures: {
@@ -48,10 +55,24 @@ defineProps({
 
 const userStore = useUserStore()
 const { user } = storeToRefs(userStore)
+const { isUserAlreadyFetched } = storeToRefs(userStore)
+
+const modalStore = useModalStore()
+const { modals } = storeToRefs(modalStore)
+
+const isQuoteModalActive = computed(() => {
+  return modals.value.quoteAddModal || modals.value.quoteViewModal || modals.value.quoteEditModal
+})
 
 onMounted(async () => {
-  await getUser().then((response) => {
-    userStore.addUser(response.data.user)
-  })
+  if (!isUserAlreadyFetched.value) {
+    await getUser()
+      .then((response) => {
+        userStore.addUser(response.data.user)
+      })
+      .finally(() => {
+        isUserAlreadyFetched.value = true
+      })
+  }
 })
 </script>

@@ -16,20 +16,28 @@ configure({
         between: 'Please enter the {field} correctly between 1888 to 2023',
         image: 'Please upload the file in image format only'
       },
+      fields: {
+        movie_id: {
+          required: 'Please choose a movie'
+        }
+      },
       names: {
         username_or_email: 'Username or email',
         password: 'Password',
         email: 'Email',
         password_confirmation: 'Confirm password',
-        name_en: 'Movie name in english',
-        name_ka: 'Movie name in georgian',
+        movie_name_en: 'Movie name in English',
+        movie_name_ka: 'Movie name in Georgian',
         release_date: 'Year',
-        director_en: 'Director name in english',
-        director_ka: 'Director name in georgian',
-        description_en: 'Movie description in english',
-        description_ka: 'Movie description in georgian',
+        director_en: 'Director name in English',
+        director_ka: 'Director name in Georgian',
+        description_en: 'Movie description in English',
+        description_ka: 'Movie description in Georgian',
         picture: 'Image',
-        genres: 'Genres'
+        genres: 'Genres',
+        quote_name_en: 'Quote in English',
+        quote_name_ka: 'Quote in Georgian',
+        movie_id: 'Movie'
       }
     },
     ka: {
@@ -41,12 +49,15 @@ configure({
         email: 'გთხოვთ შეიყვანოთ ვალიდური ელ.ფოსტის მისამართი',
         confirmed: '{field} არ ემთხვევა პაროლს',
         between: 'გთხოვთ სწორად ჩაწეროთ {field} 1888 წლიდან 2023 წლამდე',
-        fields: {
-          picture: {
-            required: 'გთხოვთ აირჩიოთ სურათი'
-          }
-        },
         image: 'გთხოვთ, ატვირთოთ ფაილი მხოლოდ სურათის ფორმატში'
+      },
+      fields: {
+        picture: {
+          required: 'გთხოვთ აირჩიოთ სურათი'
+        },
+        movie_id: {
+          required: 'გთხოვთ აირჩიეთ ფილმი'
+        }
       },
       names: {
         username_or_email: 'მომხმარებლის სახელი ან ელ.ფოსტა',
@@ -61,7 +72,10 @@ configure({
         description_en: 'ფილმის აღწერა ინგლისურად',
         description_ka: 'ფილმის აღწერა ქართულად',
         picture: 'სურათი',
-        genres: 'ჟანრი'
+        genres: 'ჟანრი',
+        quote_name_en: 'ციტატა ინგლისურად',
+        quote_name_ka: 'ციტატა ქართულად',
+        movie_id: 'ფილმი'
       }
     }
   })
