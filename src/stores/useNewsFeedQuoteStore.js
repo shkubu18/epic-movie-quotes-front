@@ -51,7 +51,6 @@ export const useNewsFeedQuoteStore = defineStore('useNewsFeedQuoteStore', () => 
         if (quote.total_likes && quote.total_likes > 1) {
           quote.total_likes--
         } else {
-          quote.total_likes--
           delete quote.total_likes
         }
       }

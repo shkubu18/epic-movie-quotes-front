@@ -18,7 +18,8 @@ export const useModalStore = defineStore('useModalStore', () => {
     movieEditModal: false,
     quoteAddModal: false,
     quoteEditModal: false,
-    quoteViewModal: false
+    quoteViewModal: false,
+    quoteViewFromNotificationModal: false
   })
 
   const toggleModalVisibility = (modalName) => {
@@ -27,8 +28,17 @@ export const useModalStore = defineStore('useModalStore', () => {
     }
   }
 
+  const closeActiveModal = () => {
+    for (const modal in modals.value) {
+      if (modals.value[modal] === true) {
+        modals.value[modal] = false
+      }
+    }
+  }
+
   return {
     modals,
-    toggleModalVisibility
+    toggleModalVisibility,
+    closeActiveModal
   }
 })

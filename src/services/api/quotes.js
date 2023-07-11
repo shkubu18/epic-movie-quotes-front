@@ -47,3 +47,7 @@ export async function storeLike(quoteId) {
 export async function getLikedQuotes() {
   return axios.get('/api/likes/quotes')
 }
+
+export async function getQuote(quoteId) {
+  return axios.get(`/api/quotes/${quoteId}`)
+}

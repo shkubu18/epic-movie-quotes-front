@@ -3,8 +3,9 @@
     v-if="modals[modal]"
     @click="toggleModalVisibility(modal)"
     :class="{
-      'absolute z-10 w-full top-24 bg-transparent-dark-blue': true,
-      '!top-0 bg-darker-blue': isForMovieQuote
+      'absolute z-10 w-full top-24 bg-transparent-dark-blue cursor-pointer': true,
+      '!top-0 bg-darker-blue': isForMovieQuote,
+      'z-40': modal === 'quoteViewFromNotificationModal'
     }"
     :style="isForMovieQuote ? 'min-height: 1650px' : `height: ${minHeight}px`"
   ></div>

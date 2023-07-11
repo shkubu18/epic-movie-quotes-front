@@ -1,6 +1,6 @@
 <template>
   <svg
-    :class="isLiked ? 'fill-liked-color' : 'fill-white'"
+    :class="isLiked(quoteId) ? 'fill-liked-color' : 'fill-white'"
     width="32"
     height="30"
     viewBox="0 0 32 30"
@@ -13,10 +13,20 @@
 </template>
 
 <script setup>
+import { useUserStore } from '@/stores/useUserStore'
+import { storeToRefs } from 'pinia'
+
 defineProps({
-  isLiked: {
+  quoteId: {
     required: true,
-    type: Boolean
+    type: Number
   }
 })
+
+const userStore = useUserStore()
+const { likedQuotes } = storeToRefs(userStore)
+
+function isLiked(quoteId) {
+  return likedQuotes.value.includes(quoteId)
+}
 </script>
