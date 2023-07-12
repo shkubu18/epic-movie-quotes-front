@@ -33,9 +33,11 @@ import NewsFeedSearchedQuotes from '@/components/newsfeed/NewsFeedSearchedQuotes
 import NewsFeedQuotes from '@/components/newsfeed/NewsFeedQuotes.vue'
 import QuoteAddModal from '@/components/modals/quotes/QuoteAddModal.vue'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/stores/useModalStore'
+import { useUserStore } from '@/stores/useUserStore'
+import { deleteLikeNotification } from '@/services/api/notifications'
 
 const apiUrlForPictures = import.meta.env.VITE_API_BASE_URL + '/storage/'
 
@@ -44,6 +46,10 @@ const { modals } = storeToRefs(modalStore)
 
 const newsFeedQuoteStore = useNewsFeedQuoteStore()
 const { searchingQuotesIsActive } = storeToRefs(newsFeedQuoteStore)
+
+const userStore = useUserStore()
+const { user } = storeToRefs(userStore)
+const { isNotificationsAlreadyFetched } = storeToRefs(userStore)
 
 const isSearchBarOpen = ref(false)
 const searchText = ref('')
@@ -60,4 +66,35 @@ const openQuoteAddModal = () => {
   modalStore.toggleModalVisibility('quoteAddModal')
 }
 const openSearchBar = () => (isSearchBarOpen.value = true)
+
+onMounted(async () => {
+  window.Echo.channel('comments').listen('CommentAdded', (data) => {
+    const newComment = {
+      id: data.id,
+      body: data.body,
+      user: {
+        username: data.sender.username,
+        profile_picture: data.sender.profile_picture
+      }
+    }
+
+    if (data.sender !== user.value.username) {
+      newsFeedQuoteStore.addComment(newComment, data.quote_id)
+    }
+  })
+
+  window.Echo.channel('likes').listen('Likes\\LikeAdded', (data) => {
+    if (data.like.sender !== user.value.username) {
+      newsFeedQuoteStore.addLike(data.like.quote_id)
+    }
+  })
+
+  window.Echo.channel('likes').listen('Likes\\LikeRemoved', (data) => {
+    if (data.sender !== user.value.username) {
+      newsFeedQuoteStore.removeLike(data.quote_id)
+      deleteLikeNotification(data.notification_id)
+      isNotificationsAlreadyFetched.value = false
+    }
+  })
+})
 </script>
