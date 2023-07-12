@@ -32,7 +32,7 @@
             : 'https://www.citypng.com/public/uploads/preview/png-round-blue-contact-user-profile-icon-11639786938sxvzj5ogua.png'
         "
         alt="profile picture"
-        class="h-14 rounded-full mr-6"
+        class="h-14 w-14 rounded-full mr-6 object-cover"
       />
       <textarea
         ref="commentInput"
