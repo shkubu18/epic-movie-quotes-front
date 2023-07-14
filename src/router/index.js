@@ -7,6 +7,7 @@ import ForbiddenView from '@/views/ForbiddenView.vue'
 import { shouldAuthenticated, shouldNotAuthenticated } from '@/router/guard'
 import MovieListView from '@/views/MovieListView.vue'
 import MovieDetailView from '@/views/MovieDetailView.vue'
+import UserProfileView from '@/views/UserProfileView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,8 +21,7 @@ const router = createRouter({
     {
       path: '/verify-email',
       name: 'verify-email',
-      component: VerifyEmailView,
-      beforeEnter: shouldNotAuthenticated
+      component: VerifyEmailView
     },
     {
       path: '/newsfeed',
@@ -39,6 +39,12 @@ const router = createRouter({
       path: '/my-movies/:id',
       name: 'movie-detail',
       component: MovieDetailView,
+      beforeEnter: shouldAuthenticated
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: UserProfileView,
       beforeEnter: shouldAuthenticated
     },
     {

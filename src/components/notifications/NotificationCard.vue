@@ -6,8 +6,8 @@
     <div class="flex items-center">
       <img
         :class="{
-          'h-20 rounded-full mr-6': true,
-          'border-4 border-green': !notification.read
+          'h-20 w-20 rounded-full mr-6 object-cover': true,
+          'border-3 border-green': !notification.read
         }"
         :src="
           notification.sender.profile_picture

@@ -32,6 +32,10 @@ export async function verifyEmail(token) {
   return axios.get(`api/email/verify/${token}`)
 }
 
+export async function updateEmail(token) {
+  return axios.get(`api/email/update/${token}`)
+}
+
 export async function resendEmailForVerification(email) {
   return axios.post('/api/email/resend/verify-email', {
     email: email
@@ -54,8 +58,4 @@ export async function passwordUpdate(password, passwordConfirmation, token) {
 
 export async function checkAuthStatus() {
   return axios.get('api/authenticated')
-}
-
-export async function getUser() {
-  return axios.get('api/user')
 }

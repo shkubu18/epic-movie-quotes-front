@@ -19,7 +19,9 @@ export const useModalStore = defineStore('useModalStore', () => {
     quoteAddModal: false,
     quoteEditModal: false,
     quoteViewModal: false,
-    quoteViewFromNotificationModal: false
+    quoteViewFromNotificationModal: false,
+    emailSentProfileModal: false,
+    userUpdateModal: false
   })
 
   const toggleModalVisibility = (modalName) => {
