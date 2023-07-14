@@ -6,9 +6,9 @@
     style="scrollbar-width: none"
   >
     <header class="w-full flex items-center justify-between text-white relative">
-      <h1 class="text-3xl">Notifications</h1>
+      <h1 class="text-3xl">{{ $t('notifications.notifications') }}</h1>
       <h3 @click="markAllAsRead" class="text-xl underline underline-offset-2 cursor-pointer">
-        Mark as all read
+        {{ $t('notifications.mark_all_as_read') }}
       </h3>
     </header>
     <div v-if="notifications.length > 0" class="mt-5">
@@ -22,7 +22,7 @@
       <icon-loading-spinner v-if="isLoading" class="mt-10 flex justify-center" />
     </div>
     <h1 v-else class="text-white text-2xl mt-14 text-center">
-      There are no notifications at this moment.
+      {{ $t('notifications.there_are_no_notifications_at_this_moment') }}
     </h1>
   </div>
 </template>
@@ -56,7 +56,7 @@ const lastPage = ref()
 const isLoading = ref(false)
 
 const markAllAsRead = async () => {
-  if (notifications.value.length) {
+  if (unreadNotificationsCount.value) {
     await markAllNotificationsAsRead().then((response) => {
       if (response.status === 200) {
         isNotificationsAlreadyFetched.value = false

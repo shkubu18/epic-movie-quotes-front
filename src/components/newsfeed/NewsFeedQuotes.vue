@@ -1,7 +1,7 @@
 <template>
   <icon-loading-spinner v-if="isLoading" class="mt-10" />
   <h1 v-if="quotes.length === 0 && !isLoading" class="text-3xl text-white mt-10">
-    There are no quotes...
+    {{ $t('quotes.there_are_no_quotes') }}
   </h1>
   <article
     v-for="quote in quotes"
@@ -102,7 +102,7 @@ onUnmounted(() => {
 const handleScrollForQuotes = () => {
   const { scrollTop, clientHeight, scrollHeight } = document.documentElement
 
-  if (scrollTop + clientHeight >= scrollHeight && !isLoading.value) {
+  if (scrollTop + clientHeight + 10 >= scrollHeight && !isLoading.value) {
     if (page.value <= lastPage.value) {
       if (!modals.value.quoteAddModal && !modals.value.quoteViewFromNotificationModal) {
         fetchQuotes()

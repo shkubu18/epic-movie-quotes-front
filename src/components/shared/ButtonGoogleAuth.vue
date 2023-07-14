@@ -4,7 +4,7 @@
     class="py-2 border-2 border-gray-400 w-full mt-5 flex items-center justify-center"
   >
     <icon-google class="mr-2" />
-    Sign in with Google
+    {{ $t('auth.sign_in_with_google') }}
   </button-base>
 </template>
 <script setup>

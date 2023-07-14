@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-2xl my-9">Movie description</h1>
+  <h1 class="text-2xl my-9">{{ $t('movies.movie_description') }}</h1>
   <div class="flex">
     <img
       class="w-7/12 h-440 object-cover rounded-xl"
@@ -9,7 +9,7 @@
     <div class="flex flex-col w-2/5 pl-5">
       <div class="flex items-center justify-between">
         <h1 class="text-2xl text-yellow">
-          {{ movie.name.en + '(' + movie.release_date + ')' }}
+          {{ movie.name[$i18n.locale] + '(' + movie.release_date + ')' }}
         </h1>
         <div class="bg-dark-blue text-gray-500 rounded-xl px-0.5 flex items-center">
           <icon-edit
@@ -29,8 +29,8 @@
           {{ genre.name }}
         </span>
       </div>
-      <h2 class="text-lg">Director: {{ movie.director.en }}</h2>
-      <p class="mt-5 text-lg">{{ movie.description.en }}</p>
+      <h2 class="text-lg">{{ $t('movies.director') + ': ' + movie.director[$i18n.locale] }}</h2>
+      <p class="mt-5 text-lg">{{ movie.description[$i18n.locale] }}</p>
     </div>
   </div>
 </template>

@@ -16,21 +16,23 @@
         "
         alt="profile picture"
       />
-      <div class="flex flex-col">
+      <div class="flex flex-col text-xl">
         <h2 class="text-2xl">{{ notification.sender.username }}</h2>
         <span v-if="notification.type === 'comment'" class="cursor-pointer text-gray-200 flex mt-2">
           <icon-quote style="height: 24px" class="mr-2" />
-          Commented to your movie quote</span
-        >
+          {{ $t('notifications.commented_to_your_movie_quote') }}
+        </span>
         <span v-else class="cursor-pointer text-gray-200 flex mt-2">
           <icon-liked style="height: 24px" class="mr-2" />
-          Reacted to your quote</span
-        >
+          {{ $t('notifications.reacted_to_your_quote') }}
+        </span>
       </div>
     </div>
     <div class="flex flex-col mt-3 text-xl">
       <span>{{ getNotificationReceiveTime(notification.created_at) }}</span>
-      <span v-if="!notification.read" class="mt-2 text-green text-end">New</span>
+      <span v-if="!notification.read" class="mt-2 text-green text-end">
+        {{ $t('notifications.new') }}
+      </span>
     </div>
   </div>
 </template>

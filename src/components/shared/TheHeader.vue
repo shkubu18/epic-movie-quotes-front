@@ -9,23 +9,29 @@
   >
     <h1 class="text-yellow">MOVIE QUOTES</h1>
     <div class="flex items-center">
-      <div @click="toggleNotifications" class="relative">
-        <icon-notification class="mr-9 cursor-pointer" />
+      <div @click="toggleNotifications" class="relative mr-9">
+        <icon-notification class="cursor-pointer" />
         <div
           v-if="unreadNotificationsCount && notifications.length"
-          class="absolute -top-1.5 right-5 mr-1.5 text-white bg-notification-circle-color cursor-pointer rounded-full w-6 flex justify-center"
+          class="absolute -top-1.5 -right-5 mr-2 text-white bg-notification-circle-color cursor-pointer rounded-full w-6 flex justify-center"
         >
           <span>{{ unreadNotificationsCount }}</span>
         </div>
       </div>
       <language-switcher />
-      <button-base @click="logoutUser" class="border-2">Log out</button-base>
+      <button-base @click="logoutUser" class="border-2">{{ $t('auth.logout') }}</button-base>
     </div>
     <notification-list
       v-show="isNotificationsOpen"
       @open-quote-view-from-notification-modal="openQuoteViewFromNotificationModal"
     />
-    <icon-arrow-up v-show="isNotificationsOpen" class="absolute top-20 right-72 mr-1" />
+    <icon-arrow-up
+      v-show="isNotificationsOpen"
+      :class="{
+        'absolute top-20 right-72 mr-1': true,
+        '!mr-6': $i18n.locale === 'ka'
+      }"
+    />
   </header>
 </template>
 <script setup>

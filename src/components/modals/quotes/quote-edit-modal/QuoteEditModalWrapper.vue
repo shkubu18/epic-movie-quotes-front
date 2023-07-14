@@ -9,9 +9,9 @@
           class="rounded-xl text-gray-200 flex absolute top-9 left-9 cursor-pointer"
         >
           <icon-delete />
-          <span class="ml-3">Delete</span>
+          <span class="ml-3">{{ $t('texts.delete') }}</span>
         </div>
-        <h1 class="text-2xl font-medium">Edit Quote</h1>
+        <h1 class="text-2xl font-medium">{{ $t('quotes.edit_quote') }}</h1>
         <icon-modal-close
           @click="toggleModalVisibility('quoteEditModal')"
           class="absolute right-10 top-10 cursor-pointer"

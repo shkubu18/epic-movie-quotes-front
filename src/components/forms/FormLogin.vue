@@ -1,18 +1,18 @@
 <template>
   <ValidationForm v-slot="{ errors }" class="w-96" @submit="handleSubmit">
     <input-auth
-      label="Username or email"
+      :label="$t('auth.labels.username_or_email')"
       name="username_or_email"
-      placeholder="Enter your username or email"
+      :placeholder="$t('auth.placeholders.enter_your_username_or_email')"
       type="text"
       v-model="userNameOrEmail"
       rules="required|min:3"
       :error="errors.username_or_email"
     />
     <input-auth
-      label="Password"
+      :label="$t('auth.password')"
       name="password"
-      placeholder="Password"
+      :placeholder="$t('auth.password')"
       type="password"
       v-model="password"
       rules="required"
@@ -28,16 +28,16 @@
           id="remember"
           v-model="remember"
         />
-        <label for="remember">Remember me</label>
+        <label for="remember">{{ $t('auth.labels.remember_me') }}</label>
       </div>
       <a
         class="text-blue-700 text-right ml-2 text-blue underline cursor-pointer"
         @click="toggleModals('loginModal', 'passwordForgotModal')"
       >
-        Forgot password
+        {{ $t('auth.forgot_password') }}
       </a>
     </div>
-    <button-base class="bg-red w-full mt-4 py-2">Sign in</button-base>
+    <button-base class="bg-red w-full mt-4 py-2">{{ $t('auth.sign_in') }}</button-base>
   </ValidationForm>
 </template>
 <script setup>

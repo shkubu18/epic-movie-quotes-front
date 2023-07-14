@@ -1,0 +1,24 @@
+{
+  "please_check_your_email_and_follow_the_instructions_to_change_your_email": "გთხოვთ, შეამოწმოთ თქვენი ელ.ფოსტა და მიჰყევით ინსტრუქციას თქვენი ელ.ფოსტის შესაცვლელად",
+  "changes_updated_successfully": "ცვლილებები წარმატებით განახლდა",
+  "edit_your_profile": "შეცვალეთ თქვენი პროფილი",
+  "my_profile": "ჩემი პროფილი",
+  "upload_new_photo": "ატვირთეთ ახალი ფოტო",
+  "edit": "რედაქტირება",
+  "password_should_contain": "პაროლი უნდა შეიცავდეს",
+  "confirm_new_password": "დაადასტურეთ ახალი პაროლი",
+  "enter_new_input": "შეიყვანეთ ახალი {input}",
+  "inputs": {
+    "username": "მომხმარებლის სახელი",
+    "email": "ელ.ფოსტა",
+    "password": "პაროლი"
+  },
+  "labels": {
+    "username": "მოხმარებლის სახელი",
+    "new_username": "ახალი მომხმარებლის სახელი",
+    "email": "ელ.ფოსტა",
+    "new_email": "ახალი ელ.ფოსტა",
+    "password": "პაროლი",
+    "new_password": "ახალი პაროლი"
+  }
+}

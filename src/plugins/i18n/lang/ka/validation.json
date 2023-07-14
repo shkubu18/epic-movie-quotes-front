@@ -1,0 +1,6 @@
+{
+  "min_max_numbers_and_lower_case_characters": "მინიმუმ {minNumber} და მაქსიმუმ 15 პატარა ასოები",
+  "lang_letters_and_only_following_special_characters": "გთხოვთ, შეიყვანოთ {lang} ასოები და მხოლოდ შემდეგი სპეციალური სიმბოლოები: .,!\"-_?:;'",
+  "georgian": "ქართული",
+  "english": "ინგლისური"
+}

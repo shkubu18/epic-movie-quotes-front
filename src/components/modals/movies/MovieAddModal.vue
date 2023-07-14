@@ -3,7 +3,7 @@
   <modal-crud-movie
     modal="movieAddModal"
     :api-url-for-pictures="apiUrlForPictures"
-    heading-text="Add Movie"
+    :heading-text="$t('movies.add_movie_capitalize_case')"
   >
     <form-movie-add />
   </modal-crud-movie>

@@ -2,8 +2,8 @@
   <email-sent-profile-modal v-if="modals.emailSentProfileModal" />
 
   <transition
-    enter-active-class="duration-500 ease"
-    enter-from-class="translate-x-96"
+    enter-active-class="duration-500 ease-in"
+    enter-from-class="opacity-0"
     leave-active-class="opacity-0 duration-700 ease"
   >
     <user-update-modal v-if="modals.userUpdateModal" />
@@ -16,7 +16,7 @@
   <main class="bg-darker-blue flex justify-center min-h-1650 pb-40">
     <the-aside :api-url-for-pictures="apiUrlForPictures" />
     <section class="text-white w-1/2 pt-9 ml-5 max-w-5xl" id="profile-section">
-      <h1 class="text-2xl ml-16">My profile</h1>
+      <h1 class="text-2xl ml-16">{{ $t('profile.my_profile') }}</h1>
       <div
         class="w-full bg-lighter-black mt-28 flex flex-col items-center justify-center pb-36 pt-52 relative"
       >
@@ -30,7 +30,9 @@
             "
             alt="profile picture"
           />
-          <label class="mt-3 cursor-pointer" for="profile_picture">Upload new photo</label>
+          <label class="mt-3 cursor-pointer" for="profile_picture">
+            {{ $t('profile.upload_new_photo') }}
+          </label>
           <input
             id="profile_picture"
             type="file"

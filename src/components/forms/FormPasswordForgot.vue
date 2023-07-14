@@ -1,16 +1,18 @@
 <template>
   <ValidationForm v-slot="{ errors }" class="w-full text-left" @submit="handleSubmit">
     <input-auth
-      label="Email"
+      :label="$t('auth.labels.email')"
       name="email"
-      placeholder="Enter your email"
+      :placeholder="$t('auth.placeholders.enter_your_email')"
       type="text"
       v-model="email"
       rules="required|email"
       :error="errors.email"
     />
     <span v-if="errorMessage" class="text-red mb-5 block">{{ errorMessage }}</span>
-    <button-base class="bg-red w-full py-2">Send instructions</button-base>
+    <button-base class="bg-red w-full py-2"
+      >{{ $t('passwordRecovery.send_instructions') }}
+    </button-base>
   </ValidationForm>
 </template>
 <script setup>

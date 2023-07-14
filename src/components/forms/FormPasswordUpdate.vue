@@ -1,24 +1,26 @@
 <template>
   <ValidationForm v-slot="{ errors }" class="w-full text-left" @submit="handleSubmit">
     <input-auth
-      label="Password"
+      :label="$t('auth.password')"
       name="password"
-      placeholder="At least 8 & max.15 lower case characters"
+      :placeholder="$t('validation.min_max_numbers_and_lower_case_characters', { minNumber: 8 })"
       type="password"
       v-model="password"
       rules="min-8-max-15-lowercase"
       :error="errors.password"
     />
     <input-auth
-      label="Confirm password"
+      :label="$t('auth.labels.confirm_password')"
       name="password_confirmation"
-      placeholder="Confirm password"
+      :placeholder="$t('auth.placeholders.confirm_password')"
       type="password"
       v-model="passwordConfirmation"
       rules="required|confirmed:@password"
       :error="errors.password_confirmation"
     />
-    <button-base class="bg-red w-full py-2">Reset password</button-base>
+    <button-base class="bg-red w-full py-2">
+      {{ $t('passwordRecovery.reset_password') }}
+    </button-base>
   </ValidationForm>
 </template>
 <script setup>

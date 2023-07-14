@@ -2,11 +2,12 @@
   <div
     :class="{
       'flex items-center relative ml-2 py-4 text-white': true,
-      'w-52 cursor-pointer': !isSearchBarOpen,
-      'w-680  pl-14 border-b-2 border-newsfeed-quote-border-color': isSearchBarOpen
+      'w-44 cursor-pointer': !isSearchBarOpen,
+      '!w-650  pl-10 border-b-2 border-default-border-b-color': isSearchBarOpen,
+      '!w-32': $i18n.locale === 'ka'
     }"
   >
-    <icon-search-bar class="absolute left-4" />
+    <icon-search-bar class="absolute left-1.5" />
     <input
       ref="searchInput"
       @keydown.enter="getSearchResult"
@@ -20,7 +21,9 @@
       type="text"
       name="search"
       :placeholder="
-        isSearchBarOpen ? 'Enter @ to search movies, Enter # to search quotes' : 'Search by'
+        isSearchBarOpen
+          ? $t('texts.search_long_text', { movieSymbol: '@', quoteSymbol: '#' })
+          : $t('texts.search_short_text')
       "
     />
   </div>

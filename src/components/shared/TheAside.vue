@@ -22,7 +22,7 @@
         />
         <div class="flex flex-col">
           <h2 class="text-white text-2xl">{{ user.username }}</h2>
-          <span class="text-gray-400 cursor-pointer">Edit your profile</span>
+          <span class="text-gray-400 cursor-pointer">{{ $t('profile.edit_your_profile') }}</span>
         </div>
       </section>
     </router-link>
@@ -30,13 +30,13 @@
       <router-link :to="{ name: 'newsfeed' }">
         <div class="flex items-center mb-10 cursor-pointer">
           <icon-news-feed />
-          <span class="text-2xl ml-10 pt-0.5">News feed</span>
+          <span class="text-2xl ml-10 pt-0.5">{{ $t('texts.news_feed') }}</span>
         </div>
       </router-link>
       <router-link :to="{ name: 'my-movies' }">
         <div class="flex items-center mb-10 cursor-pointer">
           <icon-list-of-movies />
-          <span class="text-2xl ml-10 pt-0.5">List of movies</span>
+          <span class="text-2xl ml-10 pt-0.5">{{ $t('texts.list_of_movies') }}</span>
         </div>
       </router-link>
     </section>

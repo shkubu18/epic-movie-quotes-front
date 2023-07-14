@@ -3,10 +3,13 @@
   <modal-crud-quote
     modal="quoteAddModal"
     :api-url-for-pictures="apiUrlForPictures"
-    :heading-text="movie ? 'Add Quote' : 'Write New Quote'"
+    :heading-text="movie ? $t('quotes.add_quote_capitalize_case') : $t('quotes.write_new_quote')"
     :movie="movie"
   >
-    <form-quote-add :movie="movie" :button-text="movie ? 'Add Quote' : 'Post'" />
+    <form-quote-add
+      :movie="movie"
+      :button-text="movie ? $t('quotes.add_quote_normal_case') : $t('texts.post')"
+    />
   </modal-crud-quote>
 </template>
 <script setup>

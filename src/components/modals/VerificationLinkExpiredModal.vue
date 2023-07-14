@@ -4,10 +4,10 @@
     <div class="bg-dark-blue mb-12 text-white px-24 py-16 rounded-lg text-center">
       <div class="w-440 flex items-center flex-col">
         <icon-warning />
-        <h1 class="text-3xl font-medium mt-5">Link expired!</h1>
-        <p class="mt-7 mb-9">Email verification link has expired, because you haven’t used it</p>
-        <button-base @click="resendEmail" class="bg-red w-full py-2.5"
-          >Request another link
+        <h1 class="text-3xl font-medium mt-5">{{ $t('auth.link_expired_short_text') }}</h1>
+        <p class="mt-7 mb-9">{{ $t('auth.link_expired_long_text') }}</p>
+        <button-base @click="resendEmail" class="bg-red w-full py-2.5">
+          {{ $t('auth.request_another_link') }}
         </button-base>
       </div>
     </div>

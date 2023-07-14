@@ -1,0 +1,15 @@
+{
+  "commented_to_your_movie_quote": "დატოვა კომენტარი თქვენს ციტატაზე",
+  "reacted_to_your_quote": "ჰქონდა რეაქცია თქვენს ციტატაზე",
+  "new": "ახალი",
+  "notifications": "შეტყობინებები",
+  "mark_all_as_read": "მონიშნე ყველა როგორც წაკითხული",
+  "there_are_no_notifications_at_this_moment": "ამ დროისთვის შეტყობინებები არ არის.",
+  "now": "ახლა",
+  "second": "წმ წინ",
+  "minute": "წთ წინ",
+  "hour": "სთ წინ",
+  "day": "დღის წინ",
+  "week": "კვირის წინ",
+  "month": "თვის წინ"
+}

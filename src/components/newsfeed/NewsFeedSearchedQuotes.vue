@@ -1,5 +1,7 @@
 <template>
-  <h1 v-if="noQuotesSearchResult" class="text-white text-3xl mt-16">No quotes search result...</h1>
+  <h1 v-if="noQuotesSearchResult" class="text-white text-3xl mt-16">
+    {{ $t('quotes.no_quotes_search_result') }}
+  </h1>
   <article
     v-for="quote in searchedQuotes"
     :key="quote.id"

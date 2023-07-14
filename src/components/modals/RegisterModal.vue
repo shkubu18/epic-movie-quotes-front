@@ -2,17 +2,17 @@
   <modal-background modal="registerModal" />
   <modal-container>
     <div class="bg-dark-blue mb-12 text-white flex flex-col items-center px-32 py-12 rounded-lg">
-      <h1 class="text-3xl font-medium mb-2">Create an account</h1>
-      <p class="text-gray-600 mb-7">Start your journey!</p>
+      <h1 class="text-3xl font-medium mb-2">{{ $t('auth.create_an_account') }}</h1>
+      <p class="text-gray-600 mb-7">{{ $t('auth.start_your_journey') }}</p>
       <form-register />
       <button-google-auth />
       <p class="text-gray-600 text-center mt-7">
-        Already have an account?
+        {{ $t('auth.already_have_an_account') }}
         <a
           class="text-blue-700 underline cursor-pointer"
           @click="toggleModals('registerModal', 'loginModal')"
         >
-          Log in
+          {{ $t('auth.login') }}
         </a>
       </p>
     </div>

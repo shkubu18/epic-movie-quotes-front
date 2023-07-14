@@ -30,10 +30,14 @@
         <movie-detail-description-movie :api-url-for-pictures="apiUrlForPictures" :movie="movie" />
         <div class="mt-10 flex items-center">
           <h2 class="text-2xl">
-            Quotes (total {{ movie.quotes ? movie.quotes.length : 0 }})
+            {{ $t('quotes.quotes') }}
+
+            ({{ $t('texts.total') }} {{ movie.quotes ? movie.quotes.length : 0 }})
             <span class="text-gray-500">|</span>
           </h2>
-          <button-crud-add @click="openQuoteAddModal" class="ml-3">Add quote</button-crud-add>
+          <button-crud-add @click="openQuoteAddModal" class="ml-3">
+            {{ $t('quotes.add_quote_normal_case') }}
+          </button-crud-add>
         </div>
         <movie-detail-description-quotes
           :api-url-for-pictures="apiUrlForPictures"

@@ -80,7 +80,9 @@
 
     <span v-if="serverErrorMessage" class="text-red mt-7 block">{{ serverErrorMessage }}</span>
 
-    <button-base class="bg-red w-full mt-7 py-2">Add movie</button-base>
+    <button-base class="bg-red w-full mt-7 py-2">
+      {{ $t('movies.add_movie_normal_case') }}
+    </button-base>
   </ValidationForm>
 </template>
 <script setup>

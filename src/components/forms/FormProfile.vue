@@ -1,9 +1,16 @@
 <template>
-  <ValidationForm as="div" class="w-3/5" v-slot="{ errors, handleSubmit }">
+  <ValidationForm
+    v-slot="{ errors, handleSubmit }"
+    as="div"
+    :class="{
+      'w-3/5': $i18n.locale === 'en',
+      'w-full px-36': $i18n.locale === 'ka'
+    }"
+  >
     <form @submit="handleSubmit($event, onSubmit)" id="profile-form">
       <input-profile
         :input-value="user.username"
-        label="Username"
+        :label="$t('profile.labels.username')"
         type="text"
         @edit-button-clicked="toggleInputVisibility('newUsername')"
       />
@@ -11,16 +18,16 @@
         v-model="newUsername"
         :error="errors.username ? errors.username : ''"
         :is-input-visible="isInputVisible('newUsername')"
-        label="New username"
+        :label="$t('profile.labels.new_username')"
         name="username"
-        placeholder="Enter new username"
+        :placeholder="$t('profile.enter_new_input', { input: $t('profile.inputs.username') })"
         rules="min-3-max-15-lowercase"
         type="text"
       />
       <input-profile
         :google-user="!!user.google_id"
         :input-value="user.email"
-        label="Email"
+        :label="$t('profile.labels.email')"
         type="text"
         @edit-button-clicked="toggleInputVisibility('newEmail')"
       />
@@ -28,9 +35,9 @@
         v-model="newEmail"
         :error="errors.email ? errors.email : ''"
         :is-input-visible="isInputVisible('newEmail')"
-        label="New email"
+        :label="$t('profile.labels.new_email')"
         name="email"
-        placeholder="Enter new email"
+        :placeholder="$t('profile.enter_new_input', { input: $t('profile.inputs.email') })"
         rules="required|email"
         type="text"
       />
@@ -38,14 +45,14 @@
       <div v-if="!user.google_id">
         <input-profile
           input-value="test-password"
-          label="Password"
+          :label="$t('profile.labels.password')"
           type="password"
           @edit-button-clicked="toggleInputVisibility('newPassword')"
         />
 
         <div v-if="isInputVisible('newPassword')" class="text-xl">
           <div class="w-full max-w-lg border-2 border-custom-gray rounded p-6 -mt-4 mb-8">
-            <span class="text-lg">Passwords should contain:</span>
+            <span class="text-lg">{{ $t('profile.password_should_contain') + ':' }}</span>
             <ul
               :class="{
                 'text-sm mt-6 list-disc list-inside': true,
@@ -54,16 +61,18 @@
                   newPassword.length < 8 || newPassword.length > 15
               }"
             >
-              <li>At least 8 & max.15 lower case characters</li>
+              <li>
+                {{ $t('validation.min_max_numbers_and_lower_case_characters', { minNumber: 8 }) }}
+              </li>
             </ul>
           </div>
           <input-profile-update
             v-model="newPassword"
             :error="errors.password ? errors.password : ''"
             :is-input-visible="isInputVisible('newPassword')"
-            label="New password"
+            :label="$t('profile.labels.new_password')"
             name="password"
-            placeholder="Enter new password"
+            :placeholder="$t('profile.enter_new_input', { input: $t('profile.inputs.password') })"
             rules="min-8-max-15-lowercase"
             type="password"
           />
@@ -71,9 +80,9 @@
             v-model="confirmNewPassword"
             :error="errors.password_confirmation ? errors.password_confirmation : ''"
             :is-input-visible="isInputVisible('newPassword')"
-            label="Confirm new password"
+            :label="$t('profile.confirm_new_password')"
             name="password_confirmation"
-            placeholder="Confirm new password"
+            :placeholder="$t('profile.confirm_new_password')"
             rules="required|confirmed:@password"
             type="password"
           />
@@ -85,9 +94,11 @@
 
   <teleport v-if="isMounted && isOneOfHiddenInputsOpen" to="#profile-section">
     <div class="w-full flex justify-end mt-14 text-xl">
-      <button-base @click="resetHiddenInputs" class="mr-2">Cancel</button-base>
+      <button-base @click="resetHiddenInputs" class="mr-2">
+        {{ $t('texts.cancel') }}
+      </button-base>
       <button-base type="submit" form="profile-form" class="bg-red py-3">
-        Save changes
+        {{ $t('texts.save_changes') }}
       </button-base>
     </div>
   </teleport>
@@ -167,8 +178,9 @@ const isInputVisible = (inputType) => {
 }
 
 const onSubmit = async (values) => {
+  scrollToTop()
   serverErrorMessage.value = ''
-  spinnerStore.toggleActiveStatus()
+  if (newEmail.value) spinnerStore.toggleActiveStatus()
   await updateUser(values, props.user.id)
     .then((response) => {
       if (response.status === 200) {
@@ -176,23 +188,18 @@ const onSubmit = async (values) => {
         isUserAlreadyFetched.value = false
 
         if (response.data.message === 'verification email sent successfully') {
+          spinnerStore.toggleActiveStatus()
+
           modalStore.toggleModalVisibility('emailSentProfileModal')
         } else {
           setTimeout(() => {
             modalStore.toggleModalVisibility('userUpdateModal')
           }, 600)
         }
-
-        setTimeout(() => {
-          scrollToTop()
-        }, 200)
       }
     })
     .catch((error) => {
       serverErrorMessage.value = error.response.data.message
-    })
-    .finally(() => {
-      spinnerStore.toggleActiveStatus()
     })
 
   setTimeout(() => {

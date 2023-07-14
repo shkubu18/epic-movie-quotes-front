@@ -4,10 +4,10 @@
     <div class="flex">
       <language-switcher />
       <button-base @click="toggleModalVisibility('registerModal')" class="bg-red mr-3.5">
-        Sign Up
+        {{ $t('auth.sign_up') }}
       </button-base>
       <button-base @click="toggleModalVisibility('loginModal')" class="border-2">
-        Log In
+        {{ $t('auth.login') }}
       </button-base>
     </div>
   </header>

@@ -13,7 +13,7 @@
         @click="emits('editButtonClicked')"
         class="text-xl text-gray-200 cursor-pointer"
       >
-        Edit
+        {{ $t('texts.edit') }}
       </span>
     </div>
   </div>

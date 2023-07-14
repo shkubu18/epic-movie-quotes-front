@@ -19,7 +19,7 @@
         'cursor-pointer': !isSearchBarOpen
       }"
       type="text"
-      :placeholder="isSearchBarOpen ? 'Search movie' : 'Search'"
+      :placeholder="isSearchBarOpen ? $t('movies.search_movie') : $t('texts.search')"
     />
   </div>
 </template>
@@ -28,6 +28,9 @@ import IconSearchBar from '@/components/icons/IconSearchBar.vue'
 import { ref } from 'vue'
 import { useMovieStore } from '@/stores/useMovieStore'
 import { storeToRefs } from 'pinia'
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
 
 const movieStore = useMovieStore()
 const { moviesList } = storeToRefs(movieStore)
@@ -54,7 +57,9 @@ const setSearchedMovies = () => {
 
   searchedMovies.value =
     searchResult !== ''
-      ? moviesList.value.filter((movie) => movie.name.en.toLowerCase().includes(searchResult))
+      ? moviesList.value.filter((movie) =>
+          movie.name[locale.value].toLowerCase().includes(searchResult)
+        )
       : []
 }
 </script>

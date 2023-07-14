@@ -8,21 +8,21 @@
       class="flex items-center hover:bg-darker-blue py-5 pl-9 duration-300 w-full"
     >
       <icon-view />
-      <span class="ml-4"> View Quote </span>
+      <span class="ml-4">{{ $t('quotes.view_quote') }}</span>
     </div>
     <div
       @click="emits('getQuoteIndex', quoteIndex, quoteId, 'edit')"
       class="flex items-center hover:bg-darker-blue py-5 pl-9 duration-300 w-full"
     >
       <icon-edit />
-      <span class="ml-4">Edit</span>
+      <span class="ml-4">{{ $t('texts.edit') }}</span>
     </div>
     <div
       @click="deleteQuote(quoteId)"
       class="flex items-center hover:bg-darker-blue py-5 pl-9 duration-300 w-full"
     >
       <icon-delete />
-      <span class="ml-4">Delete</span>
+      <span class="ml-4">{{ $t('texts.delete') }}</span>
     </div>
   </div>
 </template>

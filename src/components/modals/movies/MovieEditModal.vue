@@ -3,7 +3,7 @@
   <modal-crud-movie
     modal="movieEditModal"
     :api-url-for-pictures="apiUrlForPictures"
-    heading-text="Edit Movie"
+    :heading-text="$t('movies.edit_movie')"
   >
     <form-movie-edit />
   </modal-crud-movie>
