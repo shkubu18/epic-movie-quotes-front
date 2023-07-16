@@ -9,5 +9,6 @@
   "director": "რეჟისორი",
   "choose_movie": "აირჩიე ფილმი",
   "no_movies_in_your_movie_list": "თქვენს ფილმების სიაში ფილმები არ არის...",
-  "no_movies_search_result": "ფილმების ძიების შედეგი არ არის..."
+  "no_movies_search_result": "ფილმების ძიების შედეგი არ არის...",
+  "no_movies_in_your_movie_list_please_add_at_least_one_movie": "თქვენს ფილმების სიაში ფილმები არ არის... გთხოვთ, დაამატოთ ერთი ფილმი მაინც"
 }
