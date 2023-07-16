@@ -27,7 +27,7 @@
 <script setup>
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
 import ButtonGoogleAuth from '@/components/shared/ButtonGoogleAuth.vue'
-import ModalContainer from '@/components/shared/modals/ModalContainer.vue'
+import ModalContainer from '@/components/layouts/modals/ModalContainer.vue'
 import FormRegister from '@/components/forms/FormRegister.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import IconModalClose from '@/components/icons/IconModalClose.vue'
