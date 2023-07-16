@@ -11,19 +11,22 @@
   <password-updated-successfully-modal v-if="modals.passwordUpdatedSuccessfullyModal" />
   <password-reset-token-expired v-if="modals.passwordResetTokenExpiredModal" />
   <spinner-with-background v-if="spinnerStore.isActive" />
-  <div class="h-screen bg-gray-950">
+  <div class="h-600 md:h-screen bg-black md:bg-gray-950">
     <landing-header />
-    <div class="flex items-center justify-center flex-col h-full -mt-24">
+    <div class="flex items-center justify-center flex-col h-full -mt-14 md:-mt-24">
       <h1
         :class="{
-          'text-6xl text-yellow text-center font-bold leading-normal mb-6 font-[montserrat-bold]': true,
-          'w-2/5': $i18n.locale === 'en',
-          'w-3/5': $i18n.locale === 'ka'
+          'text-2xl md:text-6xl w-3/4 text-yellow text-center font-bold !leading-normal mb-6 font-[montserrat-bold]': true,
+          'md:w-2/5': $i18n.locale === 'en',
+          'md:w-3/5': $i18n.locale === 'ka'
         }"
       >
         {{ $t('landing.find_any_quote_in_millions_of_movie_lines') }}
       </h1>
-      <button-base @click="toggleModalVisibility('loginModal')" class="bg-red text-xl py-2.5">
+      <button-base
+        @click="toggleModalVisibility('loginModal')"
+        class="bg-red text-base md:text-xl py-2.5"
+      >
         {{ $t('texts.get_started') }}
       </button-base>
     </div>

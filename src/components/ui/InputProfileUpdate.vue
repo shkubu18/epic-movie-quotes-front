@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isInputVisible" class="mb-14 text-xl relative max-w-lg">
+  <div v-if="isInputVisible" class="mb-14 lg:text-xl relative max-w-lg">
     <label class="block mb-2">{{ label }}</label>
     <Field
       :class="{
@@ -17,8 +17,11 @@
     />
     <ErrorMessage :name="name" class="text-red mt-3 block" />
 
-    <icon-valid-input v-if="!error && hasValue" class="absolute right-3 top-14" />
-    <icon-invalid-input v-if="error" class="absolute right-3 top-12 mt-1.5" />
+    <icon-valid-input
+      v-if="!error && hasValue"
+      class="absolute right-3 top-12 mt-1 lg:mt-0 lg:top-14"
+    />
+    <icon-invalid-input v-if="error" class="absolute right-3 top-9 lg:top-12 mt-3 lg:mt-1.5" />
   </div>
 </template>
 <script setup>

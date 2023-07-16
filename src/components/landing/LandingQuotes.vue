@@ -1,6 +1,6 @@
 <template>
   <landing-section class="bg-interstellar">
-    <landing-article class="mb-52">
+    <landing-article class="md:mb-52">
       <landing-heading>{{ $t('landing.quotes.interstellar_quote') }}</landing-heading>
       <landing-span>{{ $t('landing.movies.interstellar') }}, 2014</landing-span>
     </landing-article>
@@ -12,7 +12,7 @@
     </landing-article>
   </landing-section>
   <landing-section class="bg-lord-of-rings">
-    <landing-article class="mt-52">
+    <landing-article class="md:mt-52">
       <landing-heading>{{ $t('landing.quotes.the_lord_of_the_rings_quote') }}</landing-heading>
       <landing-span>{{ $t('landing.movies.the_lord_of_the_rings') }}, 2003</landing-span>
     </landing-article>

@@ -1,36 +1,41 @@
 <template>
   <modal-crud-wrapper>
-    <div class="bg-lighter-black w-fit text-white ml-28 py-10 rounded-lg">
+    <div class="bg-lighter-black w-full lg:w-fit text-white lg:ml-28 py-10 rounded-lg">
       <header
         class="flex justify-center items-center w-full relative pb-5 border-b-3 border-b-neutral-800"
       >
-        <h1 class="text-2xl font-medium capitalize">{{ headingText }}</h1>
+        <h1 class="text-xl lg:text-2xl font-medium capitalize">{{ headingText }}</h1>
         <icon-modal-close
           @click="toggleModalVisibility(modal)"
           class="absolute right-10 cursor-pointer"
         />
       </header>
       <modal-crud-user-info :api-url-for-pictures="apiUrlForPictures" :user="user" />
-      <section v-if="movie" class="h-fit flex items-start justify-between w-fit pl-7 mb-7">
+      <section
+        v-if="movie"
+        class="h-fit flex items-center lg:items-start lg:justify-between w-full lg:w-fit pl-7 mb-7"
+      >
         <img
-          class="w-72 h-40 object-cover rounded-xl"
+          class="w-28 h-24 lg:w-72 lg:h-40 object-cover rounded-xl"
           :src="apiUrlForPictures + movie.picture"
           alt="movie picture"
         />
-        <div class="flex flex-col ml-8 pt-3">
-          <h2 class="text-2xl text-yellow">
+        <div class="flex flex-col ml-3 lg:ml-8 lg:pt-3">
+          <h2 class="lg:text-2xl text-yellow">
             {{ movie.name[$i18n.locale] + ' (' + movie.release_date + ')' }}
           </h2>
-          <div class="my-5 flex flex-wrap gap-1.5">
+          <div class="my-3 lg:my-5 flex flex-wrap gap-1.5">
             <span
-              class="bg-gray-500 py-1.5 px-2.5 text-lg mr-1.5 rounded-sm"
+              class="bg-gray-500 lg:py-1.5 px-1 font-bold lg:px-2.5 text-lg mr-1.5 rounded-sm text-xss"
               v-for="genre in movie.genres"
               :key="genre.id"
             >
               {{ genre.name }}
             </span>
           </div>
-          <h2 class="text-lg">{{ $t('movies.director') + ':' + movie.director[$i18n.locale] }}</h2>
+          <h2 class="lg:text-lg">
+            {{ $t('movies.director') + ':' + movie.director[$i18n.locale] }}
+          </h2>
         </div>
       </section>
       <slot />

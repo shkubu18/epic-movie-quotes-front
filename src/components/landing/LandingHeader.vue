@@ -1,9 +1,9 @@
 <template>
-  <header class="flex justify-between px-16 py-7">
+  <header class="flex items-center justify-between px-5 md:px-16 py-7">
     <h1 class="text-yellow">MOVIE QUOTES</h1>
     <div class="flex">
       <language-switcher />
-      <button-base @click="toggleModalVisibility('registerModal')" class="bg-red mr-3.5">
+      <button-base @click="toggleModalVisibility('registerModal')" class="bg-red mr-2.5 md:mr-3.5">
         {{ $t('auth.sign_up') }}
       </button-base>
       <button-base @click="toggleModalVisibility('loginModal')" class="border-2">

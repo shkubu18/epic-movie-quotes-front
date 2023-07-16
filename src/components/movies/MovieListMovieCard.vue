@@ -2,11 +2,11 @@
   <article v-for="movie in movies" :key="movie.id" class="text-white">
     <img
       @click="seeDetailMovie(movie.id)"
-      class="h-370 w-fit rounded-2xl object-cover cursor-pointer"
+      class="h-300 lg:h-370 lg:w-fit rounded-2xl object-cover cursor-pointer"
       :src="apiUrlForPictures + movie.picture"
       alt="movie picture"
     />
-    <h2 class="text-2xl mt-5 mb-3 uppercase">
+    <h2 class="text-2xl mt-5 mb-3 capitalize lg:uppercase">
       {{ movie.name[$i18n.locale] }} {{ '(' + movie.release_date + ')' }}
     </h2>
     <div class="mt-5 flex items-center">

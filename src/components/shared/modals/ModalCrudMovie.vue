@@ -1,10 +1,10 @@
 <template>
   <modal-crud-wrapper>
-    <div class="bg-lighter-black w-fit text-white ml-28 py-10 rounded-lg">
+    <div class="bg-lighter-black w-full lg:w-fit text-white lg:ml-28 py-10 rounded-lg">
       <header
         class="flex justify-center items-center w-full relative pb-5 border-b-3 border-b-neutral-800"
       >
-        <h1 class="text-2xl font-medium">{{ headingText }}</h1>
+        <h1 class="text-xl lg:text-2xl font-medium">{{ headingText }}</h1>
         <icon-modal-close
           @click="toggleModalVisibility(modal)"
           class="absolute right-10 cursor-pointer"

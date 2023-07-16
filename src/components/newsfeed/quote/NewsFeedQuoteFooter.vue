@@ -8,7 +8,7 @@
     </div>
 
     <div ref="commentsSection" id="comments-container" class="max-h-96 overflow-y-scroll">
-      <div v-for="comment in quote.comments" :key="comment.id" class="mt-5 flex text-xl">
+      <div v-for="comment in quote.comments" :key="comment.id" class="mt-5 flex lg:text-xl">
         <img
           :src="
             comment.user.profile_picture
@@ -16,7 +16,7 @@
               : 'https://www.citypng.com/public/uploads/preview/png-round-blue-contact-user-profile-icon-11639786938sxvzj5ogua.png'
           "
           alt="comment author profile picture"
-          class="h-14 w-14 rounded-full mr-6"
+          class="w-10 h-10 lg:h-14 lg:w-14 rounded-full mr-6"
         />
         <div class="text-left border-b-2 pb-7 w-full border-default-border-b-color">
           <h2 class="mb-5 pt-5">{{ comment.user.username }}</h2>
@@ -32,7 +32,7 @@
             : 'https://www.citypng.com/public/uploads/preview/png-round-blue-contact-user-profile-icon-11639786938sxvzj5ogua.png'
         "
         alt="profile picture"
-        class="h-14 w-14 rounded-full mr-6 object-cover"
+        class="w-10 h-10 lg:h-14 lg:w-14 rounded-full mr-6 object-cover"
       />
       <textarea
         ref="commentInput"

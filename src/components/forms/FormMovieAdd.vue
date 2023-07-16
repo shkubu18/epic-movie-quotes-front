@@ -1,5 +1,5 @@
 <template>
-  <ValidationForm v-slot="{ errors }" class="w-940 px-8" @submit="handleSubmit()">
+  <ValidationForm v-slot="{ errors }" class="w-full lg:w-940 px-8" @submit="handleSubmit()">
     <input-crud-movie
       label="Movie name"
       name="movie_name_en"

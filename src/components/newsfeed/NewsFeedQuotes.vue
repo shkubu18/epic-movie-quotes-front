@@ -1,12 +1,15 @@
 <template>
   <icon-loading-spinner v-if="isLoading" class="mt-10" />
-  <h1 v-if="quotes.length === 0 && !isLoading" class="text-3xl text-white mt-10">
+  <h1
+    v-if="quotes.length === 0 && !isLoading"
+    class="text-2xl lg:text-3xl text-white mt-10 text-center"
+  >
     {{ $t('quotes.there_are_no_quotes') }}
   </h1>
   <article
     v-for="quote in quotes"
     :key="quote.id"
-    class="text-center text-white bg-lighter-black w-940 rounded-xl p-5 mb-10"
+    class="text-center text-white bg-lighter-black w-full lg:w-940 rounded-xl p-5 mb-10"
   >
     <news-feed-quote-header :quote="quote" :apiUrlForPictures="apiUrlForPictures" />
     <news-feed-quote-section :quote="quote" :apiUrlForPictures="apiUrlForPictures" />

@@ -1,5 +1,8 @@
 <template>
-  <button-base class="bg-red py-2.5 !px-4 text-xl flex items-center">
+  <button-base
+    :class="{ '!text-xs': $i18n.locale === 'ka' }"
+    class="bg-red py-2.5 !px-4 lg:text-xl flex items-center"
+  >
     <icon-add class="mr-2" />
     <slot />
   </button-base>

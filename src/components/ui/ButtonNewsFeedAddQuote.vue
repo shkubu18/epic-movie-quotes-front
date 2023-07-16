@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{
-      'flex text-white py-3 px-4 rounded-xl bg-dark-blue items-center cursor-pointer': true,
+      'flex text-white pt-3 pb-5 px-7 md:py-3 md:px-4 rounded-xl bg-darker-blue md:bg-dark-blue items-center cursor-pointer': true,
       'w-full': !isSearchBarOpen,
       'justify-between': isSearchBarOpen
     }"

@@ -1,5 +1,7 @@
 <template>
-  <div class="absolute left-1/2 right-1/2 top-1/2 bottom-1/2 flex items-center justify-center z-20">
+  <div
+    class="w-full md:w-0 absolute md:left-1/2 md:right-1/2 md:top-1/2 md:bottom-1/2 flex items-center justify-center z-20"
+  >
     <slot />
   </div>
 </template>

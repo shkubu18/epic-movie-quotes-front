@@ -2,7 +2,7 @@
   <div class="mb-6">
     <div
       :class="{
-        'w-full p-2.5 text-white h-86 border-2 rounded flex items-start justify-between': true,
+        'w-full p-2.5 text-white h-86 border rounded flex items-start justify-between': true,
         'border-crud-input-gray focus:border-gray-400': !error,
         'border-red': error,
         '!border-green': !error && hasValue
@@ -13,7 +13,7 @@
           <Field
             as="textarea"
             :class="{
-              'border-none bg-transparent placeholder:italic w-full text-2xl caret-crud-input-gray outline-none': true,
+              'border-none bg-transparent placeholder:italic w-full lg:text-2xl caret-crud-input-gray outline-none': true,
               'placeholder:text-white': movie || quoteForEdit
             }"
             :type="type"
@@ -31,7 +31,7 @@
           <icon-invalid-input v-if="error" class="absolute -right-6 top-1 cursor-pointer" />
         </div>
       </div>
-      <span :class="movie || quoteForEdit ? 'text-xl text-crud-input-gray' : 'text-xl'">
+      <span :class="movie || quoteForEdit ? 'lg:text-xl text-crud-input-gray' : 'lg:text-xl'">
         {{ language }}
       </span>
     </div>

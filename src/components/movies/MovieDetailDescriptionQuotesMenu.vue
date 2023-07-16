@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="quoteMenuState[quoteId]"
-    class="absolute top-10 -right-48 bg-dark-blue rounded-lg w-60 cursor-pointer"
+    class="absolute bottom-12 right-5 lg:top-10 lg:-right-48 bg-dark-blue rounded-lg w-60 cursor-pointer"
   >
     <div
       @click="emits('getQuoteIndex', quoteIndex, quoteId, 'view')"

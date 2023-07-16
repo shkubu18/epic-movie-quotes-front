@@ -1,12 +1,12 @@
 <template>
   <div
     @click="markAsRead(notification.id)"
-    class="w-full flex justify-between rounded border-2 border-custom-gray text-white p-4 cursor-pointer"
+    class="w-full flex flex-col lg:flex-row justify-between rounded border-2 border-custom-gray text-white p-4 cursor-pointer"
   >
     <div class="flex items-center">
       <img
         :class="{
-          'h-20 w-20 rounded-full mr-6 object-cover': true,
+          'h-14 w-14 lg:h-20 lg:w-20 rounded-full mr-6 object-cover': true,
           'border-3 border-green': !notification.read
         }"
         :src="
@@ -16,8 +16,8 @@
         "
         alt="profile picture"
       />
-      <div class="flex flex-col text-xl">
-        <h2 class="text-2xl">{{ notification.sender.username }}</h2>
+      <div class="flex flex-col lg:text-xl">
+        <h2 class="text-xl lg:text-2xl">{{ notification.sender.username }}</h2>
         <span v-if="notification.type === 'comment'" class="cursor-pointer text-gray-200 flex mt-2">
           <icon-quote style="height: 24px" class="mr-2" />
           {{ $t('notifications.commented_to_your_movie_quote') }}
@@ -28,9 +28,11 @@
         </span>
       </div>
     </div>
-    <div class="flex flex-col mt-3 text-xl">
-      <span>{{ getNotificationReceiveTime(notification.created_at) }}</span>
-      <span v-if="!notification.read" class="mt-2 text-green text-end">
+    <div class="flex items-end pl-2 lg:flex-col mt-3 text-xl">
+      <span class="order-2 lg:order-1">{{
+        getNotificationReceiveTime(notification.created_at)
+      }}</span>
+      <span v-if="!notification.read" class="mt-2 text-green text-end mr-7 order-1 lg:order-2">
         {{ $t('notifications.new') }}
       </span>
     </div>

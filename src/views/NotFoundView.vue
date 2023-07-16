@@ -3,8 +3,8 @@
     <div class="flex items-center justify-center flex-col mb-20">
       <icon-not-found />
       <icon-not-found-circle class="mt-6 mb-10" />
-      <h1 class="text-5xl font-bold">Whoops!</h1>
-      <p class="text-2xl mt-5 mb-14">We can't see the page you are looking for</p>
+      <h1 class="text-2xl lg:text-5xl font-bold">{{ $t('texts.whoops') }}</h1>
+      <p class="lg:text-2xl mt-5 mb-14 text-center">{{ $t('texts.not_found_error_message') }}</p>
       <button-return-home />
     </div>
   </main>

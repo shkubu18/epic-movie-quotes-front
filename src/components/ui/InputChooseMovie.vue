@@ -14,7 +14,7 @@
     >
       <span
         @click="chooseMovie(movie.id, movie.name)"
-        class="text-xl p-3.5 hover:bg-dark-blue duration-300 border-b-2 border-dark-blue"
+        class="lg:text-xl p-3.5 hover:bg-dark-blue duration-300 border-b-2 border-dark-blue"
         v-for="movie in moviesList"
         :key="movie.id"
       >
@@ -23,9 +23,9 @@
     </div>
     <div v-if="!chosenMovie" class="flex items-center">
       <icon-list-of-movies />
-      <span class="text-2xl ml-3 mt-1">{{ $t('movies.choose_movie') }}</span>
+      <span class="lg:text-2xl ml-3 mt-1">{{ $t('movies.choose_movie') }}</span>
     </div>
-    <h2 v-else class="text-2xl">{{ chosenMovie[$i18n.locale] }}</h2>
+    <h2 v-else class="lg:text-2xl">{{ chosenMovie[$i18n.locale] }}</h2>
     <icon-arrow-down width="16" height="16" />
   </div>
   <ErrorMessage name="movie_id" class="text-red block mt-2" />

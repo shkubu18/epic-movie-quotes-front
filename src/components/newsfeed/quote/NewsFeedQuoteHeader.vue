@@ -1,8 +1,8 @@
 <template>
-  <header class="text-xl">
+  <header class="lg:text-xl truncate">
     <div class="flex items-center">
       <img
-        class="h-14 w-14 rounded-full mr-6 object-cover"
+        class="w-10 h-10 lg:h-14 lg:w-14 rounded-full mr-6 object-cover"
         :src="
           quote.user.profile_picture
             ? apiUrlForPictures + quote.user.profile_picture
@@ -13,7 +13,7 @@
       <h2 class="text-white">{{ quote.user.name }}</h2>
     </div>
     <div class="flex items-center mt-4 mb-10">
-      <p class="text-left">{{ '“' + quote.name[$i18n.locale] + '.”' }}</p>
+      <p class="text-left truncate">{{ '“' + quote.name[$i18n.locale] + '.”' }}</p>
       <span>
         {{ $t('texts.movie') + '-' }}
         <span class="text-yellow">{{ quote.movie.name[$i18n.locale] }}</span>

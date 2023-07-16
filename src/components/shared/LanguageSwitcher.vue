@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center mr-9 text-white relative">
+  <div class="flex items-center mr-3.5 md:mr-9 text-white relative">
     <div class="cursor-pointer flex items-center" @click="toggleLanguageMenu">
       <span class="mr-3 capitalize">
         {{

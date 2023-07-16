@@ -1,5 +1,5 @@
 <template>
-  <ValidationForm v-slot="{ errors }" class="w-940 px-8" @submit="handleSubmit()">
+  <ValidationForm v-slot="{ errors }" class="w-full lg:w-940 px-8" @submit="handleSubmit()">
     <input-text-area-quote
       :placeholder="movie ? '“Quote in English”' : 'Start create new quote'"
       name="quote_name_en"
