@@ -25,5 +25,11 @@
   "news_feed": "ნიუს ფიდი",
   "list_of_movies": "ჩემი ფილმები",
   "cancel": "გაუქმება",
-  "verifying": "ვერიფიცირდება..."
+  "verifying": "ვერიფიცირდება...",
+  "please_wait": "გთხოვთ დაიცადოთ...",
+  "upload_image": "სურათის ატვირთვა",
+  "whoops": "ჰმმ...!",
+  "not_found_error_message": "ჩვენ ვერ ვხედავთ გვერდს, რომელსაც ეძებთ",
+  "forbidden_short_message": "არ დაიშვებით!",
+  "forbidden_long_message": "ბოდიშს გიხდით, მაგრამ თქვენ არ გაქვთ ამ გვერდზე წვდომის უფლება"
 }

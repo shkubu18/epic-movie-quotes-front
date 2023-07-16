@@ -7,5 +7,7 @@
   "my_list_of_movies": "ჩემი ფილმების სია",
   "search_movie": "ფილმის ძებნა",
   "director": "რეჟისორი",
-  "choose_movie": "აირჩიე ფილმი"
+  "choose_movie": "აირჩიე ფილმი",
+  "no_movies_in_your_movie_list": "თქვენს ფილმების სიაში ფილმები არ არის...",
+  "no_movies_search_result": "ფილმების ძიების შედეგი არ არის..."
 }
