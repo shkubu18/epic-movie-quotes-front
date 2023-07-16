@@ -6,6 +6,7 @@ export default {
       colors: {
         yellow: '#DDCCAA',
         red: '#E31221',
+        'hovered-red': '#CC0E10',
         'dark-blue': '#222030',
         green: '#198754',
         'darker-blue': '#181623',
@@ -26,13 +27,15 @@ export default {
         'lord-of-rings': "url('/src/assets/images/landing/lord-of-rings.png')"
       },
       boxShadow: {
-        inner: 'inset 230px 150px 250px black'
+        inner: 'inset 230px 150px 250px black',
+        light: 'inset 130px 50px 150px black'
       },
       blur: {
         xs: '1.5px'
       },
       fontSize: {
-        '3xl': '2rem'
+        '3xl': '2rem',
+        xss: '0.5rem'
       },
       borderWidth: {
         3: '3px'
@@ -48,7 +51,10 @@ export default {
         370: '370px',
         86: '86px',
         440: '440px',
-        810: '810px'
+        600: '600px',
+        810: '810px',
+        750: '750px',
+        300: '300px'
       },
       minHeight: {
         1500: '1500px',
