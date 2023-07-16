@@ -60,7 +60,7 @@
 </template>
 <script setup>
 import { Form as ValidationForm } from 'vee-validate'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import ButtonBase from '@/components/ui/ButtonBase.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import MobileProfileAskConfirmationModal from '@/components/modals/mobile-profile/MobileProfileAskConfirmationModal.vue'
@@ -83,8 +83,4 @@ const handleSubmit = () => {
   toggleModalVisibility('mobileProfileAskConfirmationModal')
   scrollToTop()
 }
-
-const minHeight = computed(() => {
-  return document.body.offsetHeight - 114
-})
 </script>
