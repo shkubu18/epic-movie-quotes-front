@@ -8,6 +8,6 @@
   </button-base>
 </template>
 <script setup>
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import IconAdd from '@/components/icons/crud/IconAdd.vue'
 </script>

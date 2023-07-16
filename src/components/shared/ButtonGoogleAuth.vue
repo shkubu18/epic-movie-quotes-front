@@ -9,6 +9,6 @@
 </template>
 <script setup>
 import IconGoogle from '@/components/icons/IconGoogle.vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { authWithGoogle } from '@/services/api/oauth'
 </script>

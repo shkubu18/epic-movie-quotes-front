@@ -4,7 +4,7 @@
   </button-base>
 </template>
 <script setup>
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()

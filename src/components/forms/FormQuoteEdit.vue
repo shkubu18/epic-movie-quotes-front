@@ -36,15 +36,15 @@
   </ValidationForm>
 </template>
 <script setup>
-import InputTextAreaQuote from '@/components/ui/InputTextAreaQuote.vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import InputTextAreaQuote from '@/components/ui/inputs/InputTextAreaQuote.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { Form as ValidationForm } from 'vee-validate'
 import { reactive, ref } from 'vue'
 import { useModalStore } from '@/stores/useModalStore'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 import { storeToRefs } from 'pinia'
 import { useMovieStore } from '@/stores/useMovieStore'
-import InputPictureQuoteEdit from '@/components/ui/InputPictureQuoteEdit.vue'
+import InputPictureQuoteEdit from '@/components/ui/inputs/InputPictureQuoteEdit.vue'
 import { updateQuote } from '@/services/api/quotes'
 
 const props = defineProps({

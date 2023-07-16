@@ -25,7 +25,7 @@
   </modal-container>
 </template>
 <script setup>
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import IconWarning from '@/components/icons/IconWarning.vue'
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
 import ModalContainer from '@/components/shared/modals/ModalContainer.vue'

@@ -36,10 +36,10 @@
   </ValidationForm>
 </template>
 <script setup>
-import InputTextAreaQuote from '@/components/ui/InputTextAreaQuote.vue'
-import InputPictureDefault from '@/components/ui/InputPictureDefault.vue'
-import InputChooseMovie from '@/components/ui/InputChooseMovie.vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import InputTextAreaQuote from '@/components/ui/inputs/InputTextAreaQuote.vue'
+import InputPictureDefault from '@/components/ui/inputs/InputPictureDefault.vue'
+import InputChooseMovie from '@/components/ui/inputs/InputChooseMovie.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { Field, Form as ValidationForm } from 'vee-validate'
 import { reactive, ref } from 'vue'
 import { addQuote } from '@/services/api/quotes'

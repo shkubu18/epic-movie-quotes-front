@@ -33,7 +33,7 @@
 </template>
 <script setup>
 import IconEmailSent from '@/components/icons/IconEmailSent.vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import { computed } from 'vue'
 import IconModalClose from '@/components/icons/IconModalClose.vue'

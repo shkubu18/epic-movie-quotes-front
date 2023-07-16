@@ -116,9 +116,9 @@
 </template>
 <script setup>
 import { Form as ValidationForm } from 'vee-validate'
-import InputProfile from '@/components/ui/InputProfile.vue'
-import InputProfileUpdate from '@/components/ui/InputProfileUpdate.vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import InputProfile from '@/components/ui/inputs/InputProfile.vue'
+import InputProfileUpdate from '@/components/ui/inputs/InputProfileUpdate.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import MobileProfileNewUsernameModal from '@/components/modals/mobile-profile/MobileProfileNewUsernameModal.vue'
 import MobileProfileNewEmailModal from '@/components/modals/mobile-profile/MobileProfileNewEmailModal.vue'
 import MobileProfileNewPasswordModal from '@/components/modals/mobile-profile/MobileProfileNewPasswordModal.vue'

@@ -90,11 +90,11 @@
   </ValidationForm>
 </template>
 <script setup>
-import InputCrudMovie from '@/components/ui/InputCrudMovie.vue'
-import InputGenre from '@/components/ui/InputGenre.vue'
-import InputTextAreaMovie from '@/components/ui/InputTextAreaMovie.vue'
-import InputPictureDefault from '@/components/ui/InputPictureDefault.vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import InputCrudMovie from '@/components/ui/inputs/InputCrudMovie.vue'
+import InputGenre from '@/components/ui/inputs/InputGenre.vue'
+import InputTextAreaMovie from '@/components/ui/inputs/InputTextAreaMovie.vue'
+import InputPictureDefault from '@/components/ui/inputs/InputPictureDefault.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { Field, Form as ValidationForm } from 'vee-validate'
 import { onMounted, reactive, ref } from 'vue'
 import { useModalStore } from '@/stores/useModalStore'

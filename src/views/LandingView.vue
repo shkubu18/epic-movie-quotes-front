@@ -24,7 +24,7 @@
   <landing-footer />
 </template>
 <script setup>
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import LandingQuotes from '@/components/landing/LandingQuotes.vue'
 import LandingHeader from '@/components/landing/LandingHeader.vue'
 import LandingFooter from '@/components/landing/LandingFooter.vue'
