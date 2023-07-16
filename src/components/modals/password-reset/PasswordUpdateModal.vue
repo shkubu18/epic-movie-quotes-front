@@ -30,7 +30,7 @@ import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
 import ModalContainer from '@/components/shared/modals/ModalContainer.vue'
 import IconArrowLeft from '@/components/icons/arrows/IconArrowLeft.vue'
 import { useModalStore } from '@/stores/useModalStore'
-import FormPasswordUpdate from '@/components/forms/FormPasswordUpdate.vue'
+import FormPasswordUpdate from '@/components/forms/password/FormPasswordUpdate.vue'
 import IconModalClose from '@/components/icons/IconModalClose.vue'
 
 const modalStore = useModalStore()

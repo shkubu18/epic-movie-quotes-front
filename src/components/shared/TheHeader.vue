@@ -72,7 +72,7 @@ import IconArrowUp from '@/components/icons/arrows/IconArrowUp.vue'
 import QuoteViewFromNotificationModal from '@/components/modals/quotes/QuoteViewFromNotificationModal.vue'
 import IconMenuBar from '@/components/icons/IconMenuBar.vue'
 import IconSearchBar from '@/components/icons/IconSearchBar.vue'
-import MobileMenuModal from '@/components/modals/MobileMenuModal.vue'
+import MobileMenuModal from '@/components/modals/mobile/MobileMenuModal.vue'
 
 defineProps({
   quoteModalForNewsfeed: {

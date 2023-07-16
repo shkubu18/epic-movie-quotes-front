@@ -54,8 +54,8 @@ import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/stores/useModalStore'
 import { useUserStore } from '@/stores/useUserStore'
 import { deleteLikeNotification } from '@/services/api/notifications'
-import MobileMenuModal from '@/components/modals/MobileMenuModal.vue'
-import MobileNewsFeedSearchModal from '@/components/modals/MobileNewsFeedSearchModal.vue'
+import MobileMenuModal from '@/components/modals/mobile/MobileMenuModal.vue'
+import MobileNewsFeedSearchModal from '@/components/modals/mobile/MobileNewsFeedSearchModal.vue'
 
 const apiUrlForPictures = import.meta.env.VITE_API_BASE_URL + '/storage/'
 
