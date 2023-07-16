@@ -21,7 +21,13 @@ export const useModalStore = defineStore('useModalStore', () => {
     quoteViewModal: false,
     quoteViewFromNotificationModal: false,
     emailSentProfileModal: false,
-    userUpdateModal: false
+    userUpdateModal: false,
+    mobileMenuModal: false,
+    mobileNewsFeedSearchModal: false,
+    mobileProfileNewUsernameModal: false,
+    mobileProfileNewEmailModal: false,
+    mobileProfileNewPasswordModal: false,
+    mobileProfileAskConfirmationModal: false
   })
 
   const toggleModalVisibility = (modalName) => {
