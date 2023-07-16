@@ -49,5 +49,5 @@ export async function getLikedQuotes() {
 }
 
 export async function getQuote(quoteId) {
-  return axios.get(`/api/quotes/${quoteId}`)
+  return axios.get(`/api/quotes/${quoteId}/get`)
 }
