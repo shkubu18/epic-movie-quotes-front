@@ -1,4 +1,8 @@
+import { useI18n } from 'vue-i18n'
+
 export default function calculateNotificationReceiveTime(time) {
+  const { t } = useI18n()
+
   const createdDate = new Date(time)
   const currentDate = new Date()
   const timeDifference = currentDate.getTime() - createdDate.getTime()
@@ -10,17 +14,17 @@ export default function calculateNotificationReceiveTime(time) {
   const months = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 30))
 
   if (months > 0) {
-    return `${months} month${months > 1 ? 's' : ''} ago`
+    return `${months} ${t('notifications.month')}`
   } else if (weeks > 0) {
-    return `${weeks} week${weeks > 1 ? 's' : ''} ago`
+    return `${weeks} ${t('notifications.week')}`
   } else if (days > 0) {
-    return `${days} day${days > 1 ? 's' : ''} ago`
+    return `${days} ${t('notifications.day')}`
   } else if (hours > 0) {
-    return `${hours} hour${hours > 1 ? 's' : ''} ago`
+    return `${hours} ${t('notifications.hour')}`
   } else if (minutes > 0) {
-    return `${minutes} minute${minutes > 1 ? 's' : ''} ago`
+    return `${minutes} ${t('notifications.minute')}`
   } else if (seconds > 0) {
-    return `${seconds} sec${seconds > 1 ? 's' : ''} ago`
+    return `${seconds} ${t('notifications.second')}`
   } else {
     return 'now'
   }

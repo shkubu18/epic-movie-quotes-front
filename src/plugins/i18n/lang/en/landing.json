@@ -1,0 +1,14 @@
+{
+  "find_any_quote_in_millions_of_movie_lines": "Find any quote in millions of movie lines",
+  "all_rights_reserved": "all rights reserved.",
+  "quotes": {
+    "interstellar_quote": "“You have to leave something behind to go forward”",
+    "the_royal_tenenbaums_quote": "“I think we’re just gonna have to be secretly in love with each other and leave it that”",
+    "the_lord_of_the_rings_quote": "“A hunted man sometimes wearies of distrust and longs for friendship”"
+  },
+  "movies": {
+    "interstellar": "Interstellar",
+    "the_royal_tenenbaums": "The Royal Tenenbaums",
+    "the_lord_of_the_rings": "The Lord Of The Rings"
+  }
+}

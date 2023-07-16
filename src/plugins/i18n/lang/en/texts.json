@@ -1,0 +1,29 @@
+{
+  "language_switcher": {
+    "en": "Eng",
+    "ka": "Ka",
+    "english": "English",
+    "georgian": "Georgian"
+  },
+  "get_started": "Get Started",
+  "thank_you": "Thank You!",
+  "go_to_my_email": "Go to my email",
+  "check_your_email": "Check your email",
+  "edit": "Edit",
+  "delete": "Delete",
+  "total": "Total",
+  "search": "Search",
+  "movie": "movie",
+  "post": "Post",
+  "save_changes": "Save changes",
+  "return_home": "Return home",
+  "search_short_text": "Search by",
+  "search_long_text": "Enter {movieSymbol} to search movies, Enter {quoteSymbol} to search quotes",
+  "drag_end_drop_your_image_here_or": "Drag & drop your image here or",
+  "choose_file": "Choose file",
+  "change_photo": "Change Photo",
+  "news_feed": "News feed",
+  "list_of_movies": "List of movies",
+  "cancel": "Cancel",
+  "verifying": "Verifying..."
+}

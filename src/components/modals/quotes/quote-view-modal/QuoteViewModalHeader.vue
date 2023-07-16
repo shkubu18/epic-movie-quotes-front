@@ -10,7 +10,7 @@
       |
       <icon-delete @click="deleteQuote(quoteId)" class="my-2.5 mx-6 cursor-pointer" />
     </div>
-    <h1 class="text-2xl font-medium">View Quote</h1>
+    <h1 class="text-2xl font-medium">{{ $t('quotes.view_quote') }}</h1>
     <icon-modal-close
       @click="toggleModalVisibility('quoteViewModal')"
       class="absolute right-5 top-"

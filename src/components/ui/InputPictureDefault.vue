@@ -19,8 +19,10 @@
   >
     <div class="flex items-center" v-if="!modelValue && !existingMoviePicture">
       <icon-picture />
-      <span class="text-xl ml-2">Drag & drop your image here or</span>
-      <label class="bg-purple-950 text-xl p-3 rounded-sm ml-5" :for="name">Choose file</label>
+      <span class="text-xl ml-2">{{ $t('texts.drag_end_drop_your_image_here_or') }}</span>
+      <label class="bg-purple-950 text-xl p-3 rounded-sm ml-5" :for="name">
+        {{ $t('texts.choose_file') }}
+      </label>
     </div>
     <div
       class="flex h-full w-full items-center justify-center"
@@ -39,13 +41,13 @@
         class="h-full w-1/2 mb-2 object-cover"
       />
       <div class="flex flex-col w-1/2 items-center">
-        <h3 class="text-yellow text-lg font-bold">REPLACE PHOTO</h3>
+        <h3 class="text-yellow text-lg font-bold uppercase">{{ $t('texts.change_photo') }}</h3>
         <div class="flex items-center justify-center my-5">
           <icon-picture />
-          <span class="text-xl ml-2">Drag & drop your image here or</span>
+          <span class="text-xl ml-2">{{ $t('texts.drag_end_drop_your_image_here_or') }}</span>
         </div>
         <label class="bg-purple-950 text-xl p-3 rounded-sm ml-5 w-fit" :for="name">
-          Choose file
+          {{ $t('texts.choose_file') }}
         </label>
       </div>
     </div>

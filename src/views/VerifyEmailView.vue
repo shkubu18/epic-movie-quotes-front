@@ -1,7 +1,7 @@
 <template>
   <div class="bg-dark-blue h-screen flex items-center justify-center flex-col">
     <icon-loading-spinner />
-    <h1 class="text-white mt-2 text-xl">Verifying...</h1>
+    <h1 class="text-white mt-2 text-xl">{{ $t('texts.verifying') }}</h1>
   </div>
 </template>
 

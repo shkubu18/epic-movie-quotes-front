@@ -13,9 +13,10 @@
       <h2 class="text-white">{{ quote.user.name }}</h2>
     </div>
     <div class="flex items-center mt-4 mb-10">
-      <p class="text-left">{{ '“' + quote.name.en + '.”' }}</p>
+      <p class="text-left">{{ '“' + quote.name[$i18n.locale] + '.”' }}</p>
       <span>
-        movie- <span class="text-yellow">{{ quote.movie.name }}</span>
+        {{ $t('texts.movie') + '-' }}
+        <span class="text-yellow">{{ quote.movie.name[$i18n.locale] }}</span>
       </span>
       <span class="ml-1.5">{{ '(' + quote.movie.release_date + ')' }}</span>
     </div>

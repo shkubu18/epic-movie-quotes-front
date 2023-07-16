@@ -1,25 +1,20 @@
 <template>
   <landing-section class="bg-interstellar">
     <landing-article class="mb-52">
-      <landing-heading>“You have to leave something <br />behind to go forward”</landing-heading>
-      <landing-span>Interstellar, 2014</landing-span>
+      <landing-heading>{{ $t('landing.quotes.interstellar_quote') }}</landing-heading>
+      <landing-span>{{ $t('landing.movies.interstellar') }}, 2014</landing-span>
     </landing-article>
   </landing-section>
   <landing-section class="bg-the-royal-tenenbaums">
     <landing-article>
-      <landing-heading
-        >“I think we’re just gonna have <br />to be secretly in love with earch other <br />and
-        leave it that”
-      </landing-heading>
-      <landing-span>The Royal Tenenbaums, 2001</landing-span>
+      <landing-heading>{{ $t('landing.quotes.the_royal_tenenbaums_quote') }}</landing-heading>
+      <landing-span>{{ $t('landing.movies.the_royal_tenenbaums') }}, 2001</landing-span>
     </landing-article>
   </landing-section>
   <landing-section class="bg-lord-of-rings">
     <landing-article class="mt-52">
-      <landing-heading>
-        “A hunted man sometimes wearies of <br />distrust and longs for friendship.”
-      </landing-heading>
-      <landing-span>The Lord of the Rings, 2003</landing-span>
+      <landing-heading>{{ $t('landing.quotes.the_lord_of_the_rings_quote') }}</landing-heading>
+      <landing-span>{{ $t('landing.movies.the_lord_of_the_rings') }}, 2003</landing-span>
     </landing-article>
   </landing-section>
 </template>

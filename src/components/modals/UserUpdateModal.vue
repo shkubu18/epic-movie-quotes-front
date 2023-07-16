@@ -1,7 +1,7 @@
 <template>
   <div class="absolute top-28 right-16 bg-light-green p-4 rounded flex items-center">
     <icon-updated-successfully />
-    <h2 class="text-xl text-dark-green ml-3">Changes updated successfully</h2>
+    <h2 class="text-xl text-dark-green ml-3">{{ $t('profile.changes_updated_successfully') }}</h2>
   </div>
 </template>
 <script setup>

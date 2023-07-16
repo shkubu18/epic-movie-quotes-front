@@ -25,7 +25,7 @@
     >
       <label class="whitespace-nowrap flex flex-col items-center cursor-pointer" :for="name">
         <icon-picture class="mb-2" />
-        Change Photo
+        {{ $t('texts.change_photo') }}
       </label>
     </div>
   </div>

@@ -18,14 +18,14 @@
         v-for="movie in moviesList"
         :key="movie.id"
       >
-        {{ movie.name.en }}
+        {{ movie.name[$i18n.locale] }}
       </span>
     </div>
     <div v-if="!chosenMovie" class="flex items-center">
       <icon-list-of-movies />
-      <span class="text-2xl ml-3 mt-1">Choose movie</span>
+      <span class="text-2xl ml-3 mt-1">{{ $t('movies.choose_movie') }}</span>
     </div>
-    <h2 v-else class="text-2xl">{{ chosenMovie.en }}</h2>
+    <h2 v-else class="text-2xl">{{ chosenMovie[$i18n.locale] }}</h2>
     <icon-arrow-down width="16" height="16" />
   </div>
   <ErrorMessage name="movie_id" class="text-red block mt-2" />

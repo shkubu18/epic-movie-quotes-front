@@ -60,7 +60,7 @@
         <textarea
           class="h-14 placeholder:text-gray-300 pl-7 pt-4 bg-dark-blue border-none rounded-xl w-full"
           name="comment"
-          placeholder="White a comment"
+          :placeholder="$t('quotes.write_comment')"
         ></textarea>
       </div>
     </footer>

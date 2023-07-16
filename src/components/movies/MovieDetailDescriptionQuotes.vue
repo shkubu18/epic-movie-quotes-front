@@ -21,7 +21,7 @@
           :src="apiUrlForPictures + quote.picture"
           alt="quote picture"
         />
-        <p class="text-2xl mt-4 italic pl-10 w-3/4">{{ '“' + quote.name.en + '.”' }}</p>
+        <p class="text-2xl mt-4 italic pl-10 w-3/4">{{ '“' + quote.name[$i18n.locale] + '.”' }}</p>
       </div>
       <div class="flex mt-6 text-xl">
         <div class="flex items-center mr-8">

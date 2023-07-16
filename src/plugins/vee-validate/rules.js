@@ -1,5 +1,6 @@
 import { configure, defineRule } from 'vee-validate'
 import { between, confirmed, email, image, min, required } from '@vee-validate/rules'
+import i18n from '@/plugins/i18n'
 
 configure({ validateOnInput: true })
 
@@ -16,7 +17,7 @@ const englishTextRegex = /^[a-zA-Z0-9_'";?!:.,\s-]+$/
 
 defineRule('min-3-max-15-lowercase', (value) => {
   if (value.length < 3 || value.length > 15 || !lowercaseRegex.test(value)) {
-    return 'At least 3 & max. 15 lowercase characters.'
+    return i18n.global.t('validation.min_max_numbers_and_lower_case_characters', { minNumber: 3 })
   }
 
   return true
@@ -24,7 +25,7 @@ defineRule('min-3-max-15-lowercase', (value) => {
 
 defineRule('min-8-max-15-lowercase', (value) => {
   if (value.length < 8 || value.length > 15 || !lowercaseRegex.test(value)) {
-    return 'At least 8 & max. 15 lowercase characters.'
+    return i18n.global.t('validation.min_max_numbers_and_lower_case_characters', { minNumber: 8 })
   }
 
   return true
@@ -32,7 +33,9 @@ defineRule('min-8-max-15-lowercase', (value) => {
 
 defineRule('georgian-text', (value) => {
   if (!georgianTextRegex.test(value)) {
-    return 'Please enter georgian letters and only following special characters: .,!"-_?:;\''
+    return i18n.global.t('validation.lang_letters_and_only_following_special_characters', {
+      lang: i18n.global.t('validation.georgian')
+    })
   }
 
   return true
@@ -40,7 +43,9 @@ defineRule('georgian-text', (value) => {
 
 defineRule('english-text', (value) => {
   if (!englishTextRegex.test(value)) {
-    return 'Please enter english letters and only following special characters: .,!"-_?:;\''
+    return i18n.global.t('validation.lang_letters_and_only_following_special_characters', {
+      lang: i18n.global.t('validation.english')
+    })
   }
 
   return true

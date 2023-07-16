@@ -1,36 +1,36 @@
 <template>
   <ValidationForm v-slot="{ errors }" class="w-96" @submit="handleSubmit">
     <input-auth
-      label="Name"
+      :label="$t('auth.labels.name')"
       name="username"
-      placeholder="At least 3 & max.15 lower case characters"
+      :placeholder="$t('validation.min_max_numbers_and_lower_case_characters', { minNumber: 3 })"
       type="text"
       v-model="username"
       rules="min-3-max-15-lowercase"
       :error="errors.username"
     />
     <input-auth
-      label="Email"
+      :label="$t('auth.labels.email')"
       name="email"
-      placeholder="Enter your email"
+      :placeholder="$t('auth.placeholders.enter_your_email')"
       type="text"
       v-model="email"
       rules="required|email"
       :error="errors.email"
     />
     <input-auth
-      label="Password"
+      :label="$t('auth.password')"
       name="password"
-      placeholder="At least 8 & max.15 lower case characters"
+      :placeholder="$t('validation.min_max_numbers_and_lower_case_characters', { minNumber: 8 })"
       type="password"
       v-model="password"
       rules="min-8-max-15-lowercase"
       :error="errors.password"
     />
     <input-auth
-      label="Confirm password"
+      :label="$t('auth.labels.confirm_password')"
       name="password_confirmation"
-      placeholder="Confirm password"
+      :placeholder="$t('auth.placeholders.confirm_password')"
       type="password"
       v-model="passwordConfirmation"
       rules="required|confirmed:@password"
@@ -39,7 +39,7 @@
     <ul v-for="(errors, field) in errorMessages" :key="field">
       <li class="text-red block mb-2" v-for="error in errors" :key="error">{{ error }}</li>
     </ul>
-    <the-button class="bg-red w-full mt-4 py-2">Sign Up</the-button>
+    <the-button class="bg-red w-full mt-4 py-2">{{ $t('auth.sign_up') }}</the-button>
   </ValidationForm>
 </template>
 <script setup>

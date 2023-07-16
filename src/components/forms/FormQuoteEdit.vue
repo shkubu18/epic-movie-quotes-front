@@ -30,7 +30,9 @@
 
     <span v-if="serverErrorMessage" class="text-red mt-7 block">{{ serverErrorMessage }}</span>
 
-    <button-base class="bg-red w-full mt-7 py-2.5 text-xl">Save changes</button-base>
+    <button-base class="bg-red w-full mt-7 py-2.5 text-xl">
+      {{ $t('texts.save_changes') }}
+    </button-base>
   </ValidationForm>
 </template>
 <script setup>

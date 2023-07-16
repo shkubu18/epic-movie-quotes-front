@@ -4,13 +4,13 @@
     <div class="bg-dark-blue mb-12 text-white px-24 py-16 rounded-lg text-center">
       <div class="w-440 flex items-center flex-col">
         <icon-warning />
-        <h1 class="text-3xl font-medium mt-5">Already Verified!</h1>
-        <p class="mt-7 mb-9">Your email is already verified.</p>
+        <h1 class="text-3xl font-medium mt-5">{{ $t('auth.already_verified') }}</h1>
+        <p class="mt-7 mb-9">{{ $t('auth.your_email_is_already_verified') }}</p>
         <button-base
           @click="toggleModals('alreadyVerifiedEmailModal', 'loginModal')"
           class="bg-red w-full py-2.5"
         >
-          Login
+          {{ $t('auth.login') }}
         </button-base>
       </div>
     </div>

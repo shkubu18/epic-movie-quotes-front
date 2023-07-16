@@ -7,7 +7,7 @@
       alt="movie picture"
     />
     <h2 class="text-2xl mt-5 mb-3 uppercase">
-      {{ movie.name.en }} {{ '(' + movie.release_date + ')' }}
+      {{ movie.name[$i18n.locale] }} {{ '(' + movie.release_date + ')' }}
     </h2>
     <div class="mt-5 flex items-center">
       <span v-if="movie.quotes" class="text-xl mr-3">{{ movie.quotes.length }}</span>

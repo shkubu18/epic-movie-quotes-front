@@ -3,17 +3,17 @@
   <modal-container>
     <div class="bg-dark-blue mb-12 text-white px-24 py-12 rounded-lg text-center">
       <div class="w-440 flex items-center flex-col">
-        <h1 class="text-3xl font-medium mt-3">Forgot password?</h1>
+        <h1 class="text-3xl font-medium mt-3">{{ $t('passwordRecovery.forgot_password') }}</h1>
         <p class="mt-3 mb-9 text-gray-600">
-          Enter the email and we’ll send an email with instructions to reset your password
+          {{ $t('passwordRecovery.enter_the_email_and_we_will_send_email_with_instructions') }}
         </p>
         <form-password-forgot />
         <span
-          class="block text-gray-600 mt-10 flex items-center cursor-pointer"
+          class="text-gray-600 mt-10 flex items-center cursor-pointer"
           @click="toggleModals('passwordForgotModal', 'loginModal')"
         >
           <icon-arrow-left class="mr-3" />
-          Back to log in
+          {{ $t('passwordRecovery.back_to_login') }}
         </span>
       </div>
     </div>

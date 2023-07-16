@@ -4,7 +4,7 @@
       <header
         class="flex justify-center items-center w-full relative pb-5 border-b-3 border-b-neutral-800"
       >
-        <h1 class="text-2xl font-medium">{{ headingText }}</h1>
+        <h1 class="text-2xl font-medium capitalize">{{ headingText }}</h1>
         <icon-modal-close
           @click="toggleModalVisibility(modal)"
           class="absolute right-10 cursor-pointer"
@@ -19,7 +19,7 @@
         />
         <div class="flex flex-col ml-8 pt-3">
           <h2 class="text-2xl text-yellow">
-            {{ movie.name.en + ' (' + movie.release_date + ')' }}
+            {{ movie.name[$i18n.locale] + ' (' + movie.release_date + ')' }}
           </h2>
           <div class="my-5 flex flex-wrap gap-1.5">
             <span
@@ -30,7 +30,7 @@
               {{ genre.name }}
             </span>
           </div>
-          <h2 class="text-lg">Director: {{ movie.director.en }}</h2>
+          <h2 class="text-lg">{{ $t('movies.director') + ':' + movie.director[$i18n.locale] }}</h2>
         </div>
       </section>
       <slot />

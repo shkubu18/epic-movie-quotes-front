@@ -37,7 +37,7 @@
       <textarea
         ref="commentInput"
         class="h-14 placeholder:text-gray-300 outline-none pl-7 pt-4 bg-dark-blue border-none rounded-xl w-full"
-        placeholder="White a comment"
+        :placeholder="$t('quotes.write_comment')"
         v-model="comment[quote.id]"
         @keydown.enter="addComment(quote.id)"
         :disabled="quoteViewFromNotification"

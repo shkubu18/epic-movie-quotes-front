@@ -1,0 +1,6 @@
+{
+  "min_max_numbers_and_lower_case_characters": "At least {minNumber} & max.15 lower case characters",
+  "lang_letters_and_only_following_special_characters": "Please enter {lang} letters and only following special characters: .,!\"-_?:;'",
+  "georgian": "Georgian",
+  "english": "English"
+}

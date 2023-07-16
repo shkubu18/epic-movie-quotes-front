@@ -15,12 +15,16 @@
     <landing-header />
     <div class="flex items-center justify-center flex-col h-full -mt-24">
       <h1
-        class="text-6xl text-yellow text-center font-bold leading-normal mb-6 font-[montserrat-bold]"
+        :class="{
+          'text-6xl text-yellow text-center font-bold leading-normal mb-6 font-[montserrat-bold]': true,
+          'w-2/5': $i18n.locale === 'en',
+          'w-3/5': $i18n.locale === 'ka'
+        }"
       >
-        Find any quote in <br />millions of movie lines
+        {{ $t('landing.find_any_quote_in_millions_of_movie_lines') }}
       </h1>
       <button-base @click="toggleModalVisibility('loginModal')" class="bg-red text-xl py-2.5">
-        Get Started
+        {{ $t('texts.get_started') }}
       </button-base>
     </div>
   </div>
@@ -44,7 +48,7 @@ import AccountIsActivatedModal from '@/components/modals/AccountIsActivatedModal
 import PasswordForgotModal from '@/components/modals/password-reset/PasswordForgotModal.vue'
 import PasswordResetEmailSentModal from '@/components/modals/password-reset/passwordResetEmailSentModal.vue'
 import PasswordUpdateModal from '@/components/modals/password-reset/PasswordUpdateModal.vue'
-import PasswordUpdatedSuccessfullyModal from '@/components/modals/password-reset/passwordUpdatedSuccessfullyModal.vue'
+import PasswordUpdatedSuccessfullyModal from '@/components/modals/password-reset/PasswordUpdatedSuccessfullyModal.vue'
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import PasswordResetTokenExpired from '@/components/modals/password-reset/PasswordResetTokenExpired.vue'

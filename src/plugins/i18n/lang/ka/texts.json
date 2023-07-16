@@ -1,0 +1,29 @@
+{
+  "language_switcher": {
+    "en": "ინგ",
+    "ka": "ქარ",
+    "english": "ინგლისური",
+    "georgian": "ქართული"
+  },
+  "get_started": "დაიწყე",
+  "thank_you": "მადლობა!",
+  "go_to_my_email": "გადადი მეილზე",
+  "check_your_email": "შეამოწმე ელ.ფოსტა",
+  "edit": "რედაქტირება",
+  "delete": "წაშლა",
+  "total": "სულ",
+  "search": "ძებნა",
+  "movie": "ფილმი",
+  "post": "პოსტი",
+  "save_changes": "ცვლილებების შენახვა",
+  "return_home": "მთავარ გვერდზე დაბრუნება",
+  "search_short_text": "ძებნა",
+  "search_long_text": "ჩაწერე {movieSymbol} ფილმის მოსაძებნად, ჩაწერე {quoteSymbol} ციტატის მოსაძებნად",
+  "drag_end_drop_your_image_here_or": "ჩამოაგდეთ თქვენი სურათი აქ ან",
+  "choose_file": "ატვირთეთ ფაილი",
+  "change_photo": "შეცვალეთ სურათი",
+  "news_feed": "ნიუს ფიდი",
+  "list_of_movies": "ჩემი ფილმები",
+  "cancel": "გაუქმება",
+  "verifying": "ვერიფიცირდება..."
+}

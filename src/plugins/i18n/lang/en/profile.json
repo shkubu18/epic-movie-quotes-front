@@ -1,0 +1,24 @@
+{
+  "please_check_your_email_and_follow_the_instructions_to_change_your_email": "Please check your email and follow the instructions to change your email.",
+  "changes_updated_successfully": "Changes updated successfully",
+  "edit_your_profile": "Edit your profile",
+  "my_profile": "My profile",
+  "upload_new_photo": "Upload new photo",
+  "edit": "Edit",
+  "password_should_contain": "Password should contain",
+  "confirm_new_password": "Confirm new password",
+  "enter_new_input": "Enter new {input}",
+  "inputs": {
+    "username": "username",
+    "email": "email",
+    "password": "password"
+  },
+  "labels": {
+    "username": "Username",
+    "new_username": "New username",
+    "email": "Email",
+    "new_email": "New email",
+    "password": "Password",
+    "new_password": "New password"
+  }
+}

@@ -4,16 +4,19 @@
     <div class="bg-dark-blue mb-12 text-white px-24 py-14 rounded-lg text-center">
       <div class="w-440 flex items-center flex-col">
         <icon-email-sent />
-        <h1 class="text-3xl font-medium mt-5">Check your email</h1>
-        <p class="mt-7 mb-9">We have sent a password recover instructions to your email</p>
+        <h1 class="text-3xl font-medium mt-5">{{ $t('texts.check_your_email') }}</h1>
+        <p class="mt-7 mb-9">
+          {{ $t('passwordRecovery.we_have_sent_password_recover_instructions_to_your_email') }}
+        </p>
+
         <a class="w-full" href="https://mail.google.com/">
-          <button-base class="bg-red w-full py-2.5">Go to my email</button-base>
+          <button-base class="bg-red w-full py-2.5">{{ $t('texts.go_to_my_email') }}</button-base>
         </a>
         <span
-          class="block text-gray-600 mt-10 flex items-center cursor-pointer"
+          class="text-gray-600 mt-10 cursor-pointer"
           @click="toggleModalVisibility('passwordResetEmailSentModal')"
         >
-          Skip, I’ll confirm later
+          {{ $t('passwordRecovery.skip_i_will_confirm_later') }}
         </span>
       </div>
     </div>

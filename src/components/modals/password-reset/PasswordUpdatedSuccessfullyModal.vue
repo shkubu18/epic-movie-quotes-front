@@ -4,13 +4,13 @@
     <div class="bg-dark-blue mb-12 text-white px-24 py-20 rounded-lg text-center">
       <div class="w-440 flex items-center flex-col">
         <icon-success-bigger />
-        <h1 class="text-3xl font-medium mt-7">Success!</h1>
-        <p class="mt-7 mb-9">Your Password changed successfully</p>
+        <h1 class="text-3xl font-medium mt-7">{{ $t('passwordRecovery.success') }}</h1>
+        <p class="mt-7 mb-9">{{ $t('passwordRecovery.your_password_changed_successfully') }}</p>
         <button-base
           @click="toggleModals('passwordUpdatedSuccessfullyModal', 'loginModal')"
           class="bg-red w-full py-2.5"
         >
-          Login
+          {{ $t('passwordRecovery.login') }}
         </button-base>
       </div>
     </div>
