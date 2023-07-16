@@ -7,18 +7,18 @@
     :name="name"
     class="hidden"
   />
-  <div class="w-full h-500 relative">
+  <div class="h-80 lg:h-500 relative">
     <img
       v-if="existingQuotePicture && !modelValue"
       :src="apiUrlForPictures + existingQuotePicture"
       alt="Selected Image"
-      class="h-full w-full mb-2 object-cover"
+      class="h-full w-full mb-2 object-cover rounded"
     />
     <img
       v-else
       :src="selectedFileUrl"
       alt="Selected Image"
-      class="h-full w-full mb-2 object-cover"
+      class="h-full w-full mb-2 object-cover rounded"
     />
     <div
       class="absolute border-none rounded-xl p-4 transform -translate-x-1/2 -translate-y-1/2 border top-1/2 left-1/2 flex items-center justify-center flex-col bg-transparent-black w-fit h-fit"

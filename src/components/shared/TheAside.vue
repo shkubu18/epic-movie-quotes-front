@@ -1,7 +1,7 @@
 <template>
   <aside
     :class="{
-      'absolute top-32 left-14': true,
+      'hidden lg:block absolute top-32 left-14': true,
       'z-30': !isQuoteModalActive,
       'z-0': isQuoteModalActive
     }"

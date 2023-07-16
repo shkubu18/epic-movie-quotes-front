@@ -9,7 +9,7 @@
   />
   <div
     :class="{
-      'flex items-center border-2 h-86 border-crud-input-gray rounded p-4 text-center cursor-pointer': true,
+      'flex items-center border h-86 border-crud-input-gray rounded p-4 text-center cursor-pointer': true,
       '!h-48': modelValue || existingMoviePicture,
       'border-red': error,
       'border-green': !error && (modelValue || existingMoviePicture)
@@ -17,10 +17,20 @@
     @dragover="handleDragOver"
     @drop="handleFileDrop"
   >
-    <div class="flex items-center" v-if="!modelValue && !existingMoviePicture">
-      <icon-picture />
-      <span class="text-xl ml-2">{{ $t('texts.drag_end_drop_your_image_here_or') }}</span>
-      <label class="bg-purple-950 text-xl p-3 rounded-sm ml-5" :for="name">
+    <div
+      class="flex items-center justify-between lg:justify-start w-full"
+      v-if="!modelValue && !existingMoviePicture"
+    >
+      <div class="flex items-center">
+        <icon-picture />
+        <span class="hidden lg:block lg:text-xl ml-2">
+          {{ $t('texts.drag_end_drop_your_image_here_or') }}
+        </span>
+        <span class="lg:hidden ml-2">
+          {{ $t('texts.upload_image') }}
+        </span>
+      </div>
+      <label class="bg-purple-950 lg:text-xl p-3 rounded-sm ml-5" :for="name">
         {{ $t('texts.choose_file') }}
       </label>
     </div>
@@ -32,21 +42,39 @@
         v-if="existingMoviePicture && !modelValue"
         :src="apiUrlForPictures + existingMoviePicture"
         alt="Selected Image"
-        class="h-full w-1/2 mb-2 object-cover"
+        class="h-full w-1/2 mb-2 object-cover rounded"
       />
       <img
         v-else
         :src="selectedFileUrl"
         alt="Selected Image"
-        class="h-full w-1/2 mb-2 object-cover"
+        class="h-full w-1/2 mb-2 object-cover rounded"
       />
-      <div class="flex flex-col w-1/2 items-center">
-        <h3 class="text-yellow text-lg font-bold uppercase">{{ $t('texts.change_photo') }}</h3>
+      <div class="flex flex-col w-1/2 items-center pl-3 lg:pl-0">
+        <h3 class="text-yellow lg:text-lg font-bold uppercase">{{ $t('texts.change_photo') }}</h3>
         <div class="flex items-center justify-center my-5">
           <icon-picture />
-          <span class="text-xl ml-2">{{ $t('texts.drag_end_drop_your_image_here_or') }}</span>
+          <div>
+            <span class="hidden lg:block lg:text-xl ml-2">
+              {{ $t('texts.drag_end_drop_your_image_here_or') }}
+            </span>
+            <span
+              :class="{
+                'lg:hidden ml-2': true,
+                'text-xs': $i18n.locale === 'ka'
+              }"
+            >
+              {{ $t('texts.upload_image') }}
+            </span>
+          </div>
         </div>
-        <label class="bg-purple-950 text-xl p-3 rounded-sm ml-5 w-fit" :for="name">
+        <label
+          :class="{
+            'bg-purple-950 lg:text-xl p-3 rounded-sm lg:ml-5 w-fit cursor-pointer': true,
+            'text-xs': $i18n.locale === 'ka'
+          }"
+          :for="name"
+        >
           {{ $t('texts.choose_file') }}
         </label>
       </div>

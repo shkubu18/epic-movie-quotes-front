@@ -1,5 +1,6 @@
 <template>
   <svg
+    class="w-6 h-6 lg:w-8 lg:h-8"
     :class="isLiked(quoteId) ? 'fill-liked-color' : 'fill-white'"
     width="32"
     height="30"

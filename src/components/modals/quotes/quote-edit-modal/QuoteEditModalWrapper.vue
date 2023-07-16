@@ -1,20 +1,20 @@
 <template>
   <modal-crud-wrapper>
-    <div class="bg-lighter-black w-fit text-white ml-28 pb-7 rounded-lg">
+    <div class="bg-lighter-black w-full lg:w-fit text-white lg:ml-28 pb-7 rounded-lg">
       <header
         class="flex justify-center items-center w-full relative py-7 border-b-3 border-b-neutral-800"
       >
         <div
           @click="deleteQuote(quoteId)"
-          class="rounded-xl text-gray-200 flex absolute top-9 left-9 cursor-pointer"
+          class="rounded-xl text-gray-200 flex absolute top-8 lg:top-9 left-9 cursor-pointer"
         >
           <icon-delete />
-          <span class="ml-3">{{ $t('texts.delete') }}</span>
+          <span class="ml-3 hidden lg:inline">{{ $t('texts.delete') }}</span>
         </div>
-        <h1 class="text-2xl font-medium">{{ $t('quotes.edit_quote') }}</h1>
+        <h1 class="text-xl lg:text-2xl font-medium">{{ $t('quotes.edit_quote') }}</h1>
         <icon-modal-close
           @click="toggleModalVisibility('quoteEditModal')"
-          class="absolute right-10 top-10 cursor-pointer"
+          class="absolute right-10 top-9 lg:top-10 cursor-pointer"
         />
       </header>
       <modal-crud-user-info :api-url-for-pictures="apiUrlForPictures" :user="user" />

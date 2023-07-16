@@ -1,11 +1,11 @@
 <template>
-  <h1 v-if="noQuotesSearchResult" class="text-white text-3xl mt-16">
+  <h1 v-if="noQuotesSearchResult" class="text-white text-2xl lg:text-3x mt-16 text-center px-2">
     {{ $t('quotes.no_quotes_search_result') }}
   </h1>
   <article
     v-for="quote in searchedQuotes"
     :key="quote.id"
-    class="text-center text-white bg-black w-940 rounded-xl p-5 mb-10"
+    class="mb-10 text-white bg-lighter-black text-center w-full lg:w-940 rounded-xl p-5"
   >
     <news-feed-quote-header :quote="quote" :apiUrlForPictures="apiUrlForPictures" />
     <news-feed-quote-section :quote="quote" :apiUrlForPictures="apiUrlForPictures" />

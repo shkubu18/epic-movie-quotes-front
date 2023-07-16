@@ -1,18 +1,22 @@
 <template>
   <movie-add-modal :api-url-for-pictures="apiUrlForPictures" v-if="modals.movieAddModal" />
   <the-header />
-  <main class="bg-darker-blue flex justify-end min-h-1500 pb-40">
+  <main class="bg-darker-blue flex lg:justify-end min-h-1500 pb-40" @click="closeActiveModals">
     <the-aside :api-url-for-pictures="apiUrlForPictures" />
-    <div class="grid grid-cols-3 gap-x-10 gap-y-20 py-7 flex-col w-9/12 pr-12 h-fit">
+    <div
+      class="grid grid-cols-1 px-7 lg:grid-cols-3 lg:gap-x-10 gap-y-10 lg:gap-y-20 py-7 flex-col w-full lg:w-9/12 lg:pr-12 h-fit"
+    >
       <movie-list-header :movies-list="moviesList" />
-      <div v-if="isLoading" class="col-start-1 col-end-4 flex justify-center mt-10">
+      <div v-if="isLoading" class="col-start-1 lg:col-end-4 flex justify-center mt-10">
         <icon-loading-spinner />
       </div>
       <div
         v-if="moviesList.length < 1 && !isLoading"
-        class="w-full flex justify-center items-center col-start-1 col-end-4"
+        class="w-full flex justify-center items-center col-start-1 lg:col-end-4"
       >
-        <h1 class="text-4xl text-yellow">There are no movies in your movie list...</h1>
+        <h1 class="text-2xl text-center lg:text-4xl text-yellow">
+          {{ $t('movies.no_movies_in_your_movie_list') }}
+        </h1>
       </div>
       <movie-list-movie-card
         v-if="!searchingIsActive"
@@ -28,7 +32,7 @@
         v-if="searchingIsActive && searchedMovies.length < 1"
         class="col-start-1 col-end-4 text-center text-white text-3xl"
       >
-        No movies search result...
+        {{ $t('movies.no_movies_search_result') }}
       </h1>
     </div>
   </main>
@@ -50,6 +54,12 @@ const apiUrlForPictures = import.meta.env.VITE_API_BASE_URL + '/storage/'
 
 const modalStore = useModalStore()
 const { modals } = storeToRefs(modalStore)
+
+const closeActiveModals = () => {
+  if (modals.value.mobileMenuModal || modals.value.mobileNewsFeedSearchModal) {
+    modalStore.closeActiveModal()
+  }
+}
 
 const isLoading = ref(false)
 

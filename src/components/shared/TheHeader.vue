@@ -3,33 +3,54 @@
     :quote-id="quoteIdForView"
     v-if="modals.quoteViewFromNotificationModal"
   />
+  <transition
+    enter-active-class="duration-500"
+    enter-from-class="-translate-x-full"
+    leave-active-class="-translate-x-full duration-500 ease"
+  >
+    <mobile-menu-modal v-if="modals.mobileMenuModal" />
+  </transition>
+
   <header
     v-show="isQuoteModalsInactive || quoteModalForNewsfeed"
-    class="flex justify-between items-center px-16 py-7 bg-dark-blue relative"
+    class="flex justify-between items-center px-7 lg:px-16 py-7 bg-dark-blue relative"
   >
-    <h1 class="text-yellow">MOVIE QUOTES</h1>
+    <h1 class="hidden lg:block text-yellow">MOVIE QUOTES</h1>
+    <icon-menu-bar
+      class="lg:hidden cursor-pointer"
+      @click="toggleModalVisibility('mobileMenuModal')"
+    />
     <div class="flex items-center">
-      <div @click="toggleNotifications" class="relative mr-9">
+      <icon-search-bar
+        v-if="route.path === '/newsfeed'"
+        class="mr-5 lg:hidden cursor-pointer"
+        @click="toggleModalVisibility('mobileNewsFeedSearchModal')"
+      />
+      <div @click="toggleNotifications" class="relative md:mr-9">
         <icon-notification class="cursor-pointer" />
         <div
           v-if="unreadNotificationsCount && notifications.length"
-          class="absolute -top-1.5 -right-5 mr-2 text-white bg-notification-circle-color cursor-pointer rounded-full w-6 flex justify-center"
+          class="absolute -top-1.5 -right-5 mr-2.5 lg:mr-2 text-white bg-notification-circle-color cursor-pointer rounded-full w-5 h-5 lg:w-6 lg:h-6 flex justify-center items-center"
         >
           <span>{{ unreadNotificationsCount }}</span>
         </div>
       </div>
-      <language-switcher />
-      <button-base @click="logoutUser" class="border-2">{{ $t('auth.logout') }}</button-base>
+      <language-switcher class="hidden lg:block" />
+      <button-base @click="logoutUser" class="hidden lg:block border-2"
+        >{{ $t('auth.logout') }}
+      </button-base>
     </div>
-    <notification-list
-      v-show="isNotificationsOpen"
-      @open-quote-view-from-notification-modal="openQuoteViewFromNotificationModal"
-    />
+    <teleport to="body">
+      <notification-list
+        v-show="isNotificationsOpen"
+        @open-quote-view-from-notification-modal="openQuoteViewFromNotificationModal"
+      />
+    </teleport>
     <icon-arrow-up
       v-show="isNotificationsOpen"
       :class="{
-        'absolute top-20 right-72 mr-1': true,
-        '!mr-6': $i18n.locale === 'ka'
+        'absolute top-16 lg:top-20 right-3 lg:right-72 mr-1.5': true,
+        'lg:!mr-6': $i18n.locale === 'ka'
       }"
     />
   </header>
@@ -39,7 +60,7 @@ import IconNotification from '@/components/icons/IconNotification.vue'
 import LanguageSwitcher from '@/components/shared/LanguageSwitcher.vue'
 import ButtonBase from '@/components/ui/ButtonBase.vue'
 import { logout } from '@/services/api/auth'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useMovieStore } from '@/stores/useMovieStore'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 import { useUserStore } from '@/stores/useUserStore'
@@ -49,6 +70,9 @@ import { storeToRefs } from 'pinia'
 import NotificationList from '@/components/notifications/NotificationList.vue'
 import IconArrowUp from '@/components/icons/arrows/IconArrowUp.vue'
 import QuoteViewFromNotificationModal from '@/components/modals/quotes/QuoteViewFromNotificationModal.vue'
+import IconMenuBar from '@/components/icons/IconMenuBar.vue'
+import IconSearchBar from '@/components/icons/IconSearchBar.vue'
+import MobileMenuModal from '@/components/modals/MobileMenuModal.vue'
 
 defineProps({
   quoteModalForNewsfeed: {
@@ -58,6 +82,7 @@ defineProps({
 })
 
 const router = useRouter()
+const route = useRoute()
 
 const quoteIdForView = ref(null)
 
@@ -70,6 +95,10 @@ const { unreadNotificationsCount } = storeToRefs(userStore)
 
 const modalStore = useModalStore()
 const { modals } = storeToRefs(modalStore)
+
+const toggleModalVisibility = (modalName) => {
+  modalStore.toggleModalVisibility(modalName)
+}
 
 const isQuoteModalsInactive = computed(() => {
   return !modals.value.quoteAddModal && !modals.value.quoteViewModal && !modals.value.quoteEditModal

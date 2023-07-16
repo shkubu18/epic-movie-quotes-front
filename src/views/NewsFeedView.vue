@@ -1,10 +1,26 @@
 <template>
   <quote-add-modal :api-url-for-pictures="apiUrlForPictures" v-if="modals.quoteAddModal" />
+  <transition
+    enter-active-class="duration-500"
+    enter-from-class="-translate-x-full"
+    leave-active-class="-translate-x-full duration-500 ease"
+  >
+    <mobile-menu-modal v-if="modals.mobileMenuModal" />
+  </transition>
+
+  <transition
+    enter-active-class="duration-500"
+    enter-from-class="-translate-y-full"
+    leave-active-class="-translate-y-full duration-500 ease"
+  >
+    <mobile-news-feed-search-modal v-if="modals.mobileNewsFeedSearchModal" v-model="searchText" />
+  </transition>
+
   <the-header :quote-modal-for-newsfeed="true" />
-  <main class="bg-darker-blue min-h-screen flex justify-center">
+  <main class="bg-darker-blue min-h-screen flex justify-center" @click="closeActiveModals">
     <the-aside :api-url-for-pictures="apiUrlForPictures" />
-    <div class="flex justify-center py-7 flex-col items-center w-fit h-fit">
-      <div class="w-940 mb-4 flex items-center justify-between">
+    <div class="flex justify-center py-7 flex-col items-center w-full h-fit">
+      <div class="w-full lg:w-940 mb-4 flex items-center justify-between">
         <button-news-feed-add-quote
           :is-search-bar-open="isSearchBarOpen"
           @click="openQuoteAddModal"
@@ -38,6 +54,8 @@ import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/stores/useModalStore'
 import { useUserStore } from '@/stores/useUserStore'
 import { deleteLikeNotification } from '@/services/api/notifications'
+import MobileMenuModal from '@/components/modals/MobileMenuModal.vue'
+import MobileNewsFeedSearchModal from '@/components/modals/MobileNewsFeedSearchModal.vue'
 
 const apiUrlForPictures = import.meta.env.VITE_API_BASE_URL + '/storage/'
 
@@ -65,6 +83,13 @@ const openQuoteAddModal = () => {
   searchingQuotesIsActive.value = false
   modalStore.toggleModalVisibility('quoteAddModal')
 }
+
+const closeActiveModals = () => {
+  if (modals.value.mobileMenuModal || modals.value.mobileNewsFeedSearchModal) {
+    modalStore.closeActiveModal()
+  }
+}
+
 const openSearchBar = () => (isSearchBarOpen.value = true)
 
 onMounted(async () => {
@@ -85,6 +110,7 @@ onMounted(async () => {
 
   window.Echo.channel('likes').listen('Likes\\LikeAdded', (data) => {
     if (data.like.sender !== user.value.username) {
+      console.log('asdsa')
       newsFeedQuoteStore.addLike(data.like.quote_id)
     }
   })

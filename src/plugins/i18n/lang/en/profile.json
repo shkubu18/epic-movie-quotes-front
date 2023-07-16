@@ -7,6 +7,9 @@
   "edit": "Edit",
   "password_should_contain": "Password should contain",
   "confirm_new_password": "Confirm new password",
+  "are_you_sure_to_make_changes": "Are you sure to make changes ?",
+  "click_cancel_and_try_different_one": "Click cancel and try different one.",
+  "confirm": "Confirm",
   "enter_new_input": "Enter new {input}",
   "inputs": {
     "username": "username",

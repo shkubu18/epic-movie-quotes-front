@@ -7,5 +7,7 @@
   "my_list_of_movies": "My list of movies",
   "search_movie": "Search movie",
   "director": "Director",
-  "choose_movie": "Choose movie"
+  "choose_movie": "Choose movie",
+  "no_movies_in_your_movie_list": "There are no movies in your movie list...",
+  "no_movies_search_result": "No movies search result..."
 }

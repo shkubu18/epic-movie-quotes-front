@@ -25,5 +25,11 @@
   "news_feed": "News feed",
   "list_of_movies": "List of movies",
   "cancel": "Cancel",
-  "verifying": "Verifying..."
+  "verifying": "Verifying...",
+  "please_wait": "Please wait...",
+  "upload_image": "Upload image",
+  "whoops": "Whoops!",
+  "not_found_error_message": "We can't see the page you are looking for",
+  "forbidden_short_message": "You shall not pass!",
+  "forbidden_long_message": "Sorry, but you don't have permission to access this page"
 }

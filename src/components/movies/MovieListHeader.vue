@@ -1,12 +1,20 @@
 <template>
-  <header class="col-start-1 col-end-4 text-white flex items-center justify-between">
-    <h2 class="text-2xl">
-      {{
-        $t('movies.my_list_of_movies') + ' (' + $t('texts.total') + ' ' + moviesList.length + ')'
-      }}
-    </h2>
+  <header
+    class="col-start-1 lg:col-end-4 text-white flex items-start lg:items-center justify-between"
+  >
+    <div class="flex flex-col lg:flex-row">
+      <h2
+        :class="{
+          'text-2xl mb-3': true,
+          'text-xl': $i18n.locale === 'ka'
+        }"
+      >
+        {{ $t('movies.my_list_of_movies') }}
+      </h2>
+      <h4>{{ ' (' + $t('texts.total') + ' ' + moviesList.length + ')' }}</h4>
+    </div>
     <div class="flex items-center">
-      <input-movie-list-search />
+      <input-movie-list-search class="hidden lg:block" />
       <button-crud-add @click="toggleModalVisibility('movieAddModal')">
         {{ $t('movies.add_movie_normal_case') }}
       </button-crud-add>

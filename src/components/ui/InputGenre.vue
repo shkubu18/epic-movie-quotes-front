@@ -3,13 +3,13 @@
   <div class="relative mb-5">
     <div
       :class="{
-        'w-full p-2.5 text-white border-2 rounded flex justify-between items-center border-crud-input-gray overflow-x-scroll': true,
+        'w-full p-2.5 text-white border rounded flex justify-between items-center border-crud-input-gray overflow-x-scroll': true,
         'border-red': error,
         'border-green': !error && chosenGenres.length > 0
       }"
     >
       <div class="flex">
-        <label @click="toggleGenres" class="text-xl" v-if="chosenGenres.length < 1" for="genres">
+        <label @click="toggleGenres" class="lg:text-xl" v-if="chosenGenres.length < 1" for="genres">
           ჟანრები/Genres
         </label>
         <div
@@ -37,7 +37,7 @@
       <li
         v-for="genre in genresList"
         :key="genre.id"
-        class="py-2.5 cursor-pointer px-3 text-lg hover:bg-darker-blue duration-300 border-b-2 border-darker-blue"
+        class="py-2.5 cursor-pointer px-3 lg:text-lg hover:bg-darker-blue duration-300 border-b-2 border-darker-blue"
         @click="addChosenGenre(genre.id, genre.name)"
       >
         {{ genre.name }}

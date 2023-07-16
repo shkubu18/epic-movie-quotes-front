@@ -1,7 +1,7 @@
 <template>
   <section class="flex items-center justify-start my-7 w-full pl-7">
     <img
-      class="h-16 w-16 rounded-full mr-6 object-cover"
+      class="h-12 w-12 lg:h-16 lg:w-16 rounded-full mr-6 object-cover"
       :src="
         user.profile_picture
           ? apiUrlForPictures + user.profile_picture

@@ -1,7 +1,7 @@
 <template>
   <modal-crud-background modal="quoteViewModal" :is-for-movie-quote="isForMovieQuote" />
   <modal-crud-wrapper>
-    <div class="bg-lighter-black w-fit text-white ml-28 rounded-lg">
+    <div class="bg-lighter-black w-full lg:w-fit text-white lg:ml-28 rounded-lg">
       <quote-view-modal-header :quote-id="quote.id" />
       <modal-crud-user-info :api-url-for-pictures="apiUrlForPictures" :user="user" />
       <quote-view-modal-article

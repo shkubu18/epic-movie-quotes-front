@@ -1,17 +1,17 @@
 <template>
   <section>
     <img
-      class="w-890 h-500 rounded-xl object-cover"
+      class="lg:w-890 lg:h-500 rounded-xl object-cover"
       :src="apiUrlForPictures + quote.picture"
       alt="quote picture"
     />
-    <div class="text-left mt-6 text-xl flex pb-7 border-b-2 border-default-border-b-color">
+    <div class="text-left mt-6 lg:text-xl flex pb-7 border-b-2 border-default-border-b-color">
       <div class="flex items-center mr-8">
-        <span class="mr-4">{{ quote.total_comments }}</span>
+        <span class="mr-3 lg:mr-4">{{ quote.total_comments }}</span>
         <icon-comment />
       </div>
       <div class="flex items-center">
-        <span class="mr-4">{{ quote.total_likes }}</span>
+        <span class="mr-3 lg:mr-4">{{ quote.total_likes }}</span>
         <icon-like
           :quote-id="quote.id"
           @click="addLike(quote.id)"

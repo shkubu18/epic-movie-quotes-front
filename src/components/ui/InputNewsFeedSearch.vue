@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{
-      'flex items-center relative ml-2 py-4 text-white': true,
+      'hidden md:flex items-center relative ml-2 py-4 text-white': true,
       'w-44 cursor-pointer': !isSearchBarOpen,
       '!w-650  pl-10 border-b-2 border-default-border-b-color': isSearchBarOpen,
       '!w-32': $i18n.locale === 'ka'

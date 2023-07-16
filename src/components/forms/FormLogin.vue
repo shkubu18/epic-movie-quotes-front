@@ -1,5 +1,5 @@
 <template>
-  <ValidationForm v-slot="{ errors }" class="w-96" @submit="handleSubmit">
+  <ValidationForm v-slot="{ errors }" class="w-full md:w-96" @submit="handleSubmit">
     <input-auth
       :label="$t('auth.labels.username_or_email')"
       name="username_or_email"

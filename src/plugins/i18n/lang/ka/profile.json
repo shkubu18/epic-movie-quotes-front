@@ -7,6 +7,9 @@
   "edit": "რედაქტირება",
   "password_should_contain": "პაროლი უნდა შეიცავდეს",
   "confirm_new_password": "დაადასტურეთ ახალი პაროლი",
+  "are_you_sure_to_make_changes": "დარწმუნებული ხართ ცვლილებების შესატანად ?",
+  "confirm": "დადასტურება",
+  "click_cancel_and_try_different_one": "დააკლიკეთ გაუქმებას და სცადეთ სხვა.",
   "enter_new_input": "შეიყვანეთ ახალი {input}",
   "inputs": {
     "username": "მომხმარებლის სახელი",

@@ -20,24 +20,33 @@
     :is-for-movie-quote="true"
   />
   <the-header />
-  <main class="bg-darker-blue flex justify-end min-h-1650 pb-40">
+  <main
+    class="bg-darker-blue flex justify-center lg:justify-end min-h-1650 pb-40"
+    @click="closeActiveModals"
+  >
     <the-aside :api-url-for-pictures="apiUrlForPictures" />
-    <section v-show="isQuoteModalsInactive" class="w-9/12 pr-12 text-white">
+    <section v-show="isQuoteModalsInactive" class="lg:w-9/12 lg:pr-12 text-white">
       <div class="w-full flex justify-center">
         <icon-loading-spinner v-if="!isMovieLoaded" class="mt-20" />
       </div>
       <div v-if="isMovieLoaded">
         <movie-detail-description-movie :api-url-for-pictures="apiUrlForPictures" :movie="movie" />
-        <div class="mt-10 flex items-center">
-          <h2 class="text-2xl">
+        <div class="mt-10 flex items-start lg:items-center flex-col lg:flex-row px-7 lg:p-0">
+          <h2 class="text-2xl order-2 lg:order-1 mt-12 lg:mt-0">
             {{ $t('quotes.quotes') }}
-
-            ({{ $t('texts.total') }} {{ movie.quotes ? movie.quotes.length : 0 }})
-            <span class="text-gray-500">|</span>
+            <br class="lg:hidden" />
+            <span class="text-base lg:text-2xl">
+              ({{ $t('texts.total') }} {{ movie.quotes ? movie.quotes.length : 0 }})
+            </span>
+            <span class="hidden lg:inline text-gray-500">|</span>
           </h2>
-          <button-crud-add @click="openQuoteAddModal" class="ml-3">
-            {{ $t('quotes.add_quote_normal_case') }}
-          </button-crud-add>
+          <div
+            class="pb-7 lg:p-0 border-b border-default-border-b-color lg:border-none w-full lg:w-fit order-1 lg:order-2"
+          >
+            <button-crud-add @click="openQuoteAddModal" class="lg:ml-3 lg:mb-0">
+              {{ $t('quotes.add_quote_normal_case') }}
+            </button-crud-add>
+          </div>
         </div>
         <movie-detail-description-quotes
           :api-url-for-pictures="apiUrlForPictures"
@@ -75,6 +84,12 @@ const router = useRouter()
 const modalStore = useModalStore()
 const { modals } = storeToRefs(modalStore)
 
+const closeActiveModals = () => {
+  if (modals.value.mobileMenuModal || modals.value.mobileNewsFeedSearchModal) {
+    modalStore.closeActiveModal()
+  }
+}
+
 const isQuoteModalsInactive = computed(() => {
   return !modals.value.quoteAddModal && !modals.value.quoteViewModal && !modals.value.quoteEditModal
 })
@@ -92,7 +107,9 @@ const getQuote = (quoteIndex, action) => {
 
   if (action === 'view') modalStore.toggleModalVisibility('quoteViewModal')
   if (action === 'edit') modalStore.toggleModalVisibility('quoteEditModal')
-  scrollToTop()
+  setTimeout(() => {
+    scrollToTop()
+  }, 200)
 }
 
 const openQuoteAddModal = () => {

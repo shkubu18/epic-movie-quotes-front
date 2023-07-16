@@ -2,7 +2,7 @@
   <ValidationForm
     v-slot="{ errors }"
     :initialValues="movieData"
-    class="w-940 px-8"
+    class="w-full lg:w-940 px-8"
     @submit="handleSubmit()"
   >
     <input-crud-movie

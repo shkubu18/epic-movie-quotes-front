@@ -1,18 +1,26 @@
 <template>
+  <teleport to="body">
+    <mobile-profile-new-username-modal v-if="modals.mobileProfileNewUsernameModal" />
+    <mobile-profile-new-email-modal v-if="modals.mobileProfileNewEmailModal" />
+    <mobile-profile-new-password-modal v-if="modals.mobileProfileNewPasswordModal" />
+  </teleport>
+
   <ValidationForm
     v-slot="{ errors, handleSubmit }"
     as="div"
     :class="{
-      'w-3/5': $i18n.locale === 'en',
-      'w-full px-36': $i18n.locale === 'ka'
+      'w-full px-5 lg:px-0': true,
+      'lg:w-3/5': $i18n.locale === 'en',
+      'lg:w-full lg:px-36': $i18n.locale === 'ka'
     }"
   >
     <form @submit="handleSubmit($event, onSubmit)" id="profile-form">
       <input-profile
+        v-if="!isOneOfHiddenInputsOpen"
         :input-value="user.username"
         :label="$t('profile.labels.username')"
         type="text"
-        @edit-button-clicked="toggleInputVisibility('newUsername')"
+        @edit-button-clicked="toggleInputVisibility('newUsername', 'mobileProfileNewUsernameModal')"
       />
       <input-profile-update
         v-model="newUsername"
@@ -24,12 +32,13 @@
         rules="min-3-max-15-lowercase"
         type="text"
       />
+
       <input-profile
         :google-user="!!user.google_id"
         :input-value="user.email"
         :label="$t('profile.labels.email')"
         type="text"
-        @edit-button-clicked="toggleInputVisibility('newEmail')"
+        @edit-button-clicked="toggleInputVisibility('newEmail', 'mobileProfileNewEmailModal')"
       />
       <input-profile-update
         v-model="newEmail"
@@ -47,7 +56,9 @@
           input-value="test-password"
           :label="$t('profile.labels.password')"
           type="password"
-          @edit-button-clicked="toggleInputVisibility('newPassword')"
+          @edit-button-clicked="
+            toggleInputVisibility('newPassword', 'mobileProfileNewPasswordModal')
+          "
         />
 
         <div v-if="isInputVisible('newPassword')" class="text-xl">
@@ -93,8 +104,8 @@
   </ValidationForm>
 
   <teleport v-if="isMounted && isOneOfHiddenInputsOpen" to="#profile-section">
-    <div class="w-full flex justify-end mt-14 text-xl">
-      <button-base @click="resetHiddenInputs" class="mr-2">
+    <div class="w-full flex justify-between lg:justify-end mt-14 text-xl px-4 lg:px-0">
+      <button-base @click="resetHiddenInputs" class="lg:mr-2">
         {{ $t('texts.cancel') }}
       </button-base>
       <button-base type="submit" form="profile-form" class="bg-red py-3">
@@ -108,6 +119,9 @@ import { Form as ValidationForm } from 'vee-validate'
 import InputProfile from '@/components/ui/InputProfile.vue'
 import InputProfileUpdate from '@/components/ui/InputProfileUpdate.vue'
 import ButtonBase from '@/components/ui/ButtonBase.vue'
+import MobileProfileNewUsernameModal from '@/components/modals/mobile-profile/MobileProfileNewUsernameModal.vue'
+import MobileProfileNewEmailModal from '@/components/modals/mobile-profile/MobileProfileNewEmailModal.vue'
+import MobileProfileNewPasswordModal from '@/components/modals/mobile-profile/MobileProfileNewPasswordModal.vue'
 import { onMounted, reactive, ref } from 'vue'
 import { updateUser } from '@/services/api/users'
 import { useModalStore } from '@/stores/useModalStore'
@@ -146,15 +160,22 @@ const confirmNewPassword = ref('')
 const serverErrorMessage = ref('')
 const isMounted = ref(false)
 
-const toggleInputVisibility = (inputType) => {
-  hiddenInputsVisibility[inputType] = !hiddenInputsVisibility[inputType]
+const toggleInputVisibility = (inputType, modal) => {
+  const { offsetWidth } = document.documentElement
 
-  for (const hiddenInputVisibility in hiddenInputsVisibility) {
-    if (hiddenInputsVisibility[hiddenInputVisibility] === true) {
-      return (isOneOfHiddenInputsOpen.value = true)
-    } else {
-      isOneOfHiddenInputsOpen.value = false
+  if (offsetWidth > 1024) {
+    hiddenInputsVisibility[inputType] = !hiddenInputsVisibility[inputType]
+
+    for (const hiddenInputVisibility in hiddenInputsVisibility) {
+      if (hiddenInputsVisibility[hiddenInputVisibility] === true) {
+        return (isOneOfHiddenInputsOpen.value = true)
+      } else {
+        isOneOfHiddenInputsOpen.value = false
+      }
     }
+  } else {
+    modalStore.toggleModalVisibility(modal)
+    scrollToTop()
   }
 }
 
