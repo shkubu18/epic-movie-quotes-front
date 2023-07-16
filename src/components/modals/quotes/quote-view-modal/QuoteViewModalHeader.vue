@@ -5,15 +5,15 @@
     <div class="text-gray-500 rounded-xl px-0.5 flex items-center absolute top-6 left-2">
       <icon-edit
         @click="toggleModals('quoteViewModal', 'quoteEditModal')"
-        class="my-2.5 mx-6 cursor-pointer"
+        class="my-2.5 mx-3 lg:mx-6 cursor-pointer"
       />
       |
-      <icon-delete @click="deleteQuote(quoteId)" class="my-2.5 mx-6 cursor-pointer" />
+      <icon-delete @click="deleteQuote(quoteId)" class="my-2.5 mx-3 lg:mx-6 cursor-pointer" />
     </div>
-    <h1 class="text-2xl font-medium">{{ $t('quotes.view_quote') }}</h1>
+    <h1 class="font-xl lg:text-2xl font-medium">{{ $t('quotes.view_quote') }}</h1>
     <icon-modal-close
       @click="toggleModalVisibility('quoteViewModal')"
-      class="absolute right-5 top-"
+      class="absolute right-5 cursor-pointer"
     />
   </header>
 </template>

@@ -1,8 +1,12 @@
 <template>
   <modal-crud-background modal="quoteViewFromNotificationModal" />
   <div
-    class="absolute transform -translate-x-1/2 -translate-y-1/2 border inset-y-1/3 left-1/2 z-50 ml-0.5 border-none"
+    class="absolute w-full lg:w-0 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 border inset-y-20 lg:inset-y-1/3 lg:left-1/2 z-50 ml-0.5 border-none"
   >
+    <icon-modal-close
+      @click="toggleModalVisibility('quoteViewFromNotificationModal')"
+      class="md:hidden absolute right-5 top-5 cursor-pointer"
+    />
     <article v-if="quote.user" class="text-white bg-lighter-black rounded-xl p-5">
       <news-feed-quote-header :quote="quote" :apiUrlForPictures="apiUrlForPictures" />
       <news-feed-quote-section
@@ -28,6 +32,8 @@ import NewsFeedQuoteHeader from '@/components/newsfeed/quote/NewsFeedQuoteHeader
 import NewsFeedQuoteSection from '@/components/newsfeed/quote/NewsFeedQuoteSection.vue'
 import NewsFeedQuoteFooter from '@/components/newsfeed/quote/NewsFeedQuoteFooter.vue'
 import { useRouter } from 'vue-router'
+import IconModalClose from '@/components/icons/IconModalClose.vue'
+import { useModalStore } from '@/stores/useModalStore'
 
 const props = defineProps({
   quoteId: {
@@ -39,6 +45,12 @@ const props = defineProps({
 const router = useRouter()
 
 const apiUrlForPictures = import.meta.env.VITE_API_BASE_URL + '/storage/'
+
+const modalStore = useModalStore()
+
+const toggleModalVisibility = (modalName) => {
+  modalStore.toggleModalVisibility(modalName)
+}
 
 const quote = ref({})
 

@@ -1,24 +1,24 @@
 <template>
-  <article class="text-white bg-black w-940 rounded-xl pb-7 px-7">
+  <article class="text-white bg-lighter-black w-full lg:w-940 rounded-xl pb-7 px-7">
     <section class="mb-8">
       <div
-        class="flex items-center justify-between border-2 border-crud-input-gray rounded p-2.5 mb-5"
+        class="flex items-center justify-between border border-crud-input-gray rounded p-2.5 mb-5"
       >
-        <p class="italic text-2xl">{{ '"' + quote.name.en + '"' }}</p>
-        <span class="text-xl text-crud-input-gray">Eng</span>
+        <p class="italic lg:text-2xl">{{ '"' + quote.name.en + '"' }}</p>
+        <span class="lg:text-xl text-crud-input-gray">Eng</span>
       </div>
-      <div class="flex items-center justify-between border-2 border-crud-input-gray rounded p-2.5">
-        <p class="italic text-2xl">{{ '"' + quote.name.ka + '"' }}</p>
-        <span class="text-xl text-crud-input-gray">ქარ</span>
+      <div class="flex items-center justify-between border border-crud-input-gray rounded p-2.5">
+        <p class="italic lg:text-2xl">{{ '"' + quote.name.ka + '"' }}</p>
+        <span class="lg:text-xl text-crud-input-gray">ქარ</span>
       </div>
     </section>
     <section>
       <img
-        class="w-890 h-500 rounded-xl object-cover"
+        class="w-full lg:w-890 lg:h-500 rounded-xl object-cover"
         :src="apiUrlForPictures + quote.picture"
         alt="quote picture"
       />
-      <div class="text-left mt-6 text-xl flex pb-7 border-b-2 border-default-border-b-color">
+      <div class="text-left mt-6 lg:text-xl flex pb-7 border-b-2 border-default-border-b-color">
         <div class="flex items-center mr-8">
           <span class="mr-4">{{ quote.total_comments }}</span>
           <icon-comment />
@@ -39,9 +39,11 @@
                 : 'https://www.citypng.com/public/uploads/preview/png-round-blue-contact-user-profile-icon-11639786938sxvzj5ogua.png'
             "
             alt="comment author profile picture"
-            class="h-14 w-14 rounded-full mr-6 object-cover"
+            class="h-12 w-12 lg:h-14 lg:w-14 rounded-full mr-6 object-cover"
           />
-          <div class="text-left border-b-2 pb-7 w-full border-default-border-b-color">
+          <div
+            class="text-left border-b-2 pb-7 w-full border-default-border-b-color text-base lg:text-xl"
+          >
             <h2 class="mb-5 pt-5">{{ comment.user.username }}</h2>
             <p>{{ comment.body }}</p>
           </div>
@@ -55,10 +57,10 @@
               : 'https://www.citypng.com/public/uploads/preview/png-round-blue-contact-user-profile-icon-11639786938sxvzj5ogua.png'
           "
           alt="profile picture"
-          class="h-14 w-14 rounded-full mr-6 object-cover"
+          class="h-12 w-12 lg:h-14 rounded-full mr-6 object-cover"
         />
         <textarea
-          class="h-14 placeholder:text-gray-300 pl-7 pt-4 bg-dark-blue border-none rounded-xl w-full"
+          class="h-14 placeholder:text-gray-300 pl-7 pt-4 bg-dark-blue border-none rounded-xl w-full outline-none"
           name="comment"
           :placeholder="$t('quotes.write_comment')"
         ></textarea>
