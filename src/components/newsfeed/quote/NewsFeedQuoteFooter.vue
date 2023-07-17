@@ -7,7 +7,11 @@
       <icon-loading-spinner />
     </div>
 
-    <div ref="commentsSection" id="comments-container" class="max-h-96 overflow-y-scroll">
+    <div
+      ref="commentsSection"
+      id="comments-container"
+      class="max-h-96 overflow-y-scroll scrollbar-none"
+    >
       <div v-for="comment in quote.comments" :key="comment.id" class="mt-5 flex lg:text-xl">
         <img
           :src="

@@ -10,7 +10,7 @@
   >
     <div
       v-if="isMovieListOpen"
-      class="absolute w-full left-0 -bottom-44 flex flex-col bg-lighter-black rounded-b-lg"
+      class="absolute w-full left-0 top-20 flex flex-col bg-lighter-black rounded-b-lg"
     >
       <span
         @click="chooseMovie(movie.id, movie.name)"

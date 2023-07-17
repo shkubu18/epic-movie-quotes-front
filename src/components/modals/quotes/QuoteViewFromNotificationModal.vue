@@ -1,7 +1,7 @@
 <template>
   <modal-crud-background modal="quoteViewFromNotificationModal" />
   <div
-    class="absolute w-full lg:w-0 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 border inset-y-20 lg:inset-y-1/3 lg:left-1/2 z-50 ml-0.5 border-none"
+    class="absolute w-full lg:w-fit lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 border inset-y-20 lg:inset-y-1/3 lg:left-1/2 z-50 ml-0.5 border-none"
   >
     <icon-modal-close
       @click="toggleModalVisibility('quoteViewFromNotificationModal')"

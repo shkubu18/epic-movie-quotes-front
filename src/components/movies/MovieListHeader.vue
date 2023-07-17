@@ -6,12 +6,12 @@
       <h2
         :class="{
           'text-2xl mb-3': true,
-          'text-xl': $i18n.locale === 'ka'
+          'text-xl lg:text-2xl': $i18n.locale === 'ka'
         }"
       >
         {{ $t('movies.my_list_of_movies') }}
       </h2>
-      <h4>{{ ' (' + $t('texts.total') + ' ' + moviesList.length + ')' }}</h4>
+      <h4 class="lg:text-xl ml-2">{{ '(' + $t('texts.total') + ' ' + moviesList.length + ')' }}</h4>
     </div>
     <div class="flex items-center">
       <input-movie-list-search class="hidden lg:block" />

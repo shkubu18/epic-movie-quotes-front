@@ -9,7 +9,7 @@
     <div class="flex flex-col lg:w-2/5 lg:pl-5 mt-5 lg:mt-0">
       <div class="flex items-center justify-between">
         <h1 class="text-xl lg:text-2xl text-yellow">
-          {{ movie.name[$i18n.locale] + '(' + movie.release_date + ')' }}
+          {{ movie.name[$i18n.locale] + ' (' + movie.release_date + ')' }}
         </h1>
         <div class="bg-dark-blue text-gray-500 rounded-xl px-0.5 flex items-center">
           <icon-edit
@@ -22,7 +22,7 @@
       </div>
       <div class="my-7 lg:my-5 flex flex-wrap gap-1.5">
         <span
-          class="bg-gray-500 py-1.5 px-2.5 lg:text-lg mr-1.5 rounded-sm"
+          class="bg-gray-500 py-0.5 px-2 lg:text-lg mr-1.5 rounded-md"
           v-for="genre in movie.genres"
           :key="genre.id"
         >
