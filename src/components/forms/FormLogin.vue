@@ -69,7 +69,7 @@ async function handleSubmit() {
   login(userNameOrEmail.value, password.value, remember.value)
     .then((response) => {
       if (response.status === 200) {
-        router.replace({ path: '/newsfeed' })
+        router.replace({ name: 'newsfeed' })
         modalStore.toggleModalVisibility('loginModal')
       }
     })
