@@ -23,7 +23,12 @@
     </div>
     <div v-if="!chosenMovie" class="flex items-center">
       <icon-list-of-movies />
-      <span class="lg:text-2xl ml-3 mt-1">{{ $t('movies.choose_movie') }}</span>
+      <span v-if="moviesList.length" class="lg:text-2xl ml-3 mt-1">
+        {{ $t('movies.choose_movie') }}
+      </span>
+      <span v-else class="px-4 lg:text-2xl text-yellow">
+        {{ $t('movies.no_movies_in_your_movie_list_please_add_at_least_one_movie') }}
+      </span>
     </div>
     <h2 v-else class="lg:text-2xl">{{ chosenMovie[$i18n.locale] }}</h2>
     <icon-arrow-down width="16" height="16" />

@@ -43,9 +43,9 @@
   </ValidationForm>
 </template>
 <script setup>
-import TheButton from '@/components/ui/ButtonBase.vue'
+import TheButton from '@/components/ui/buttons/ButtonBase.vue'
 import { Form as ValidationForm } from 'vee-validate'
-import InputAuth from '@/components/ui/InputAuth.vue'
+import InputAuth from '@/components/ui/inputs/InputAuth.vue'
 import { ref } from 'vue'
 import { register, setCookies } from '@/services/api/auth'
 import { useModalStore } from '@/stores/useModalStore'

@@ -58,7 +58,7 @@
 <script setup>
 import IconNotification from '@/components/icons/IconNotification.vue'
 import LanguageSwitcher from '@/components/shared/LanguageSwitcher.vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { logout } from '@/services/api/auth'
 import { useRoute, useRouter } from 'vue-router'
 import { useMovieStore } from '@/stores/useMovieStore'
@@ -72,7 +72,7 @@ import IconArrowUp from '@/components/icons/arrows/IconArrowUp.vue'
 import QuoteViewFromNotificationModal from '@/components/modals/quotes/QuoteViewFromNotificationModal.vue'
 import IconMenuBar from '@/components/icons/IconMenuBar.vue'
 import IconSearchBar from '@/components/icons/IconSearchBar.vue'
-import MobileMenuModal from '@/components/modals/MobileMenuModal.vue'
+import MobileMenuModal from '@/components/modals/mobile/MobileMenuModal.vue'
 
 defineProps({
   quoteModalForNewsfeed: {

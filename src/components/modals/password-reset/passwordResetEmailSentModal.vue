@@ -32,9 +32,9 @@
 </template>
 <script setup>
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
-import ModalContainer from '@/components/shared/modals/ModalContainer.vue'
+import ModalContainer from '@/components/layouts/modals/ModalContainer.vue'
 import IconEmailSent from '@/components/icons/IconEmailSent.vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import IconModalClose from '@/components/icons/IconModalClose.vue'
 

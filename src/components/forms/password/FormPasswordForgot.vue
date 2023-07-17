@@ -17,12 +17,12 @@
 </template>
 <script setup>
 import { Form as ValidationForm } from 'vee-validate'
-import InputAuth from '@/components/ui/InputAuth.vue'
+import InputAuth from '@/components/ui/inputs/InputAuth.vue'
 import { ref } from 'vue'
 import { sendPasswordForgotEmail, setCookies } from '@/services/api/auth'
 import { useModalStore } from '@/stores/useModalStore'
 import { useSpinnerStore } from '@/stores/useSpinnerStore'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 
 const modalStore = useModalStore()
 const spinnerStore = useSpinnerStore()

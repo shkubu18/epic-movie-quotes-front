@@ -11,7 +11,7 @@
 <script setup>
 import ModalCrudBackground from '@/components/shared/modals/ModalCrudBackground.vue'
 import ModalCrudMovie from '@/components/shared/modals/ModalCrudMovie.vue'
-import FormMovieAdd from '@/components/forms/FormMovieAdd.vue'
+import FormMovieAdd from '@/components/forms/movies/FormMovieAdd.vue'
 
 defineProps({
   apiUrlForPictures: {

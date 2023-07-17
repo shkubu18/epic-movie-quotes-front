@@ -61,11 +61,11 @@
 <script setup>
 import { Form as ValidationForm } from 'vee-validate'
 import { ref } from 'vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { useModalStore } from '@/stores/useModalStore'
-import MobileProfileAskConfirmationModal from '@/components/modals/mobile-profile/MobileProfileAskConfirmationModal.vue'
+import MobileProfileAskConfirmationModal from '@/components/modals/mobile/mobile-profile/MobileProfileAskConfirmationModal.vue'
 import { storeToRefs } from 'pinia'
-import InputProfileUpdate from '@/components/ui/InputProfileUpdate.vue'
+import InputProfileUpdate from '@/components/ui/inputs/InputProfileUpdate.vue'
 import scrollToTop from '@/helpers/scrollToTop'
 import ModalProfileInputWrapper from '@/components/shared/modals/ModalProfileInputWrapper.vue'
 

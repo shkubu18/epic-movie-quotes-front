@@ -41,9 +41,9 @@
   </ValidationForm>
 </template>
 <script setup>
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { Form as ValidationForm } from 'vee-validate'
-import InputAuth from '@/components/ui/InputAuth.vue'
+import InputAuth from '@/components/ui/inputs/InputAuth.vue'
 import { ref } from 'vue'
 import { login, setCookies } from '@/services/api/auth'
 import { useRouter } from 'vue-router'

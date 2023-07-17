@@ -1,62 +1,60 @@
 <template>
   <ValidationForm v-slot="{ errors }" class="w-full lg:w-940 px-8" @submit="handleSubmit()">
     <input-text-area-quote
-      :placeholder="movie ? '“Quote in English”' : 'Start create new quote'"
+      placeholder="“Quote in English”"
       name="quote_name_en"
       v-model="quoteData.quote_name_en"
       type="text"
       language="Eng"
       rules="required|english-text"
       :error="errors.quote_name_en"
-      :movie="movie"
+      :quote-for-edit="quote"
     />
     <input-text-area-quote
-      :placeholder="movie ? '”ციტატა ქართულ ენაზე”' : 'ახალი ციტატა'"
+      placeholder="”ციტატა ქართულ ენაზე”"
       name="quote_name_ka"
       v-model="quoteData.quote_name_ka"
       type="text"
       language="ქარ"
       rules="required|georgian-text"
       :error="errors.quote_name_ka"
-      :movie="movie"
+      :quote-for-edit="quote"
     />
-    <input-picture-default
+    <input-picture-quote-edit
       name="picture"
-      rules="required|image"
+      rules="image"
       :error="errors.picture"
       v-model="quoteData.picture"
+      :existing-quote-picture="quote.picture"
     />
-    <input-choose-movie v-if="!movie" :error="errors.movie_id" @add-chosen-movie="addChosenMovie">
-      <Field name="movie_id" v-model="quoteData.movie_id" rules="required" class="hidden" />
-    </input-choose-movie>
 
     <span v-if="serverErrorMessage" class="text-red mt-7 block">{{ serverErrorMessage }}</span>
 
-    <button-base class="bg-red w-full mt-7 py-2.5 text-xl">{{ buttonText }}</button-base>
+    <button-base class="bg-red w-full mt-7 py-2.5 text-xl">
+      {{ $t('texts.save_changes') }}
+    </button-base>
   </ValidationForm>
 </template>
 <script setup>
-import InputTextAreaQuote from '@/components/ui/InputTextAreaQuote.vue'
-import InputPictureDefault from '@/components/ui/InputPictureDefault.vue'
-import InputChooseMovie from '@/components/ui/InputChooseMovie.vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
-import { Field, Form as ValidationForm } from 'vee-validate'
+import InputTextAreaQuote from '@/components/ui/inputs/InputTextAreaQuote.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
+import { Form as ValidationForm } from 'vee-validate'
 import { reactive, ref } from 'vue'
-import { addQuote } from '@/services/api/quotes'
 import { useModalStore } from '@/stores/useModalStore'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 import { storeToRefs } from 'pinia'
 import { useMovieStore } from '@/stores/useMovieStore'
-import scrollToTop from '@/helpers/scrollToTop'
+import InputPictureQuoteEdit from '@/components/ui/inputs/InputPictureQuoteEdit.vue'
+import { updateQuote } from '@/services/api/quotes'
 
 const props = defineProps({
-  movie: {
-    required: false,
+  quote: {
+    required: true,
     type: Object
   },
-  buttonText: {
-    required: false,
-    type: String
+  movieId: {
+    required: true,
+    type: Number
   }
 })
 
@@ -70,26 +68,19 @@ const newsFeedQuoteStore = useNewsFeedQuoteStore()
 const serverErrorMessage = ref('')
 
 const quoteData = reactive({
-  quote_name_en: '',
-  quote_name_ka: '',
-  picture: '',
-  movie_id: props.movie ? props.movie.id : null
+  quote_name_en: props.quote.name.en,
+  quote_name_ka: props.quote.name.ka,
+  picture: null,
+  movie_id: props.movieId
 })
 
-const addChosenMovie = (movieId) => {
-  quoteData.movie_id = movieId
-}
-
 const handleSubmit = async () => {
-  await addQuote(quoteData)
+  await updateQuote(quoteData, props.quote.id)
     .then((response) => {
-      if (response.status === 201) {
-        modalStore.toggleModalVisibility('quoteAddModal')
-        scrollToTop()
+      if (response.status === 200) {
+        modalStore.toggleModalVisibility('quoteEditModal')
 
-        if (props.movie) {
-          isMovieUpdated.value = true
-        }
+        isMovieUpdated.value = true
       }
     })
     .catch((error) => {

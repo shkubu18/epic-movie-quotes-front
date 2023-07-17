@@ -14,7 +14,7 @@
 </template>
 <script setup>
 import LanguageSwitcher from '@/components/shared/LanguageSwitcher.vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { useModalStore } from '@/stores/useModalStore'
 
 const modalStore = useModalStore()

@@ -16,7 +16,7 @@
               : 'https://www.citypng.com/public/uploads/preview/png-round-blue-contact-user-profile-icon-11639786938sxvzj5ogua.png'
           "
           alt="comment author profile picture"
-          class="w-10 h-10 lg:h-14 lg:w-14 rounded-full mr-6"
+          class="w-10 h-10 lg:h-14 lg:w-14 rounded-full mr-6 object-cover"
         />
         <div class="text-left border-b-2 pb-7 w-full border-default-border-b-color">
           <h2 class="mb-5 pt-5">{{ comment.user.username }}</h2>

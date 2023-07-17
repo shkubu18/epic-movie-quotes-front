@@ -30,7 +30,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import { useUserStore } from '@/stores/useUserStore'
 import { storeToRefs } from 'pinia'

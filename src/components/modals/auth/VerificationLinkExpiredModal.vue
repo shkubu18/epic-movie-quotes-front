@@ -23,9 +23,9 @@
 </template>
 <script setup>
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
-import ModalContainer from '@/components/shared/modals/ModalContainer.vue'
+import ModalContainer from '@/components/layouts/modals/ModalContainer.vue'
 import IconWarning from '@/components/icons/IconWarning.vue'
-import ButtonBase from '@/components/ui/ButtonBase.vue'
+import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { resendEmailForVerification } from '@/services/api/auth'
 import { useSpinnerStore } from '@/stores/useSpinnerStore'
 import { useModalStore } from '@/stores/useModalStore'

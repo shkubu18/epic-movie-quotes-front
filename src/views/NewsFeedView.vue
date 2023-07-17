@@ -43,8 +43,8 @@
 <script setup>
 import TheHeader from '@/components/shared/TheHeader.vue'
 import TheAside from '@/components/shared/TheAside.vue'
-import ButtonNewsFeedAddQuote from '@/components/ui/ButtonNewsFeedAddQuote.vue'
-import InputNewsFeedSearch from '@/components/ui/InputNewsFeedSearch.vue'
+import ButtonNewsFeedAddQuote from '@/components/ui/buttons/ButtonNewsFeedAddQuote.vue'
+import InputNewsFeedSearch from '@/components/ui/inputs/InputNewsFeedSearch.vue'
 import NewsFeedSearchedQuotes from '@/components/newsfeed/NewsFeedSearchedQuotes.vue'
 import NewsFeedQuotes from '@/components/newsfeed/NewsFeedQuotes.vue'
 import QuoteAddModal from '@/components/modals/quotes/QuoteAddModal.vue'
@@ -54,8 +54,8 @@ import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/stores/useModalStore'
 import { useUserStore } from '@/stores/useUserStore'
 import { deleteLikeNotification } from '@/services/api/notifications'
-import MobileMenuModal from '@/components/modals/MobileMenuModal.vue'
-import MobileNewsFeedSearchModal from '@/components/modals/MobileNewsFeedSearchModal.vue'
+import MobileMenuModal from '@/components/modals/mobile/MobileMenuModal.vue'
+import MobileNewsFeedSearchModal from '@/components/modals/mobile/MobileNewsFeedSearchModal.vue'
 
 const apiUrlForPictures = import.meta.env.VITE_API_BASE_URL + '/storage/'
 

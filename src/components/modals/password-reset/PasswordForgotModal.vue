@@ -27,9 +27,9 @@
 </template>
 <script setup>
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
-import ModalContainer from '@/components/shared/modals/ModalContainer.vue'
+import ModalContainer from '@/components/layouts/modals/ModalContainer.vue'
 import IconArrowLeft from '@/components/icons/arrows/IconArrowLeft.vue'
-import FormPasswordForgot from '@/components/forms/FormPasswordForgot.vue'
+import FormPasswordForgot from '@/components/forms/password/FormPasswordForgot.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import IconModalClose from '@/components/icons/IconModalClose.vue'
 

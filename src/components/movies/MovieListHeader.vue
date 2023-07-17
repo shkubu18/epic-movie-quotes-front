@@ -22,8 +22,8 @@
   </header>
 </template>
 <script setup>
-import InputMovieListSearch from '@/components/ui/InputMovieListSearch.vue'
-import ButtonCrudAdd from '@/components/ui/ButtonCrudAdd.vue'
+import InputMovieListSearch from '@/components/ui/inputs/InputMovieListSearch.vue'
+import ButtonCrudAdd from '@/components/ui/buttons/ButtonCrudAdd.vue'
 import { useModalStore } from '@/stores/useModalStore'
 
 defineProps({

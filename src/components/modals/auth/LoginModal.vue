@@ -30,7 +30,7 @@
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
 import FormLogin from '@/components/forms/FormLogin.vue'
 import ButtonGoogleAuth from '@/components/shared/ButtonGoogleAuth.vue'
-import ModalContainer from '@/components/shared/modals/ModalContainer.vue'
+import ModalContainer from '@/components/layouts/modals/ModalContainer.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import IconModalClose from '@/components/icons/IconModalClose.vue'
 

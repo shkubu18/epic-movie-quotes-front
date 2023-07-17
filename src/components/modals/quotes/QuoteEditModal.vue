@@ -6,7 +6,7 @@
 </template>
 <script setup>
 import ModalCrudBackground from '@/components/shared/modals/ModalCrudBackground.vue'
-import FormQuoteEdit from '@/components/forms/FormQuoteEdit.vue'
+import FormQuoteEdit from '@/components/forms/quotes/FormQuoteEdit.vue'
 import QuoteEditModalWrapper from '@/components/modals/quotes/quote-edit-modal/QuoteEditModalWrapper.vue'
 
 defineProps({

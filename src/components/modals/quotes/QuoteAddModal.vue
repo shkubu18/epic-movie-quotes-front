@@ -14,7 +14,7 @@
 </template>
 <script setup>
 import ModalCrudBackground from '@/components/shared/modals/ModalCrudBackground.vue'
-import FormQuoteAdd from '@/components/forms/FormQuoteAdd.vue'
+import FormQuoteAdd from '@/components/forms/quotes/FormQuoteAdd.vue'
 import ModalCrudQuote from '@/components/shared/modals/ModalCrudAddQuote.vue'
 
 defineProps({

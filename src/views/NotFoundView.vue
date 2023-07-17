@@ -12,5 +12,5 @@
 <script setup>
 import IconNotFound from '@/components/icons/notfound/IconNotFound.vue'
 import IconNotFoundCircle from '@/components/icons/notfound/IconNotFoundCircle.vue'
-import ButtonReturnHome from '@/components/ui/ButtonReturnHome.vue'
+import ButtonReturnHome from '@/components/ui/buttons/ButtonReturnHome.vue'
 </script>
