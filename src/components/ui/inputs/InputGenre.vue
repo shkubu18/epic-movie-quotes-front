@@ -1,26 +1,26 @@
 <template>
   <slot />
-  <div class="relative mb-5">
+  <div class="relative mb-5 cursor-pointer">
     <div
       :class="{
-        'w-full p-2.5 text-white border rounded flex justify-between items-center border-crud-input-gray overflow-x-scroll': true,
+        'w-full p-2.5 text-white border rounded flex justify-between items-center border-crud-input-gray overflow-x-scroll scrollbar-none': true,
         'border-red': error,
         'border-green': !error && chosenGenres.length > 0
       }"
+      @click="toggleGenres"
     >
       <div class="flex">
-        <label @click="toggleGenres" class="lg:text-xl" v-if="chosenGenres.length < 1" for="genres">
+        <label class="lg:text-xl cursor-pointer" v-if="chosenGenres.length < 1" for="genres">
           ჟანრები/Genres
         </label>
         <div
-          @click="toggleGenres"
-          class="flex items-center bg-gray-500 text-white py-1 px-1.5 text-sm mr-1.5 rounded-sm"
+          class="flex items-center whitespace-nowrap bg-gray-500 text-white py-1 px-1.5 text-sm mr-1.5 rounded-sm"
           v-for="chosenGenre in chosenGenres"
           :key="chosenGenre.id"
         >
           <span>{{ chosenGenre.name }}</span>
           <icon-genre-remove
-            @click="removeChosenGenre(chosenGenre.name, chosenGenre.id)"
+            @click.stop="removeChosenGenre(chosenGenre.name, chosenGenre.id)"
             class="cursor-pointer ml-2"
           />
         </div>
@@ -31,7 +31,7 @@
       </div>
     </div>
     <ul
-      class="absolute top-12 z-10 h-60 w-60 rounded-lg overflow-y-scroll left-0 bg-dark-blue"
+      class="absolute top-12 z-10 h-60 w-60 rounded-lg overflow-y-scroll left-0 bg-dark-blue scrollbar-none"
       v-if="isGenresDropped && genresList.length !== 0"
     >
       <li
