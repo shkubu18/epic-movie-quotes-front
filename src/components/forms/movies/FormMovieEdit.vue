@@ -101,9 +101,10 @@ import { useModalStore } from '@/stores/useModalStore'
 import { getMovie, getMovieGenres, updateMovie } from '@/services/api/movies'
 import { storeToRefs } from 'pinia'
 import { useMovieStore } from '@/stores/useMovieStore'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
+const router = useRouter()
 
 const genresList = ref([])
 const chosenGenres = ref([])
@@ -161,8 +162,8 @@ const handleSubmit = async () => {
         isMoviesAlreadyFetched.value = false
       }
     })
-    .catch((error) => {
-      console.log(error)
+    .catch(() => {
+      router.replace({ name: '403' })
     })
 }
 
