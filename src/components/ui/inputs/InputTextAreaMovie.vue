@@ -22,7 +22,7 @@
         <div class="relative w-full lg:ml-3 mr-10">
           <Field
             as="textarea"
-            class="border-none bg-transparent w-full lg:text-lg caret-crud-input-gray outline-none mt-1 lg:m-0"
+            class="border-none bg-transparent w-full lg:text-lg caret-crud-input-gray outline-none mt-1 lg:m-0 scrollbar-none"
             :type="type"
             :name="name"
             :id="name"
