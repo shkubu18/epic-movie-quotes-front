@@ -18,8 +18,8 @@
         @input="emits('update:modelValue', $event.target.value)"
       />
       <ErrorMessage :name="name" class="text-red mt-2 block" />
-      <icon-valid-input v-if="!error && hasValue" class="absolute right-3 top-3.5 cursor-pointer" />
-      <icon-invalid-input
+      <icon-input-valid v-if="!error && hasValue" class="absolute right-3 top-3.5 cursor-pointer" />
+      <icon-input-invalid
         v-if="error"
         class="absolute right-1.5 md:right-3 top-2.5 cursor-pointer"
       />
@@ -30,8 +30,8 @@
 <script setup>
 import { ErrorMessage, Field } from 'vee-validate'
 import { computed } from 'vue'
-import IconInvalidInput from '@/components/icons/validation/IconInvalidInput.vue'
-import IconValidInput from '@/components/icons/validation/IconValidInput.vue'
+import IconInputInvalid from '@/components/icons/validation/IconInputInvalid.vue'
+import IconInputValid from '@/components/icons/validation/IconInputValid.vue'
 
 const props = defineProps({
   name: {

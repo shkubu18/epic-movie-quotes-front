@@ -26,8 +26,8 @@
         </div>
       </div>
       <div class="ml-3">
-        <icon-valid-input v-if="!error && chosenGenres.length > 0" />
-        <icon-invalid-input v-if="error" />
+        <icon-input-valid v-if="!error && chosenGenres.length > 0" />
+        <icon-input-invalid v-if="error" />
       </div>
     </div>
     <ul
@@ -48,9 +48,9 @@
 </template>
 <script setup>
 import IconGenreRemove from '@/components/icons/movies/IconGenreRemove.vue'
-import IconValidInput from '@/components/icons/validation/IconValidInput.vue'
+import IconInputValid from '@/components/icons/validation/IconInputValid.vue'
 import { ErrorMessage } from 'vee-validate'
-import IconInvalidInput from '@/components/icons/validation/IconInvalidInput.vue'
+import IconInputInvalid from '@/components/icons/validation/IconInputInvalid.vue'
 import { ref } from 'vue'
 
 defineProps({
