@@ -47,7 +47,7 @@ import IconNewsFeed from '@/components/icons/IconNewsFeed.vue'
 import IconListOfMovies from '@/components/icons/movies/IconListOfMovies.vue'
 import { useUserStore } from '@/stores/useUserStore'
 import { storeToRefs } from 'pinia'
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { useModalStore } from '@/stores/useModalStore'
 import { useRoute } from 'vue-router'
 import { getUser } from '@/services/api/users'
@@ -74,6 +74,15 @@ const isQuoteModalActive = computed(() => {
   return modals.value.quoteAddModal || modals.value.quoteViewModal || modals.value.quoteEditModal
 })
 
+watch(isUserAlreadyFetched, (newValue) => {
+  if (newValue) {
+    window.Echo.private(`notifications.${user.value.id}`).listen('NotificationAdded', (data) => {
+      unreadNotificationsCount.value++
+      notifications.value.unshift(data)
+    })
+  }
+})
+
 onMounted(async () => {
   if (!isUserAlreadyFetched.value) {
     await getUser()
@@ -84,10 +93,5 @@ onMounted(async () => {
         isUserAlreadyFetched.value = true
       })
   }
-
-  window.Echo.private(`notifications.${user.value.id}`).listen('NotificationAdded', (data) => {
-    unreadNotificationsCount.value++
-    notifications.value.unshift(data)
-  })
 })
 </script>
