@@ -90,7 +90,7 @@
   </ValidationForm>
 </template>
 <script setup>
-import InputCrudMovie from '@/components/ui/inputs/InputCrudMovie.vue'
+import InputCrudMovie from '@/components/ui/inputs/InputMovie.vue'
 import InputGenre from '@/components/ui/inputs/InputGenre.vue'
 import InputTextAreaMovie from '@/components/ui/inputs/InputTextAreaMovie.vue'
 import InputPictureDefault from '@/components/ui/inputs/InputPictureDefault.vue'
