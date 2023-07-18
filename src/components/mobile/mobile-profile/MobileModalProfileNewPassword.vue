@@ -21,7 +21,7 @@
         </ul>
       </div>
       <teleport to="body">
-        <mobile-profile-ask-confirmation-modal
+        <mobile-modal-profile-ask-confirmation
           v-if="modals.mobileProfileAskConfirmationModal"
           :values="values"
         />
@@ -63,7 +63,7 @@ import { Form as ValidationForm } from 'vee-validate'
 import { ref } from 'vue'
 import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { useModalStore } from '@/stores/useModalStore'
-import MobileProfileAskConfirmationModal from '@/components/mobile/mobile-profile/MobileProfileAskConfirmationModal.vue'
+import MobileModalProfileAskConfirmation from '@/components/mobile/mobile-profile/MobileModalProfileAskConfirmation.vue'
 import { storeToRefs } from 'pinia'
 import InputProfileUpdate from '@/components/ui/inputs/InputProfileUpdate.vue'
 import scrollToTop from '@/helpers/scrollToTop'

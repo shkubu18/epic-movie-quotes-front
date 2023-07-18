@@ -1,15 +1,15 @@
 <template>
-  <landing-login-modal v-if="modals.loginModal" />
-  <landing-register-modal v-if="modals.registerModal" />
-  <landing-email-sent-modal v-if="modals.emailSentModal" />
-  <landing-verification-link-expired-modal v-if="modals.verificationLinkExpiredModal" />
-  <landing-already-verified-email-modal v-if="modals.alreadyVerifiedEmailModal" />
-  <landing-account-is-activated-modal v-if="modals.accountIsActivatedModal" />
-  <landing-password-forgot-modal v-if="modals.passwordForgotModal" />
-  <landing-password-reset-email-sent-modal v-if="modals.passwordResetEmailSentModal" />
-  <landing-password-update-modal v-if="modals.passwordUpdateModal" />
-  <landing-password-updated-successfully-modal v-if="modals.passwordUpdatedSuccessfullyModal" />
-  <landing-password-reset-token-expired v-if="modals.passwordResetTokenExpiredModal" />
+  <landing-modal-login v-if="modals.loginModal" />
+  <landing-modal-register v-if="modals.registerModal" />
+  <landing-modal-email-sent v-if="modals.emailSentModal" />
+  <landing-modal-verification-link-expired v-if="modals.verificationLinkExpiredModal" />
+  <landing-modal-already-verified-email v-if="modals.alreadyVerifiedEmailModal" />
+  <landing-modal-account-is-activated v-if="modals.accountIsActivatedModal" />
+  <landing-modal-password-forgot v-if="modals.passwordForgotModal" />
+  <landing-modal-password-reset-email-sent v-if="modals.passwordResetEmailSentModal" />
+  <landing-modal-password-update v-if="modals.passwordUpdateModal" />
+  <landing-modal-password-updated-successfully v-if="modals.passwordUpdatedSuccessfullyModal" />
+  <landing-modal-password-reset-token-expired v-if="modals.passwordResetTokenExpiredModal" />
   <spinner-with-background v-if="spinnerStore.isActive" />
   <div class="h-600 md:h-810 bg-black">
     <landing-header />
@@ -40,17 +40,17 @@ import LandingQuotes from '@/components/landing/LandingQuotes.vue'
 import LandingHeader from '@/components/landing/LandingHeader.vue'
 import FooterCopyright from '@/components/shared/FooterCopyright.vue'
 import SpinnerWithBackground from '@/components/shared/SpinnerWithBackground.vue'
-import LandingLoginModal from '@/components/landing/LandingLoginModal.vue'
-import LandingPasswordForgotModal from '@/components/landing/LandingPasswordForgotModal.vue'
-import LandingVerificationLinkExpiredModal from '@/components/landing/LandingVerificationLinkExpiredModal.vue'
-import LandingEmailSentModal from '@/components/landing/LandingEmailSentModal.vue'
-import LandingRegisterModal from '@/components/landing/LandingRegisterModal.vue'
-import LandingPasswordResetEmailSentModal from '@/components/landing/LandingPasswordResetEmailSentModal.vue'
-import LandingPasswordUpdateModal from '@/components/landing/LandingPasswordUpdateModal.vue'
-import LandingPasswordResetTokenExpired from '@/components/landing/LandingPasswordResetTokenExpired.vue'
-import LandingAlreadyVerifiedEmailModal from '@/components/landing/LandingAlreadyVerifiedEmailModal.vue'
-import LandingPasswordUpdatedSuccessfullyModal from '@/components/landing/LandingPasswordUpdatedSuccessfullyModal.vue'
-import LandingAccountIsActivatedModal from '@/components/landing/LandingAccountIsActivatedModal.vue'
+import LandingModalLogin from '@/components/landing/LandingModalLogin.vue'
+import LandingModalPasswordForgot from '@/components/landing/LandingModalPasswordForgot.vue'
+import LandingModalVerificationLinkExpired from '@/components/landing/LandingModalVerificationLinkExpired.vue'
+import LandingModalEmailSent from '@/components/landing/LandingModalEmailSent.vue'
+import LandingModalRegister from '@/components/landing/LandingModalRegister.vue'
+import LandingModalPasswordResetEmailSent from '@/components/landing/LandingModalPasswordResetEmailSent.vue'
+import LandingModalPasswordUpdate from '@/components/landing/LandingModalPasswordUpdate.vue'
+import LandingModalPasswordResetTokenExpired from '@/components/landing/LandingModalPasswordResetTokenExpired.vue'
+import LandingModalAlreadyVerifiedEmail from '@/components/landing/LandingModalAlreadyVerifiedEmail.vue'
+import LandingModalPasswordUpdatedSuccessfully from '@/components/landing/LandingModalPasswordUpdatedSuccessfully.vue'
+import LandingModalAccountIsActivated from '@/components/landing/LandingModalAccountIsActivated.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'

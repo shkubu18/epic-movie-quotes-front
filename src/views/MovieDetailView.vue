@@ -1,18 +1,18 @@
 <template>
-  <movie-edit-modal :api-url-for-pictures="apiUrlForPictures" v-if="modals.movieEditModal" />
-  <quote-add-modal
+  <movie-modal-edit :api-url-for-pictures="apiUrlForPictures" v-if="modals.movieEditModal" />
+  <quote-modal-add
     v-if="modals.quoteAddModal"
     :api-url-for-pictures="apiUrlForPictures"
     :is-for-movie-quote="true"
     :movie="movie"
   />
-  <quote-view-modal
+  <quote-modal-view
     v-if="modals.quoteViewModal"
     :api-url-for-pictures="apiUrlForPictures"
     :quote="movie.quotes[quote]"
     :is-for-movie-quote="true"
   />
-  <quote-edit-modal
+  <quote-modal-edit
     v-if="modals.quoteEditModal"
     :api-url-for-pictures="apiUrlForPictures"
     :quote="movie.quotes[quote]"
@@ -61,13 +61,13 @@
 import TheHeader from '@/components/shared/TheHeader.vue'
 import TheAside from '@/components/shared/TheAside.vue'
 import IconLoadingSpinner from '@/components/icons/IconLoadingSpinner.vue'
-import MovieDetailDescriptionMovie from '@/components/movies/MovieDescription.vue'
+import MovieDetailDescriptionMovie from '@/components/movie/MovieDescription.vue'
 import ButtonCrudAdd from '@/components/ui/buttons/ButtonCrudAdd.vue'
-import MovieDetailDescriptionQuotes from '@/components/movies/MovieDescriptionQuotes.vue'
-import MovieEditModal from '@/components/movies/MovieEditModal.vue'
-import QuoteAddModal from '@/components/quotes/QuoteAddModal.vue'
-import QuoteViewModal from '@/components/quotes/QuoteViewModal.vue'
-import QuoteEditModal from '@/components/quotes/QuoteEditModal.vue'
+import MovieDetailDescriptionQuotes from '@/components/movie/MovieDescriptionQuotes.vue'
+import MovieModalEdit from '@/components/movie/MovieModalEdit.vue'
+import QuoteModalAdd from '@/components/quote/QuoteModalAdd.vue'
+import QuoteModalView from '@/components/quote/QuoteModalView.vue'
+import QuoteModalEdit from '@/components/quote/QuoteModalEdit.vue'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getMovie } from '@/services/api/movies'

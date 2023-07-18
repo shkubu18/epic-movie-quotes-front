@@ -1,5 +1,5 @@
 <template>
-  <quote-view-from-notification-modal
+  <quote-modal-view-from-notification
     :quote-id="quoteIdForView"
     v-if="modals.quoteViewFromNotificationModal"
   />
@@ -8,7 +8,7 @@
     enter-from-class="-translate-x-full"
     leave-active-class="-translate-x-full duration-500 ease"
   >
-    <mobile-menu-modal v-if="modals.mobileMenuModal" />
+    <mobile-modal-menu v-if="modals.mobileMenuModal" />
   </transition>
 
   <header
@@ -69,10 +69,10 @@ import { useModalStore } from '@/stores/useModalStore'
 import { storeToRefs } from 'pinia'
 import NotificationList from '@/components/notifications/NotificationList.vue'
 import IconArrowUp from '@/components/icons/arrows/IconArrowUp.vue'
-import QuoteViewFromNotificationModal from '@/components/quotes/QuoteViewFromNotificationModal.vue'
+import QuoteModalViewFromNotification from '@/components/quote/QuoteModalViewFromNotification.vue'
 import IconMenuBar from '@/components/icons/IconMenuBar.vue'
 import IconSearchBar from '@/components/icons/IconSearchBar.vue'
-import MobileMenuModal from '@/components/mobile/MobileMenuModal.vue'
+import MobileModalMenu from '@/components/mobile/MobileModalMenu.vue'
 
 defineProps({
   quoteModalForNewsfeed: {

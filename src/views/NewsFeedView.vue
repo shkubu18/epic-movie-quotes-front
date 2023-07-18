@@ -1,11 +1,11 @@
 <template>
-  <quote-add-modal :api-url-for-pictures="apiUrlForPictures" v-if="modals.quoteAddModal" />
+  <quote-modal-add :api-url-for-pictures="apiUrlForPictures" v-if="modals.quoteAddModal" />
   <transition
     enter-active-class="duration-500"
     enter-from-class="-translate-x-full"
     leave-active-class="-translate-x-full duration-500 ease"
   >
-    <mobile-menu-modal v-if="modals.mobileMenuModal" />
+    <mobile-modal-menu v-if="modals.mobileMenuModal" />
   </transition>
 
   <transition
@@ -13,7 +13,7 @@
     enter-from-class="-translate-y-full"
     leave-active-class="-translate-y-full duration-500 ease"
   >
-    <mobile-news-feed-search-modal v-if="modals.mobileNewsFeedSearchModal" v-model="searchText" />
+    <mobile-modal-news-feed-search v-if="modals.mobileNewsFeedSearchModal" v-model="searchText" />
   </transition>
 
   <the-header :quote-modal-for-newsfeed="true" />
@@ -47,15 +47,15 @@ import ButtonNewsFeedAddQuote from '@/components/ui/buttons/ButtonNewsFeedAddQuo
 import InputNewsFeedSearch from '@/components/ui/inputs/InputNewsFeedSearch.vue'
 import NewsFeedSearchedQuotes from '@/components/newsfeed/NewsFeedSearchedQuotes.vue'
 import NewsFeedQuotes from '@/components/newsfeed/NewsFeedQuotes.vue'
-import QuoteAddModal from '@/components/quotes/QuoteAddModal.vue'
+import QuoteModalAdd from '@/components/quote/QuoteModalAdd.vue'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/stores/useModalStore'
 import { useUserStore } from '@/stores/useUserStore'
 import { deleteLikeNotification } from '@/services/api/notifications'
-import MobileMenuModal from '@/components/mobile/MobileMenuModal.vue'
-import MobileNewsFeedSearchModal from '@/components/mobile/MobileNewsFeedSearchModal.vue'
+import MobileModalMenu from '@/components/mobile/MobileModalMenu.vue'
+import MobileModalNewsFeedSearch from '@/components/mobile/MobileModalNewsFeedSearch.vue'
 
 const apiUrlForPictures = import.meta.env.VITE_API_BASE_URL + '/storage/'
 
