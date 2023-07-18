@@ -13,7 +13,7 @@
     </article>
   </section>
   <section
-    class="bg-the-royal-tenenbaums h-440 md:h-screen bg-center bg-cover bg-no-repeat text-white font-bold flex items-center shadow-light md:shadow-inner"
+    class="bg-the-royal-tenenbaums bg-fixed h-440 md:h-screen bg-center bg-cover bg-no-repeat text-white font-bold flex items-center shadow-light md:shadow-inner"
   >
     <article class="pl-16 md:pl-40 flex flex-col relative w-full md:w-7/12">
       <span class="absolute left-7 -top-2 md:-top-4 md:left-24 md:text-3xl text-gray-200">___</span>
@@ -26,7 +26,7 @@
     </article>
   </section>
   <section
-    class="bg-lord-of-rings h-440 md:h-screen bg-center bg-cover bg-no-repeat text-white font-bold flex items-center shadow-light md:shadow-inner"
+    class="bg-lord-of-rings bg-fixed h-440 md:h-screen bg-center bg-cover bg-no-repeat text-white font-bold flex items-center shadow-light md:shadow-inner"
   >
     <article class="md:mb-52 pl-16 md:pl-40 flex flex-col relative w-full md:w-7/12">
       <span class="absolute left-7 -top-2 md:-top-4 md:left-24 md:text-3xl text-gray-200">___</span>

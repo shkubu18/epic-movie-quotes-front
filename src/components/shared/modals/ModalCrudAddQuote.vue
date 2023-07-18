@@ -26,7 +26,7 @@
           </h2>
           <div class="my-3 lg:my-5 flex flex-wrap gap-1.5">
             <span
-              class="bg-gray-500 lg:py-1.5 px-1 font-bold lg:px-2.5 text-lg mr-1.5 rounded-sm text-xss"
+              class="bg-gray-500 lg:py-1.5 px-1 font-bold lg:px-2.5 text-lg mr-1.5 rounded-sm text-xss lg:text-xs"
               v-for="genre in movie.genres"
               :key="genre.id"
             >
