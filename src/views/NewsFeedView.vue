@@ -47,15 +47,15 @@ import ButtonNewsFeedAddQuote from '@/components/ui/buttons/ButtonNewsFeedAddQuo
 import InputNewsFeedSearch from '@/components/ui/inputs/InputNewsFeedSearch.vue'
 import NewsFeedSearchedQuotes from '@/components/newsfeed/NewsFeedSearchedQuotes.vue'
 import NewsFeedQuotes from '@/components/newsfeed/NewsFeedQuotes.vue'
-import QuoteAddModal from '@/components/modals/quotes/QuoteAddModal.vue'
+import QuoteAddModal from '@/components/quotes/QuoteAddModal.vue'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/stores/useModalStore'
 import { useUserStore } from '@/stores/useUserStore'
 import { deleteLikeNotification } from '@/services/api/notifications'
-import MobileMenuModal from '@/components/modals/mobile/MobileMenuModal.vue'
-import MobileNewsFeedSearchModal from '@/components/modals/mobile/MobileNewsFeedSearchModal.vue'
+import MobileMenuModal from '@/components/mobile/MobileMenuModal.vue'
+import MobileNewsFeedSearchModal from '@/components/mobile/MobileNewsFeedSearchModal.vue'
 
 const apiUrlForPictures = import.meta.env.VITE_API_BASE_URL + '/storage/'
 

@@ -11,7 +11,7 @@
     ></div>
   </transition>
 
-  <email-sent-profile-modal v-if="modals.emailSentProfileModal" />
+  <user-update-email-sent-modal v-if="modals.userUpdateEmailSentModal" />
 
   <transition
     enter-active-class="duration-500 ease-in"
@@ -75,8 +75,8 @@ import { useModalStore } from '@/stores/useModalStore'
 import { getUser, updateUser } from '@/services/api/users'
 import { useSpinnerStore } from '@/stores/useSpinnerStore'
 import SpinnerWithBackground from '@/components/shared/SpinnerWithBackground.vue'
-import EmailSentProfileModal from '@/components/modals/emails/EmailSentProfileModal.vue'
-import UserUpdateModal from '@/components/modals/user/UserUpdateModal.vue'
+import UserUpdateEmailSentModal from '@/components/user/UserUpdateEmailSentModal.vue'
+import UserUpdateModal from '@/components/user/UserUpdateModal.vue'
 import { useRouter } from 'vue-router'
 import IconArrowLeft from '@/components/icons/arrows/IconArrowLeft.vue'
 
