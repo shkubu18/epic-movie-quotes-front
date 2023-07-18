@@ -47,7 +47,7 @@ import ButtonNewsFeedAddQuote from '@/components/ui/buttons/ButtonNewsFeedAddQuo
 import InputNewsFeedSearch from '@/components/ui/inputs/InputNewsFeedSearch.vue'
 import NewsFeedSearchedQuotes from '@/components/newsfeed/NewsFeedSearchedQuotes.vue'
 import NewsFeedQuotes from '@/components/newsfeed/NewsFeedQuotes.vue'
-import QuoteAddModal from '@/components/quotes/QuoteAddModal.vue'
+import QuoteAddModal from '@/components/quote/QuoteAddModal.vue'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
