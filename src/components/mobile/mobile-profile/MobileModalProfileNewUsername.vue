@@ -2,33 +2,33 @@
   <modal-profile-input-wrapper>
     <ValidationForm
       v-slot="{ errors, values }"
-      id="new-email-form"
+      id="new-username-form"
       class="bg-dark-blue px-5 py-20"
       @submit="handleSubmit"
     >
       <teleport to="body">
-        <mobile-profile-ask-confirmation-modal
+        <mobile-modal-profile-ask-confirmation
           v-if="modals.mobileProfileAskConfirmationModal"
           :values="values"
         />
       </teleport>
       <input-profile-update
-        v-model="newEmail"
-        :error="errors.email ? errors.email : ''"
+        v-model="newUsername"
+        :error="errors.username ? errors.username : ''"
         :is-input-visible="true"
-        :label="$t('profile.labels.new_email')"
-        name="email"
-        :placeholder="$t('profile.enter_new_input', { input: $t('profile.inputs.email') })"
-        rules="required|email"
+        :label="$t('profile.labels.new_username')"
+        name="username"
+        :placeholder="$t('profile.enter_new_input', { input: $t('profile.inputs.username') })"
+        rules="min-3-max-15-lowercase"
         type="text"
       />
     </ValidationForm>
 
     <div class="w-full flex justify-between lg:justify-end mt-14 text-xl px-4 lg:px-0">
-      <button-base @click="toggleModalVisibility('mobileProfileNewEmailModal')">
+      <button-base @click="toggleModalVisibility('mobileProfileNewUsernameModal')">
         {{ $t('texts.cancel') }}
       </button-base>
-      <button-base type="submit" class="bg-red py-3" form="new-email-form">
+      <button-base type="submit" class="bg-red py-3" form="new-username-form">
         {{ $t('texts.save_changes') }}
       </button-base>
     </div>
@@ -39,7 +39,7 @@ import { Form as ValidationForm } from 'vee-validate'
 import { ref } from 'vue'
 import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import { useModalStore } from '@/stores/useModalStore'
-import MobileProfileAskConfirmationModal from '@/components/mobile/mobile-profile/MobileProfileAskConfirmationModal.vue'
+import MobileModalProfileAskConfirmation from '@/components/mobile/mobile-profile/MobileModalProfileAskConfirmation.vue'
 import { storeToRefs } from 'pinia'
 import InputProfileUpdate from '@/components/ui/inputs/InputProfileUpdate.vue'
 import ModalProfileInputWrapper from '@/components/shared/modals/ModalProfileInputWrapper.vue'
@@ -47,7 +47,7 @@ import ModalProfileInputWrapper from '@/components/shared/modals/ModalProfileInp
 const modalStore = useModalStore()
 const { modals } = storeToRefs(modalStore)
 
-const newEmail = ref('')
+const newUsername = ref('')
 
 const toggleModalVisibility = (modal) => {
   modalStore.toggleModalVisibility(modal)

@@ -1,8 +1,8 @@
 <template>
   <teleport to="body">
-    <mobile-profile-new-username-modal v-if="modals.mobileProfileNewUsernameModal" />
-    <mobile-profile-new-email-modal v-if="modals.mobileProfileNewEmailModal" />
-    <mobile-profile-new-password-modal v-if="modals.mobileProfileNewPasswordModal" />
+    <mobile-modal-profile-new-username v-if="modals.mobileProfileNewUsernameModal" />
+    <mobile-modal-profile-new-email v-if="modals.mobileProfileNewEmailModal" />
+    <mobile-modal-profile-new-password v-if="modals.mobileProfileNewPasswordModal" />
   </teleport>
 
   <ValidationForm
@@ -118,9 +118,9 @@ import { Form as ValidationForm } from 'vee-validate'
 import InputProfile from '@/components/ui/inputs/InputProfile.vue'
 import InputProfileUpdate from '@/components/ui/inputs/InputProfileUpdate.vue'
 import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
-import MobileProfileNewUsernameModal from '@/components/mobile/mobile-profile/MobileProfileNewUsernameModal.vue'
-import MobileProfileNewEmailModal from '@/components/mobile/mobile-profile/MobileProfileNewEmailModal.vue'
-import MobileProfileNewPasswordModal from '@/components/mobile/mobile-profile/MobileProfileNewPasswordModal.vue'
+import MobileModalProfileNewUsername from '@/components/mobile/mobile-profile/MobileModalProfileNewUsername.vue'
+import MobileModalProfileNewEmail from '@/components/mobile/mobile-profile/MobileModalProfileNewEmail.vue'
+import MobileModalProfileNewPassword from '@/components/mobile/mobile-profile/MobileModalProfileNewPassword.vue'
 import { onMounted, reactive, ref } from 'vue'
 import { updateUser } from '@/services/api/users'
 import { useModalStore } from '@/stores/useModalStore'

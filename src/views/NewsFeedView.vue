@@ -5,7 +5,7 @@
     enter-from-class="-translate-x-full"
     leave-active-class="-translate-x-full duration-500 ease"
   >
-    <mobile-menu-modal v-if="modals.mobileMenuModal" />
+    <mobile-modal-menu v-if="modals.mobileMenuModal" />
   </transition>
 
   <transition
@@ -13,7 +13,7 @@
     enter-from-class="-translate-y-full"
     leave-active-class="-translate-y-full duration-500 ease"
   >
-    <mobile-news-feed-search-modal v-if="modals.mobileNewsFeedSearchModal" v-model="searchText" />
+    <mobile-modal-news-feed-search v-if="modals.mobileNewsFeedSearchModal" v-model="searchText" />
   </transition>
 
   <the-header :quote-modal-for-newsfeed="true" />
@@ -54,8 +54,8 @@ import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/stores/useModalStore'
 import { useUserStore } from '@/stores/useUserStore'
 import { deleteLikeNotification } from '@/services/api/notifications'
-import MobileMenuModal from '@/components/mobile/MobileMenuModal.vue'
-import MobileNewsFeedSearchModal from '@/components/mobile/MobileNewsFeedSearchModal.vue'
+import MobileModalMenu from '@/components/mobile/MobileModalMenu.vue'
+import MobileModalNewsFeedSearch from '@/components/mobile/MobileModalNewsFeedSearch.vue'
 
 const apiUrlForPictures = import.meta.env.VITE_API_BASE_URL + '/storage/'
 
