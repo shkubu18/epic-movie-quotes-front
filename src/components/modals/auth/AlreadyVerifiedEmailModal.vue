@@ -1,6 +1,6 @@
 <template>
   <modal-background modal="alreadyVerifiedEmailModal" />
-  <modal-container>
+  <modal-default-layout>
     <div
       class="bg-lighter-black md:bg-dark-blue w-full md:w-fit min-h-screen md:min-h-fit md:mb-12 text-white px-7 md:px-24 py-16 rounded-lg text-center"
     >
@@ -22,13 +22,13 @@
         </button-base>
       </div>
     </div>
-  </modal-container>
+  </modal-default-layout>
 </template>
 <script setup>
 import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import IconWarning from '@/components/icons/IconWarning.vue'
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
-import ModalContainer from '@/components/layouts/modals/ModalContainer.vue'
+import ModalDefaultLayout from '@/components/layouts/ModalDefaultLayout.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import IconModalClose from '@/components/icons/IconModalClose.vue'
 

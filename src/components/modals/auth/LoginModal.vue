@@ -1,6 +1,6 @@
 <template>
   <modal-background modal="loginModal" />
-  <modal-container>
+  <modal-default-layout>
     <div
       class="bg-dark-blue w-full md:w-fit min-h-screen md:min-h-fit md:mb-12 text-white flex flex-col items-center px-7 md:px-32 py-20 md:py-12 rounded-lg relative"
     >
@@ -24,13 +24,13 @@
         </a>
       </p>
     </div>
-  </modal-container>
+  </modal-default-layout>
 </template>
 <script setup>
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
 import FormLogin from '@/components/forms/FormLogin.vue'
 import ButtonGoogleAuth from '@/components/shared/ButtonGoogleAuth.vue'
-import ModalContainer from '@/components/layouts/modals/ModalContainer.vue'
+import ModalDefaultLayout from '@/components/layouts/ModalDefaultLayout.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import IconModalClose from '@/components/icons/IconModalClose.vue'
 

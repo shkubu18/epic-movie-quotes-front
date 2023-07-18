@@ -1,5 +1,5 @@
 <template>
-  <modal-crud-wrapper>
+  <modal-crud-layout>
     <div class="bg-lighter-black w-full lg:w-fit text-white lg:ml-28 pb-7 rounded-lg">
       <header
         class="flex justify-center items-center w-full relative py-7 border-b-3 border-b-neutral-800"
@@ -20,12 +20,12 @@
       <modal-crud-user-info :api-url-for-pictures="apiUrlForPictures" :user="user" />
       <slot />
     </div>
-  </modal-crud-wrapper>
+  </modal-crud-layout>
 </template>
 
 <script setup>
 import IconModalClose from '@/components/icons/IconModalClose.vue'
-import ModalCrudWrapper from '@/components/layouts/modals/ModalCrudWrapper.vue'
+import ModalCrudLayout from '@/components/layouts/ModalCrudLayout.vue'
 import ModalCrudUserInfo from '@/components/shared/modals/ModalCrudUserInfo.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import { useUserStore } from '@/stores/useUserStore'

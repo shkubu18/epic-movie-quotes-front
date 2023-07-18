@@ -1,6 +1,6 @@
 <template>
   <modal-crud-background modal="quoteViewModal" :is-for-movie-quote="isForMovieQuote" />
-  <modal-crud-wrapper>
+  <modal-crud-layout>
     <div class="bg-lighter-black w-full lg:w-fit text-white lg:ml-28 rounded-lg">
       <quote-view-modal-header :quote-id="quote.id" />
       <modal-crud-user-info :api-url-for-pictures="apiUrlForPictures" :user="user" />
@@ -10,11 +10,11 @@
         :user="user"
       />
     </div>
-  </modal-crud-wrapper>
+  </modal-crud-layout>
 </template>
 <script setup>
 import ModalCrudBackground from '@/components/shared/modals/ModalCrudBackground.vue'
-import ModalCrudWrapper from '@/components/layouts/modals/ModalCrudWrapper.vue'
+import ModalCrudLayout from '@/components/layouts/ModalCrudLayout.vue'
 import QuoteViewModalHeader from '@/components/modals/quotes/quote-view-modal/QuoteViewModalHeader.vue'
 import QuoteViewModalArticle from '@/components/modals/quotes/quote-view-modal/QuoteViewModalArticle.vue'
 import { useUserStore } from '@/stores/useUserStore'

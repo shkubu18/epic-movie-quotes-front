@@ -1,6 +1,6 @@
 <template>
   <modal-background modal="emailSentModal" />
-  <modal-container>
+  <modal-default-layout>
     <div
       class="bg-lighter-black md:bg-dark-blue w-full md:w-fit min-h-screen md:min-h-fit md:mb-12 text-white px-7 md:px-24 py-20 rounded-lg text-center"
     >
@@ -21,11 +21,11 @@
         </a>
       </div>
     </div>
-  </modal-container>
+  </modal-default-layout>
 </template>
 <script setup>
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
-import ModalContainer from '@/components/layouts/modals/ModalContainer.vue'
+import ModalDefaultLayout from '@/components/layouts/ModalDefaultLayout.vue'
 import IconEmailSent from '@/components/icons/IconEmailSent.vue'
 import ButtonBase from '@/components/ui/buttons/ButtonBase.vue'
 import IconModalClose from '@/components/icons/IconModalClose.vue'
