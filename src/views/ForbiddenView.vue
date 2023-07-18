@@ -15,4 +15,17 @@
 import IconForbidden from '@/components/icons/forbidden/IconForbidden.vue'
 import IconForbiddenCircles from '@/components/icons/forbidden/IconForbiddenCircles.vue'
 import ButtonReturnHome from '@/components/ui/buttons/ButtonReturnHome.vue'
+import { onMounted } from 'vue'
+import { getLocale } from '@/services/api/localization'
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
+
+onMounted(async () => {
+  await getLocale().then((response) => {
+    if (response.status === 200) {
+      locale.value = response.data.locale
+    }
+  })
+})
 </script>
