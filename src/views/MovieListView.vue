@@ -40,10 +40,10 @@
 <script setup>
 import TheHeader from '@/components/shared/TheHeader.vue'
 import TheAside from '@/components/shared/TheAside.vue'
-import MovieListMovieCard from '@/components/movies/MovieListMovieCard.vue'
-import MovieListHeader from '@/components/movies/MovieListHeader.vue'
+import MovieListMovieCard from '@/components/movie/MovieListMovieCard.vue'
+import MovieListHeader from '@/components/movie/MovieListHeader.vue'
 import IconLoadingSpinner from '@/components/icons/IconLoadingSpinner.vue'
-import MovieAddModal from '@/components/movies/MovieAddModal.vue'
+import MovieAddModal from '@/components/movie/MovieAddModal.vue'
 import { useMovieStore } from '@/stores/useMovieStore'
 import { onMounted, ref, watch } from 'vue'
 import { getUserMovies } from '@/services/api/movies'
