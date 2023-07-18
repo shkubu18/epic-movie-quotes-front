@@ -29,7 +29,7 @@
 <script setup>
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
 import FormLogin from '@/components/forms/FormLogin.vue'
-import ButtonGoogleAuth from '@/components/shared/ButtonGoogleAuth.vue'
+import ButtonGoogleAuth from '@/components/ui/buttons/ButtonGoogleAuth.vue'
 import ModalDefaultLayout from '@/components/layouts/ModalDefaultLayout.vue'
 import { useModalStore } from '@/stores/useModalStore'
 import IconModalClose from '@/components/icons/IconModalClose.vue'

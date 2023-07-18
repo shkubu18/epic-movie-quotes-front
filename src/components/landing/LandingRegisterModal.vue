@@ -26,7 +26,7 @@
 </template>
 <script setup>
 import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
-import ButtonGoogleAuth from '@/components/shared/ButtonGoogleAuth.vue'
+import ButtonGoogleAuth from '@/components/ui/buttons/ButtonGoogleAuth.vue'
 import ModalDefaultLayout from '@/components/layouts/ModalDefaultLayout.vue'
 import FormRegister from '@/components/forms/FormRegister.vue'
 import { useModalStore } from '@/stores/useModalStore'
