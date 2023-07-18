@@ -16,7 +16,6 @@
   >
     <form @submit="handleSubmit($event, onSubmit)" id="profile-form">
       <input-profile
-        v-if="!isOneOfHiddenInputsOpen"
         :input-value="user.username"
         :label="$t('profile.labels.username')"
         type="text"

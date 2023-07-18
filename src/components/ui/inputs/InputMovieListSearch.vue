@@ -7,7 +7,7 @@
       'w-96  pl-14 border-b-2 border-newsfeed-quote-border-color': isSearchBarOpen
     }"
   >
-    <icon-search-bar class="absolute left-6" />
+    <icon-search-bar class="absolute top-5 left-6" />
     <input
       ref="searchInput"
       @input="setSearchedMovies"

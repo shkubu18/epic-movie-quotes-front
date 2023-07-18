@@ -17,18 +17,18 @@
     />
     <ErrorMessage :name="name" class="text-red mt-3 block" />
 
-    <icon-valid-input
+    <icon-input-valid
       v-if="!error && hasValue"
       class="absolute right-3 top-12 mt-1 lg:mt-0 lg:top-14"
     />
-    <icon-invalid-input v-if="error" class="absolute right-3 top-9 lg:top-12 mt-3 lg:mt-1.5" />
+    <icon-input-invalid v-if="error" class="absolute right-3 top-9 lg:top-12 mt-3 lg:mt-1.5" />
   </div>
 </template>
 <script setup>
 import { ErrorMessage, Field } from 'vee-validate'
 import { computed } from 'vue'
-import IconInvalidInput from '@/components/icons/validation/IconInvalidInput.vue'
-import IconValidInput from '@/components/icons/validation/IconValidInput.vue'
+import IconInputInvalid from '@/components/icons/validation/IconInputInvalid.vue'
+import IconInputValid from '@/components/icons/validation/IconInputValid.vue'
 
 const props = defineProps({
   isInputVisible: {

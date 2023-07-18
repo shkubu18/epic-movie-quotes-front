@@ -47,9 +47,9 @@ const { likedQuotes } = storeToRefs(userStore)
 const newsFeedQuoteStore = useNewsFeedQuoteStore()
 const { quotes } = storeToRefs(newsFeedQuoteStore)
 const { isQuotesAlreadyFetched } = storeToRefs(newsFeedQuoteStore)
+const { page } = storeToRefs(newsFeedQuoteStore)
+const { lastPage } = storeToRefs(newsFeedQuoteStore)
 
-const page = ref(1)
-const lastPage = ref()
 const isLoading = ref(false)
 
 watch(isQuotesAlreadyFetched, (newValue) => {

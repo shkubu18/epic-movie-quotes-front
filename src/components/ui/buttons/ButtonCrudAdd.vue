@@ -1,6 +1,6 @@
 <template>
   <button-base
-    :class="{ '!text-xs': $i18n.locale === 'ka' }"
+    :class="{ 'text-xs': $i18n.locale === 'ka' }"
     class="bg-red py-2.5 !px-4 lg:text-xl flex items-center"
   >
     <icon-add class="mr-2" />

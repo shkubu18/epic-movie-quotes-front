@@ -1,6 +1,6 @@
 <template>
   <div
-    @click="markAsRead(notification.id)"
+    @click="markAsRead(notification.id, notification.read)"
     class="w-full flex flex-col lg:flex-row justify-between rounded border-2 border-custom-gray text-white p-4 cursor-pointer"
   >
     <div class="flex items-center">
@@ -63,11 +63,13 @@ const getNotificationReceiveTime = (createdAt) => {
   return calculateNotificationReceiveTime(createdAt)
 }
 
-function markAsRead(notificationId) {
-  markNotificationAsRead(notificationId).then((response) => {
-    if (response.status === 201) {
-      isNotificationsAlreadyFetched.value = false
-    }
-  })
+function markAsRead(notificationId, isNotificationAlreadySeen) {
+  if (!isNotificationAlreadySeen) {
+    markNotificationAsRead(notificationId).then((response) => {
+      if (response.status === 201) {
+        isNotificationsAlreadyFetched.value = false
+      }
+    })
+  }
 }
 </script>

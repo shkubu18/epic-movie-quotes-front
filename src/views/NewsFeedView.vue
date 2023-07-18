@@ -49,7 +49,7 @@ import NewsFeedSearchedQuotes from '@/components/newsfeed/NewsFeedSearchedQuotes
 import NewsFeedQuotes from '@/components/newsfeed/NewsFeedQuotes.vue'
 import QuoteAddModal from '@/components/modals/quotes/QuoteAddModal.vue'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useModalStore } from '@/stores/useModalStore'
 import { useUserStore } from '@/stores/useUserStore'
@@ -103,14 +103,11 @@ onMounted(async () => {
       }
     }
 
-    if (data.sender !== user.value.username) {
-      newsFeedQuoteStore.addComment(newComment, data.quote_id)
-    }
+    newsFeedQuoteStore.addComment(newComment, data.quote_id)
   })
 
   window.Echo.channel('likes').listen('Likes\\LikeAdded', (data) => {
     if (data.like.sender !== user.value.username) {
-      console.log('asdsa')
       newsFeedQuoteStore.addLike(data.like.quote_id)
     }
   })
@@ -122,5 +119,10 @@ onMounted(async () => {
       isNotificationsAlreadyFetched.value = false
     }
   })
+})
+
+onUnmounted(() => {
+  window.Echo.leaveChannel('comments')
+  window.Echo.leaveChannel('likes')
 })
 </script>

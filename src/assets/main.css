@@ -10,3 +10,9 @@
 * {
     font-family: 'Helvetica-Neue', sans-serif;
 }
+
+@layer utilities {
+    .scrollbar-none {
+        scrollbar-width: none;
+    }
+}
