@@ -27,11 +27,14 @@ defineProps({
     type: String
   },
   quote: {
-    required: false
+    required: false,
+    type: Object,
+    default: () => {}
   },
   isForMovieQuote: {
     required: false,
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 })
 

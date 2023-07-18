@@ -32,7 +32,8 @@ defineProps({
   },
   inputValue: {
     required: false,
-    type: String
+    type: String,
+    default: ''
   },
   type: {
     required: true,
@@ -40,7 +41,8 @@ defineProps({
   },
   googleUser: {
     required: false,
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 })
 

@@ -24,11 +24,13 @@ defineProps({
   },
   movie: {
     required: false,
-    type: Object
+    type: Object,
+    default: () => {}
   },
   isForMovieQuote: {
     required: false,
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 })
 </script>

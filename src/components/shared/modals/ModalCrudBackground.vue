@@ -23,7 +23,8 @@ defineProps({
   },
   isForMovieQuote: {
     required: false,
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 })
 

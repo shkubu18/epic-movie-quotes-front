@@ -95,7 +95,8 @@ defineProps({
   },
   error: {
     required: false,
-    type: String
+    type: String,
+    default: ''
   },
   rules: {
     required: true,
@@ -107,7 +108,8 @@ defineProps({
   },
   existingMoviePicture: {
     required: false,
-    type: String
+    type: String,
+    default: ''
   }
 })
 
