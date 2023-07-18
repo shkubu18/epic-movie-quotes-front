@@ -45,7 +45,7 @@ import IconLike from '@/components/icons/likes/IconLike.vue'
 import IconThreeDots from '@/components/icons/IconThreeDots.vue'
 import IconComment from '@/components/icons/IconComment.vue'
 import { ref } from 'vue'
-import MovieDetailDescriptionQuotesMenu from '@/components/movies/MovieDetailDescriptionQuotesMenu.vue'
+import MovieDetailDescriptionQuotesMenu from '@/components/movies/MovieDescriptionQuotesMenu.vue'
 
 defineProps({
   apiUrlForPictures: {
