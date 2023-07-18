@@ -15,8 +15,8 @@
 <script setup>
 import ModalCrudBackground from '@/components/shared/modals/ModalCrudBackground.vue'
 import ModalCrudLayout from '@/components/layouts/ModalCrudLayout.vue'
-import QuoteViewModalHeader from '@/components/modals/quotes/quote-view-modal/QuoteViewModalHeader.vue'
-import QuoteViewModalArticle from '@/components/modals/quotes/quote-view-modal/QuoteViewModalArticle.vue'
+import QuoteViewModalHeader from '@/components/quotes/quote-view-modal/QuoteViewModalHeader.vue'
+import QuoteViewModalArticle from '@/components/quotes/quote-view-modal/QuoteViewModalArticle.vue'
 import { useUserStore } from '@/stores/useUserStore'
 import { storeToRefs } from 'pinia'
 import ModalCrudUserInfo from '@/components/shared/modals/ModalCrudUserInfo.vue'

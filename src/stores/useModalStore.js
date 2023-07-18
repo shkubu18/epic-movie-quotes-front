@@ -20,7 +20,7 @@ export const useModalStore = defineStore('useModalStore', () => {
     quoteEditModal: false,
     quoteViewModal: false,
     quoteViewFromNotificationModal: false,
-    emailSentProfileModal: false,
+    userUpdateEmailSentModal: false,
     userUpdateModal: false,
     mobileMenuModal: false,
     mobileNewsFeedSearchModal: false,
