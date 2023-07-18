@@ -72,11 +72,13 @@ const props = defineProps({
   },
   error: {
     required: false,
-    type: String
+    type: String,
+    default: ''
   },
   language: {
     required: false,
-    type: String
+    type: String,
+    default: ''
   }
 })
 

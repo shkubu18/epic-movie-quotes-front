@@ -77,7 +77,8 @@ import MobileMenuModal from '@/components/modals/mobile/MobileMenuModal.vue'
 defineProps({
   quoteModalForNewsfeed: {
     required: false,
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 })
 

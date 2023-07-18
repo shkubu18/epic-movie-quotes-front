@@ -52,11 +52,13 @@ import scrollToTop from '@/helpers/scrollToTop'
 const props = defineProps({
   movie: {
     required: false,
-    type: Object
+    type: Object,
+    default: () => {}
   },
   buttonText: {
     required: false,
-    type: String
+    type: String,
+    default: ''
   }
 })
 

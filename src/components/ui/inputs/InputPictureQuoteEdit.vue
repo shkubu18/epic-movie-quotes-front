@@ -44,7 +44,8 @@ defineProps({
   },
   error: {
     required: false,
-    type: String
+    type: String,
+    default: ''
   },
   rules: {
     required: true,
@@ -56,7 +57,8 @@ defineProps({
   },
   existingQuotePicture: {
     required: false,
-    type: String
+    type: String,
+    default: ''
   }
 })
 

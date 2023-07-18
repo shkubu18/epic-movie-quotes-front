@@ -60,7 +60,8 @@ const props = defineProps({
   },
   error: {
     required: false,
-    type: String
+    type: String,
+    default: ''
   }
 })
 

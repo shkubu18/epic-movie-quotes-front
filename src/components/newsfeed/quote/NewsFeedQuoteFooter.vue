@@ -69,7 +69,8 @@ defineProps({
   },
   quoteViewFromNotification: {
     required: false,
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 })
 

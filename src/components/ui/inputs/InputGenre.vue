@@ -56,7 +56,8 @@ import { ref } from 'vue'
 defineProps({
   error: {
     required: false,
-    type: String
+    type: String,
+    default: ''
   },
   chosenGenres: {
     required: true,

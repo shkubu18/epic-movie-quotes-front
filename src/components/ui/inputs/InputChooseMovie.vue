@@ -47,7 +47,8 @@ import { ErrorMessage } from 'vee-validate'
 defineProps({
   error: {
     required: false,
-    type: String
+    type: String,
+    default: ''
   }
 })
 

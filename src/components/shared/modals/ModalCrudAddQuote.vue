@@ -65,7 +65,8 @@ defineProps({
   },
   movie: {
     required: false,
-    type: Object
+    type: Object,
+    default: () => {}
   }
 })
 
