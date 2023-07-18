@@ -1,5 +1,5 @@
 <template>
-  <quote-add-modal :api-url-for-pictures="apiUrlForPictures" v-if="modals.quoteAddModal" />
+  <quote-modal-add :api-url-for-pictures="apiUrlForPictures" v-if="modals.quoteAddModal" />
   <transition
     enter-active-class="duration-500"
     enter-from-class="-translate-x-full"
@@ -47,7 +47,7 @@ import ButtonNewsFeedAddQuote from '@/components/ui/buttons/ButtonNewsFeedAddQuo
 import InputNewsFeedSearch from '@/components/ui/inputs/InputNewsFeedSearch.vue'
 import NewsFeedSearchedQuotes from '@/components/newsfeed/NewsFeedSearchedQuotes.vue'
 import NewsFeedQuotes from '@/components/newsfeed/NewsFeedQuotes.vue'
-import QuoteAddModal from '@/components/quote/QuoteAddModal.vue'
+import QuoteModalAdd from '@/components/quote/QuoteModalAdd.vue'
 import { useNewsFeedQuoteStore } from '@/stores/useNewsFeedQuoteStore'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'

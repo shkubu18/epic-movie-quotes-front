@@ -1,18 +1,18 @@
 <template>
-  <movie-edit-modal :api-url-for-pictures="apiUrlForPictures" v-if="modals.movieEditModal" />
-  <quote-add-modal
+  <movie-modal-edit :api-url-for-pictures="apiUrlForPictures" v-if="modals.movieEditModal" />
+  <quote-modal-add
     v-if="modals.quoteAddModal"
     :api-url-for-pictures="apiUrlForPictures"
     :is-for-movie-quote="true"
     :movie="movie"
   />
-  <quote-view-modal
+  <quote-modal-view
     v-if="modals.quoteViewModal"
     :api-url-for-pictures="apiUrlForPictures"
     :quote="movie.quotes[quote]"
     :is-for-movie-quote="true"
   />
-  <quote-edit-modal
+  <quote-modal-edit
     v-if="modals.quoteEditModal"
     :api-url-for-pictures="apiUrlForPictures"
     :quote="movie.quotes[quote]"
@@ -64,10 +64,10 @@ import IconLoadingSpinner from '@/components/icons/IconLoadingSpinner.vue'
 import MovieDetailDescriptionMovie from '@/components/movie/MovieDescription.vue'
 import ButtonCrudAdd from '@/components/ui/buttons/ButtonCrudAdd.vue'
 import MovieDetailDescriptionQuotes from '@/components/movie/MovieDescriptionQuotes.vue'
-import MovieEditModal from '@/components/movie/MovieEditModal.vue'
-import QuoteAddModal from '@/components/quote/QuoteAddModal.vue'
-import QuoteViewModal from '@/components/quote/QuoteViewModal.vue'
-import QuoteEditModal from '@/components/quote/QuoteEditModal.vue'
+import MovieModalEdit from '@/components/movie/MovieModalEdit.vue'
+import QuoteModalAdd from '@/components/quote/QuoteModalAdd.vue'
+import QuoteModalView from '@/components/quote/QuoteModalView.vue'
+import QuoteModalEdit from '@/components/quote/QuoteModalEdit.vue'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getMovie } from '@/services/api/movies'

@@ -1,5 +1,5 @@
 <template>
-  <movie-add-modal :api-url-for-pictures="apiUrlForPictures" v-if="modals.movieAddModal" />
+  <movie-modal-add :api-url-for-pictures="apiUrlForPictures" v-if="modals.movieAddModal" />
   <the-header />
   <main class="bg-darker-blue flex lg:justify-end min-h-1500 pb-40" @click="closeActiveModals">
     <the-aside :api-url-for-pictures="apiUrlForPictures" />
@@ -43,7 +43,7 @@ import TheAside from '@/components/shared/TheAside.vue'
 import MovieListMovieCard from '@/components/movie/MovieListMovieCard.vue'
 import MovieListHeader from '@/components/movie/MovieListHeader.vue'
 import IconLoadingSpinner from '@/components/icons/IconLoadingSpinner.vue'
-import MovieAddModal from '@/components/movie/MovieAddModal.vue'
+import MovieModalAdd from '@/components/movie/MovieModalAdd.vue'
 import { useMovieStore } from '@/stores/useMovieStore'
 import { onMounted, ref, watch } from 'vue'
 import { getUserMovies } from '@/services/api/movies'
