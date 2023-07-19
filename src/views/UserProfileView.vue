@@ -6,7 +6,7 @@
   >
     <div
       v-if="modals.userUpdateModal"
-      class="lg:hidden absolute top-0 w-full min-h-screen bg-transparent-dark-blue z-10"
+      class="absolute top-0 min-h-screen w-full bg-transparent-dark-blue z-40"
       :style="`height: ${minHeight}px`"
     ></div>
   </transition>
@@ -28,7 +28,7 @@
   <div class="lg:hidden w-full bg-darker-blue p-7">
     <icon-arrow-left @click="navigateBack" class="cursor-pointer" />
   </div>
-  <main class="bg-dark-blue lg:bg-darker-blue flex justify-center h-810 lg:min-h-1650 pb-40">
+  <main class="bg-dark-blue lg:bg-darker-blue flex justify-center h-screen lg:min-h-1650 pb-40">
     <the-aside :api-url-for-pictures="apiUrlForPictures" />
     <section
       v-show="!modals.mobileProfileAskConfirmationModal"

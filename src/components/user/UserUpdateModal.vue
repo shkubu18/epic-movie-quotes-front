@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute top-28 lg:right-16 px-5 flex items-center justify-between w-full lg:w-fit z-20"
+    class="absolute top-28 lg:right-16 px-5 flex items-center justify-between w-full lg:w-fit z-50"
   >
     <div class="flex items-center justify-between w-full p-4 bg-light-green rounded">
       <div class="flex items-center">
@@ -11,7 +11,7 @@
       </div>
       <icon-modal-close
         :user-update="true"
-        class="lg:hidden cursor-pointer"
+        class="m-0 lg:ml-3 cursor-pointer"
         @click="toggleModalVisibility('userUpdateModal')"
       />
     </div>

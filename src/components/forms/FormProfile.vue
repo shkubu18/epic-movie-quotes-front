@@ -159,6 +159,8 @@ const confirmNewPassword = ref('')
 const serverErrorMessage = ref('')
 const isMounted = ref(false)
 
+const showUserUpdateModal = ref(false)
+
 const toggleInputVisibility = (inputType, modal) => {
   const { offsetWidth } = document.documentElement
 
@@ -198,6 +200,7 @@ const isInputVisible = (inputType) => {
 }
 
 const onSubmit = async (values) => {
+  if (newUsername.value || newPassword.value) showUserUpdateModal.value = true
   scrollToTop()
   serverErrorMessage.value = ''
   if (newEmail.value) spinnerStore.toggleActiveStatus()
@@ -209,27 +212,22 @@ const onSubmit = async (values) => {
 
         if (response.data.message === 'verification email sent successfully') {
           spinnerStore.toggleActiveStatus()
-
           modalStore.toggleModalVisibility('userUpdateEmailSentModal')
-        } else {
-          setTimeout(() => {
-            modalStore.toggleModalVisibility('userUpdateModal')
-          }, 600)
         }
+
+        if (showUserUpdateModal.value) modalStore.toggleModalVisibility('userUpdateModal')
       }
     })
     .catch((error) => {
-      spinnerStore.toggleActiveStatus()
+      if (spinnerStore.isActive) spinnerStore.toggleActiveStatus()
       serverErrorMessage.value = error.response.data.message
     })
 
   setTimeout(() => {
     if (modals.value.userUpdateModal) {
-      setTimeout(() => {
-        modalStore.toggleModalVisibility('userUpdateModal')
-      }, 4000)
+      modalStore.toggleModalVisibility('userUpdateModal')
     }
-  }, 700)
+  }, 4000)
 }
 
 onMounted(() => {
