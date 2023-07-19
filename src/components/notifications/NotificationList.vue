@@ -1,5 +1,7 @@
 <template>
+  <modal-background modal="notificationModal" class="top-0 backdrop-blur-none" />
   <div
+    v-show="modals.notificationModal"
     @scroll="handleScroll"
     ref="notificationsContainer"
     class="absolute w-full lg:w-1/2 bg-black h-750 lg:h-810 lg:right-16 top-20 lg:top-24 z-30 py-6 lg:py-12 px-6 lg:px-8 overflow-y-scroll rounded-xl mt-1.5"
@@ -38,10 +40,15 @@ import IconLoadingSpinner from '@/components/icons/IconLoadingSpinner.vue'
 import NotificationCard from '@/components/notifications/NotificationCard.vue'
 import { getUserNotifications, markAllNotificationsAsRead } from '@/services/api/notifications'
 import { useRouter } from 'vue-router'
+import { useModalStore } from '@/stores/useModalStore'
+import ModalBackground from '@/components/shared/modals/ModalBackground.vue'
 
 const emits = defineEmits(['openQuoteViewFromNotificationModal'])
 
 const router = useRouter()
+
+const modalStore = useModalStore()
+const { modals } = storeToRefs(modalStore)
 
 const getQuoteId = (quoteId) => {
   emits('openQuoteViewFromNotificationModal', quoteId)

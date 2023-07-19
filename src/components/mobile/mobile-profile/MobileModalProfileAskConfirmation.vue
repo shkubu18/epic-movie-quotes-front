@@ -72,7 +72,7 @@ const handleClick = async () => {
         if (response.data.message === 'verification email sent successfully') {
           spinnerStore.toggleActiveStatus()
 
-          modalStore.toggleModalVisibility('emailSentProfileModal')
+          modalStore.toggleModalVisibility('userUpdateEmailSentModal')
         } else {
           modalStore.toggleModalVisibility('userUpdateModal')
         }

@@ -1,7 +1,7 @@
 <template>
   <div
-    v-if="modals.emailSentProfileModal"
-    @click="toggleModalVisibility('emailSentProfileModal')"
+    v-if="modals.userUpdateEmailSentModal"
+    @click="toggleModalVisibility('userUpdateEmailSentModal')"
     class="absolute z-40 w-full bg-transparent-dark-blue cursor-pointer flex items-center justify-center"
     :style="`height: ${minHeight}px`"
   ></div>
@@ -14,7 +14,7 @@
         class="md:w-440 bg-darker-blue md:bg-transparent py-20 px-7 md:p-0 mt-5 md:mt-0 rounded-xl flex items-center flex-col relative"
       >
         <icon-modal-close
-          @click="toggleModalVisibility('emailSentProfileModal')"
+          @click="toggleModalVisibility('userUpdateEmailSentModal')"
           class="md:hidden absolute right-5 top-5 cursor-pointer"
         />
         <icon-email-sent />

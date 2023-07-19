@@ -27,7 +27,8 @@ export const useModalStore = defineStore('useModalStore', () => {
     mobileProfileNewUsernameModal: false,
     mobileProfileNewEmailModal: false,
     mobileProfileNewPasswordModal: false,
-    mobileProfileAskConfirmationModal: false
+    mobileProfileAskConfirmationModal: false,
+    notificationModal: false
   })
 
   const toggleModalVisibility = (modalName) => {
