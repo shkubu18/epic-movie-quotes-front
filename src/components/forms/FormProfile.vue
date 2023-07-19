@@ -210,7 +210,7 @@ const onSubmit = async (values) => {
         if (response.data.message === 'verification email sent successfully') {
           spinnerStore.toggleActiveStatus()
 
-          modalStore.toggleModalVisibility('emailSentProfileModal')
+          modalStore.toggleModalVisibility('userUpdateEmailSentModal')
         } else {
           setTimeout(() => {
             modalStore.toggleModalVisibility('userUpdateModal')
@@ -219,6 +219,7 @@ const onSubmit = async (values) => {
       }
     })
     .catch((error) => {
+      spinnerStore.toggleActiveStatus()
       serverErrorMessage.value = error.response.data.message
     })
 

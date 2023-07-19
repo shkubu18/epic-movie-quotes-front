@@ -42,7 +42,6 @@
     </div>
     <teleport to="body">
       <notification-list
-        v-show="isNotificationsOpen"
         @open-quote-view-from-notification-modal="openQuoteViewFromNotificationModal"
       />
     </teleport>
@@ -115,7 +114,7 @@ const openQuoteViewFromNotificationModal = (quoteId) => {
 }
 
 const toggleNotifications = () => {
-  isNotificationsOpen.value = !isNotificationsOpen.value
+  toggleModalVisibility('notificationModal')
 }
 
 const logoutUser = async () => {
