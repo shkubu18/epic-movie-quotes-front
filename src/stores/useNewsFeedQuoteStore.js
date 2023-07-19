@@ -7,7 +7,7 @@ export const useNewsFeedQuoteStore = defineStore('useNewsFeedQuoteStore', () => 
   const searchingQuotesIsActive = ref(false)
   const noQuotesSearchResult = ref(false)
   const isQuotesAlreadyFetched = ref(false)
-  const page = ref(0)
+  const page = ref(1)
   const lastPage = ref(0)
 
   function addNewsFeedQuotes(newQuotes) {
