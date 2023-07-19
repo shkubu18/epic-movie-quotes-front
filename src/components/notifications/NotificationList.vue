@@ -49,7 +49,6 @@ const router = useRouter()
 
 const modalStore = useModalStore()
 const { modals } = storeToRefs(modalStore)
-const { toggleModalVisibility } = modalStore
 
 const getQuoteId = (quoteId) => {
   emits('openQuoteViewFromNotificationModal', quoteId)
